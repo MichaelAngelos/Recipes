@@ -1,12 +1,12 @@
 # Recipes
 
-# Backend
+## Backend
 
 To install backend packages:  
 cd backend  
 npm i  
 
-# Frontend
+## Frontend
 To install frontend packages:  
 cd frontend  
 npm i  
