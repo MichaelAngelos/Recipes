@@ -1,11 +1,10 @@
 # Recipes
 
-To install backend packages:
+To install backend packages:  
+cd backend  
+npm i  
 
-cd backend
-npm i
+To install frontend packages:  
+cd frontend  
+npm i  
 
-To install frontend packages:
-
-cd frontend
-npm i
