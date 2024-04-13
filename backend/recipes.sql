@@ -169,4 +169,13 @@ CREATE TABLE Episodes(
     PRIMARY KEY(episode_id)
 );
 
+CREATE TABLE Ratings(
+	chef_id integer(10) NOT NULL,
+    episode_id integer(10) NOT NULL,
+    FOREIGN KEY (episode_id) REFERENCES Episodes(episode_id),
+    FOREIGN KEY (chef_id) REFERENCES Cooks(chef_id),
+	All_3_Ratings integer(6) NOT NULL,
+    PRIMARY KEY(chef_id,episode_id)
+);
+
 SHOW TABLES;
