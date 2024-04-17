@@ -1,5 +1,5 @@
-DROP SCHEMA IF EXISTS Recipes;
-CREATE SCHEMA IF NOT EXISTS Recipes;
+#DROP SCHEMA IF EXISTS Recipes;
+#CREATE SCHEMA IF NOT EXISTS Recipes;
 use Recipes;
 #SHOW CREATE DATABASE Recipes;
 
@@ -153,8 +153,8 @@ CREATE TABLE Cooks(
 CREATE TABLE Cooks_in_Recipe(
 	chef_id integer(10) NOT NULL,
     rec_id integer(10) NOT NULL,
-    FOREIGN KEY (rec_id) REFERENCES Recipe(id),
     FOREIGN KEY (chef_id) REFERENCES Cooks(chef_id),
+    FOREIGN KEY (rec_id) REFERENCES Recipe(id),
     PRIMARY KEY(chef_id,rec_id)
 );
 
