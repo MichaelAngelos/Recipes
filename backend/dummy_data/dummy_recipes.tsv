@@ -9,3 +9,23 @@ id	CookingorConfectionary	Nation	Difficulty_level	recipe_name	description_	prep_
 8	1	Indian	4	Chicken Tikka Masala	Popular Indian curry dish with tender chicken pieces cooked in a creamy tomato-based sauce.	65	50	6	Chicken breast
 9	1	Greek	3	Moussaka	Classic Greek dish made with layers of eggplant, potatoes, ground meat, and béchamel sauce.	90	110	8	Eggplant
 10	0	Chinese	2	Dumplings	Chinese dumplings filled with ground pork, cabbage, and spices, served with dipping sauce.	50	40	6	Ground pork
+11	1	Italian	3	Spaghetti Carbonara	A classic Italian pasta dish made with eggs, cheese, pancetta, and black pepper.	20	15	4	pasta
+12	0	Indian	4	Chicken Tikka Masala	A popular Indian dish consisting of marinated and grilled chicken pieces served in a spiced tomato-based curry sauce.	30	25	4	chicken
+13	1	French	2	Crème Brûlée	A rich and creamy French dessert made with a smooth custard base topped with a layer of caramelized sugar.	20	35	4	cream
+14	1	Mexican	1	Chicken Enchiladas	Traditional Mexican dish made with corn tortillas filled with seasoned chicken, cheese, and topped with enchilada sauce.	25	30	6	chicken
+15	0	Italian	5	Tiramisu	A classic Italian dessert made with layers of coffee-soaked ladyfingers, mascarpone cheese, and cocoa powder.	30	20	6	coffee
+16	1	Thai	4	Pad Thai	A popular Thai street food dish made with stir-fried rice noodles, eggs, tofu, shrimp, and a tangy sauce.	25	20	4	noodles
+17	0	Mexican	3	Guacamole	Fresh and flavorful Mexican dip made with mashed avocado, lime juice, tomatoes, onions, and cilantro.	15	30	6	avocado
+18	1	French	2	Soufflé	A delicate French dessert made with beaten egg whites and various flavorings, baked until puffed and golden.	35	25	4	egg
+19	1	Japanese	4	Sushi	Rolled sushi made with vinegared rice, fish, and vegetables, often served with soy sauce and wasabi.	30	30	4	fish
+20	0	Italian	3	Margherita Pizza	A classic Italian pizza topped with tomato sauce, fresh mozzarella cheese, basil leaves, and a drizzle of olive oil.	20	15	4	dough
+21	0	Mexican	4	Tacos	Authentic Mexican street food made with corn or flour tortillas filled with various fillings such as seasoned meat, beans, and salsa.	25	20	4	meat
+22	1	Indian	3	Palak Paneer	A North Indian dish made with spinach (palak) and paneer (Indian cottage cheese) cooked in a spiced creamy sauce.	25	30	4	spinach
+23	0	Thai	4	Tom Yum Goong	A spicy and sour Thai soup made with shrimp, lemongrass, kaffir lime leaves, galangal, and chili peppers.	20	30	4	shrimp
+24	1	French	2	Quiche Lorraine	A classic French savory tart made with a custard filling of eggs, cream, cheese, and bacon, baked in a pastry crust.	30	35	4	egg
+25	1	Mexican	3	Chiles Rellenos	Traditional Mexican dish consisting of roasted poblano peppers stuffed with cheese, then battered and fried.	25	35	4	peppers
+26	0	Italian	4	Chicken Alfredo	Pasta dish made with fettuccine noodles, chicken, and a rich Alfredo sauce made from butter, cream, and Parmesan cheese.	25	25	4	chicken
+27	1	Japanese	3	Tempura	Light and crispy Japanese dish consisting of battered and deep-fried seafood and vegetables.	20	20	4	seafood
+28	1	Italian	4	Bruschetta	Classic Italian appetizer made with toasted bread topped with diced tomatoes, garlic, basil, and olive oil.	15	10	4	tomatoes
+29	0	Indian	4	Palak Chicken	Creamy Indian curry made with tender chicken pieces cooked in a spinach-based sauce flavored with spices.	30	35	4	chicken
+30	0	Thai	3	Pad See Ew	A popular Thai stir-fried noodle dish made with wide rice noodles, Chinese broccoli, eggs, and a savory sauce.	25	20	4	noodles
