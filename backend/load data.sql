@@ -1,3 +1,5 @@
+DELETE FROM ratings;
+DELETE FROM episodes;
 DELETE FROM Cooks_in_Recipe;
 DELETE FROM Cooks;
 DELETE FROM Recipe;
@@ -29,3 +31,19 @@ LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
 SELECT * FROM cooks_in_recipe;
+
+LOAD DATA INFILE 'dummy_episodes.tsv'
+INTO TABLE episodes
+FIELDS TERMINATED BY '	'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+SELECT * FROM episodes;
+
+LOAD DATA INFILE 'dummy_ratings.tsv'
+INTO TABLE ratings
+FIELDS TERMINATED BY '	'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+SELECT * FROM ratings;
