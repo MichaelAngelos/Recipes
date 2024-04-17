@@ -1,0 +1,11 @@
+episode_id	List_of_10_cuisines	List_of_10_cooks	List_of_3_cook_judges	List_of_recipe_for_each_cook	chef_id_of_winner
+1	African, American, Brazilian, Bulgarian, Chinese, French, German, Greek, Indian, Italian	1, 2, 3, 4, 5, 6, 7, 8, 9, 10	11, 12, 13	1, 2, 3, 4, 5, 6, 7, 8, 9, 10	5
+2	Japanese, Korean, Lebanese, Mexican, Russian, Spanish, Thai, African, American	11, 12, 13, 14, 15, 16, 17, 18, 19, 20	14, 15, 16	11, 12, 13, 14, 15, 16, 17, 18, 19, 20	14
+3	Lebanese, Mexican, Russian, Spanish, Thai, African, American, Brazilian, Bulgarian, Chinese	21, 22, 23, 24, 25, 1, 2, 3, 4, 5	17, 18, 19	21, 22, 23, 24, 25, 1, 2, 3, 4, 5	3
+4	Brazilian, Bulgarian, Chinese, French, German, Greek, Indian, Italian, Japanese, Korean	6, 7, 8, 9, 10, 11, 12, 13, 14, 15	20, 21, 22	6, 7, 8, 9, 10, 11, 12, 13, 14, 15	11
+5	French, German, Greek, Indian, Italian, Japanese, Korean, Lebanese, Mexican, Russian	16, 17, 18, 19, 20, 21, 22, 23, 24, 25	1, 2, 3	16, 17, 18, 19, 20, 21, 22, 23, 24, 25	19
+6	Spanish, Thai, African, American, Brazilian, Bulgarian, Chinese, French, German, Greek	1, 2, 3, 4, 5, 6, 7, 8, 9, 10	4, 5, 6	1, 2, 3, 4, 5, 6, 7, 8, 9, 10	7
+7	Indian, Italian, Japanese, Korean, Lebanese, Mexican, Russian, Spanish, Thai, African	11, 12, 13, 14, 15, 16, 17, 18, 19, 20	7, 8, 9	11, 12, 13, 14, 15, 16, 17, 18, 19, 20	20
+8	American, Brazilian, Bulgarian, Chinese, French, German, Greek, Indian, Italian, Japanese	21, 22, 23, 24, 25, 1, 2, 3, 4, 5	10, 11, 12	21, 22, 23, 24, 25, 1, 2, 3, 4, 5	9
+9	Korean, Lebanese, Mexican, Russian, Spanish, Thai, African, American, Brazilian, Bulgarian	6, 7, 8, 9, 10, 11, 12, 13, 14, 15	13, 14, 15	6, 7, 8, 9, 10, 11, 12, 13, 14, 15	12
+10	Italian, Japanese, Korean, Lebanese, Mexican, Russian, Spanish, Thai, African, American	16, 17, 18, 19, 20, 21, 22, 23, 24, 25	16, 17, 18	16, 17, 18, 19, 20, 21, 22, 23, 24, 25	15
