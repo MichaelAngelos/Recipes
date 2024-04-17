@@ -1,11 +1,11 @@
 id	CookingorConfectionary	Nation	Difficulty_level	recipe_name	description_	prep_time	cook_time	portions	basic_ingredient
-1	1	Italian	3	Spaghetti Carbonara	Classic Italian pasta dish made with eggs, cheese, bacon, and black pepper.	15	20	4	Spaghetti
-2	0	French	4	Crème Brûlée	Delicious French dessert consisting of rich custard topped with caramelized sugar.	20	40	6	Egg yolks
-3	1	Mexican	2	Tacos al Pastor	Authentic Mexican street food made with marinated pork cooked on a vertical rotisserie.	30	25	8	Pork shoulder
-4	1	Japanese	3	Sushi Rolls	Popular Japanese dish made with vinegared rice, seafood, and vegetables rolled in seaweed.	25	35	6	Sushi rice
-5	0	American	5	New York Cheesecake	Classic American dessert with a rich and creamy cheesecake filling on a graham cracker crust.	30	50	8	Cream cheese
-6	1	Thai	2	Pad Thai	Traditional Thai stir-fried noodle dish with shrimp, tofu, eggs, and peanuts in a tangy sauce.	20	15	4	Rice noodles
-7	0	Spanish	3	Paella	Famous Spanish rice dish cooked with saffron, seafood, chicken, and vegetables.	35	45	6	Short-grain rice
-8	1	Indian	4	Chicken Tikka Masala	Popular Indian curry dish with tender chicken pieces cooked in a creamy tomato-based sauce.	40	30	6	Chicken breast
-9	1	Greek	3	Moussaka	Classic Greek dish made with layers of eggplant, potatoes, ground meat, and béchamel sauce.	45	55	8	Eggplant
-10	0	Chinese	2	Dumplings	Chinese dumplings filled with ground pork, cabbage, and spices, served with dipping sauce.	25	20	6	Ground pork
+1	1	Italian	3	Spaghetti Carbonara	Classic Italian pasta dish made with eggs, cheese, bacon, and black pepper.	30	40	4	Spaghetti
+2	0	French	4	Crème Brûlée	Delicious French dessert consisting of rich custard topped with caramelized sugar.	45	60	6	Egg yolks
+3	1	Mexican	2	Tacos al Pastor	Authentic Mexican street food made with marinated pork cooked on a vertical rotisserie.	60	50	8	Pork shoulder
+4	1	Japanese	3	Sushi Rolls	Popular Japanese dish made with vinegared rice, seafood, and vegetables rolled in seaweed.	50	70	6	Sushi rice
+5	0	American	5	New York Cheesecake	Classic American dessert with a rich and creamy cheesecake filling on a graham cracker crust.	70	90	8	Cream cheese
+6	1	Thai	2	Pad Thai	Traditional Thai stir-fried noodle dish with shrimp, tofu, eggs, and peanuts in a tangy sauce.	40	30	4	Rice noodles
+7	0	Spanish	3	Paella	Famous Spanish rice dish cooked with saffron, seafood, chicken, and vegetables.	55	75	6	Short-grain rice
+8	1	Indian	4	Chicken Tikka Masala	Popular Indian curry dish with tender chicken pieces cooked in a creamy tomato-based sauce.	65	50	6	Chicken breast
+9	1	Greek	3	Moussaka	Classic Greek dish made with layers of eggplant, potatoes, ground meat, and béchamel sauce.	90	110	8	Eggplant
+10	0	Chinese	2	Dumplings	Chinese dumplings filled with ground pork, cabbage, and spices, served with dipping sauce.	50	40	6	Ground pork
