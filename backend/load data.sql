@@ -29,3 +29,17 @@ LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
 SELECT * FROM cooks_in_recipe;
+
+LOAD DATA INFILE 'dummy_episodes.tsv'
+INTO TABLE episodes
+FIELDS TERMINATED BY '	'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+SELECT * FROM episodes;
+
+SELECT * FROM Cooks
+where not exists (select episode id
+                  where List_of_3_cook_judges %chef_id% );
+
+
