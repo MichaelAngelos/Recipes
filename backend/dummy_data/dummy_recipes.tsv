@@ -29,3 +29,93 @@ id	CookingorConfectionary	Nation	Difficulty_level	recipe_name	description_	prep_
 28	1	Italian	4	Bruschetta	Classic Italian appetizer made with toasted bread topped with diced tomatoes, garlic, basil, and olive oil.	15	10	4	tomatoes
 29	0	Indian	4	Palak Chicken	Creamy Indian curry made with tender chicken pieces cooked in a spinach-based sauce flavored with spices.	30	35	4	chicken
 30	0	Thai	3	Pad See Ew	A popular Thai stir-fried noodle dish made with wide rice noodles, Chinese broccoli, eggs, and a savory sauce.	25	20	4	noodles
+31	1	French	3	Coq au Vin	A classic French dish of chicken braised with wine, mushrooms, onions, and bacon.	40	60	4	Chicken
+32	0	Italian	4	Lasagna	Classic Italian pasta dish made with layers of pasta, meat sauce, and cheese.	60	45	6	Pasta
+33	1	Thai	2	Green Curry	Spicy Thai curry made with green curry paste, coconut milk, vegetables, and choice of meat.	30	40	4	Coconut milk
+34	1	Japanese	3	Ramen	Japanese noodle soup dish with wheat noodles, broth, and toppings like sliced pork, green onions, and egg.	45	50	4	Wheat noodles
+35	0	Mexican	4	Burritos	Mexican dish consisting of a flour tortilla wrapped around various fillings such as meat, beans, rice, and cheese.	30	25	4	Flour tortilla
+36	1	Indian	3	Butter Chicken	Indian curry dish made with marinated chicken cooked in a spiced tomato-based sauce with butter and cream.	50	45	4	Chicken thighs
+37	0	French	4	Tarte Tatin	French upside-down pastry with caramelized fruit (usually apples) topped with pastry and baked until golden.	40	35	4	Apples
+38	1	Italian	2	Risotto	Italian rice dish cooked in broth to a creamy consistency, often flavored with ingredients such as mushrooms or seafood.	40	35	4	Arborio rice
+39	0	Japanese	3	Tonkatsu	Japanese dish consisting of breaded and deep-fried pork cutlets served with tonkatsu sauce and shredded cabbage.	30	40	4	Pork cutlets
+40	1	Thai	4	Red Curry	Spicy Thai curry made with red curry paste, coconut milk, vegetables, and choice of meat.	35	45	4	Red curry paste
+41	1	Italian	3	Caponata	Sicilian eggplant dish consisting of cooked vegetables, tomatoes, olives, and capers, often served as a side dish or relish.	45	40	4	Eggplant
+42	0	French	4	Potato Dauphinoise	French dish of sliced potatoes baked in milk or cream, usually with grated cheese on top.	35	50	4	Potatoes
+43	1	Indian	2	Tandoori Chicken	Indian dish of chicken marinated in a mixture of yogurt and spices, then grilled or roasted.	45	40	4	Chicken drumsticks
+44	1	Mexican	3	Mole Poblano	Rich Mexican sauce made with chili peppers, chocolate, spices, and other ingredients, served over meat.	60	50	4	Chocolate
+45	0	Italian	4	Cannoli	Sicilian pastry consisting of tube-shaped shells of fried pastry dough filled with a sweet, creamy filling containing ricotta.	40	30	4	Ricotta cheese
+46	1	Japanese	3	Miso Soup	Traditional Japanese soup made with miso paste, tofu, seaweed, and other ingredients.	15	20	4	Miso paste
+47	1	French	4	Bouillabaisse	Traditional Provençal fish stew originating from the port city of Marseille, usually made with various types of fish and shellfish.	50	60	4	Fish stock
+48	0	Thai	3	Green Papaya Salad	Thai salad made from shredded unripe papaya, tomatoes, chili peppers, lime juice, fish sauce, and peanuts.	25	20	4	Green papaya
+49	1	Italian	3	Osso Buco	Italian dish made with braised veal shanks cooked with vegetables, white wine, and broth, often served with gremolata.	60	70	4	Veal shanks
+50	0	Mexican	4	Chimichangas	Deep-fried burritos popular in Tex-Mex cuisine, typically filled with shredded meat, cheese, and beans.	30	25	4	Shredded beef
+51	1	Japanese	3	Okonomiyaki	Japanese savory pancake containing a variety of ingredients, usually including cabbage, meat, and seafood, topped with okonomiyaki sauce and mayonnaise.	40	30	4	Cabbage
+52	0	Italian	4	Ratatouille	Provençal French vegetable stew dish made with eggplant, zucchini, bell peppers, tomatoes, onions, and various herbs.	40	45	4	Eggplant
+53	1	Indian	3	Samosas	Crispy Indian pastry filled with spiced potatoes, peas, and sometimes meat, then deep-fried until golden brown.	30	35	4	Potatoes
+54	0	Japanese	3	Yakitori	Japanese skewered chicken grilled over charcoal, typically seasoned with salt or a sweet-savory sauce called tare.	25	20	4	Chicken thighs
+55	1	Mexican	3	Pozole	Traditional Mexican soup made with hominy, pork or chicken, and seasoned with chili peppers, garlic, and other spices.	60	50	4	Hominy
+56	1	Italian	2	Pesto	Genovese sauce originating in Italy made from crushed garlic, basil, pine nuts, Parmesan cheese, and olive oil.	20	15	4	Basil
+57	0	French	4	Crêpes	Thin French pancakes made from wheat flour, eggs, milk, and butter, typically served with sweet or savory fillings.	20	25	4	Wheat flour
+58	1	Thai	3	Mango Sticky Rice	Thai dessert made with glutinous rice, fresh mango slices, and coconut milk, often served as a sweet treat.	30	25	4	Glutinous rice
+59	0	Mexican	3	Ceviche	Latin American dish made with raw fish marinated in citrus juices such as lime or lemon, spiced with chili peppers, onions, and cilantro.	20	30	4	Fish fillets
+60	1	Japanese	4	Tonkotsu Ramen	Japanese noodle soup made with a rich and creamy pork bone broth, topped with sliced pork, green onions, and other ingredients.	60	50	4	Pork bones
+61	0	Italian	3	Ossobuco	Milanese specialty of cross-cut veal shanks braised with vegetables, white wine, and broth, often served with gremolata.	60	70	4	Veal shanks
+62	1	French	4	Confit de Canard	French dish of duck cooked in its own fat, typically served with potatoes or lentils.	60	90	4	Duck legs
+63	0	Thai	3	Green Curry Fried Rice	Thai fried rice cooked with green curry paste, coconut milk, vegetables, and choice of meat or seafood.	25	30	4	Jasmine rice
+64	1	Indian	4	Biryani	Indian mixed rice dish made with spices, rice, and meat (such as chicken, beef, goat, pork, or fish), usually served with yogurt sauce or raita.	60	50	4	Basmati rice
+65	1	Japanese	3	Tonkatsu Ramen	Japanese noodle soup made with a rich and creamy pork bone broth, topped with sliced pork, green onions, and other ingredients.	50	45	4	Pork bones
+66	0	French	4	Tarte au Citron	French dessert consisting of a lemon-flavored custard filling in a pastry shell, usually topped with powdered sugar.	35	40	4	Lemons
+67	1	Italian	3	Focaccia	Italian flatbread topped with olive oil, salt, and sometimes herbs or other ingredients, baked until golden brown.	30	35	4	Bread flour
+68	0	Japanese	3	Shabu-Shabu	Japanese hot pot dish of thinly sliced meat and vegetables cooked quickly in boiling water, then dipped in sauce before eating.	40	45	4	Beef slices
+69	1	Mexican	3	Tamales	Mexican dish made of masa (a dough made from corn), filled with meat, cheese, vegetables, or fruit, then steamed in a corn husk or banana leaf.	60	50	4	Masa
+70	0	Italian	3	Cannelloni	Italian pasta dish consisting of rolled sheets of pasta stuffed with a filling such as ricotta cheese and spinach, baked in a sauce.	50	40	4	Pasta sheets
+71	1	Thai	3	Panang Curry	Thai curry dish made with red curry paste, coconut milk, meat (often beef or chicken), and flavored with kaffir lime leaves and Thai basil.	40	45	4	Panang curry paste
+72	0	Mexican	4	Quesadillas	Mexican dish consisting of a tortilla filled with cheese (and often other ingredients such as meat, beans, or vegetables), folded in half, and cooked until the cheese melts.	25	20	4	Tortillas
+73	1	Japanese	3	Teriyaki Chicken	Japanese dish of grilled or broiled chicken glazed with a sweet and savory teriyaki sauce made from soy sauce, sake, mirin, and sugar.	30	25	4	Chicken thighs
+74	0	French	4	Chocolate Soufflé	Delicate French dessert made with a base of egg yolks and beaten egg whites, flavored with chocolate, baked until puffed and golden.	40	30	4	Chocolate
+75	1	Italian	3	Panettone	Italian sweet bread loaf, usually prepared for Christmas or New Year, containing candied fruits and raisins.	90	60	4	Flour
+76	0	Japanese	3	Miso Eggplant	Japanese dish of eggplant grilled and glazed with a sweet and savory miso-based sauce.	30	25	4	Eggplant
+77	1	Indian	4	Rogan Josh	Traditional Kashmiri curry dish of tender lamb cooked with a flavorful blend of spices, tomatoes, and yogurt.	60	50	4	Lamb
+78	0	Thai	3	Green Papaya Salad	Thai salad made from shredded unripe papaya, tomatoes, chili peppers, lime juice, fish sauce, and peanuts.	25	20	4	Green papaya
+79	1	Italian	3	Amatriciana	Classic Italian pasta sauce made with tomatoes, pancetta or guanciale, Pecorino cheese, and chili peppers.	30	35	4	Tomatoes
+80	0	Japanese	3	Yakisoba	Japanese stir-fried noodles with vegetables, meat (often pork), and a sweet and savory sauce similar to Worcestershire sauce.	25	30	4	Noodles
+81	1	French	3	Bœuf Bourguignon	Traditional French beef stew cooked in red wine, flavored with onions, carrots, garlic, and herbs.	60	90	4	Beef chuck
+82	0	Thai	4	Panang Curry	Thai curry dish made with red curry paste, coconut milk, meat (often beef or chicken), and flavored with kaffir lime leaves and Thai basil.	40	45	4	Panang curry paste
+83	1	Italian	3	Caponata	Sicilian eggplant dish consisting of cooked vegetables, tomatoes, olives, and capers, often served as a side dish or relish.	45	40	4	Eggplant
+84	0	Japanese	3	Tempura	Japanese dish of lightly battered and deep-fried seafood and vegetables.	30	25	4	Seafood
+85	1	Mexican	4	Chiles en Nogada	Traditional Mexican dish consisting of poblano peppers stuffed with a mixture of meat, fruits, and spices, topped with walnut cream sauce and pomegranate seeds.	50	40	4	Poblano peppers
+86	0	Italian	3	Risotto Milanese	Italian rice dish cooked with saffron-infused broth, onions, and Parmesan cheese, resulting in a creamy consistency and golden hue.	40	35	4	Arborio rice
+87	1	French	4	Coq au Vin	Classic French dish of chicken braised in red wine with mushrooms, onions, and bacon.	40	60	4	Chicken thighs
+88	0	Thai	3	Pad Kra Pao	Thai stir-fry dish made with minced meat (often pork or chicken), holy basil, garlic, chili peppers, and served over rice with a fried egg on top.	30	25	4	Minced pork
+89	1	Italian	2	Panzanella	Italian salad made with stale bread, tomatoes, onions, cucumbers, basil, and a vinaigrette dressing.	20	15	4	Bread
+90	0	Japanese	3	Tonjiru	Japanese pork and vegetable soup flavored with miso paste, often containing ingredients like pork belly, daikon radish, and potatoes.	40	35	4	Pork belly
+91	1	Mexican	3	Cochinita Pibil	Traditional Mexican slow-roasted pork dish marinated in achiote paste and citrus juices, wrapped in banana leaves, and cooked until tender.	60	90	4	Pork shoulder
+92	0	Italian	3	Arancini	Sicilian fried rice balls stuffed with a filling such as ragù, mozzarella, and peas, coated in breadcrumbs and deep-fried until golden brown.	45	40	4	Risotto
+93	1	French	3	Cassoulet	Slow-cooked French casserole made with white beans, various meats such as pork sausages, duck, and sometimes lamb, flavored with tomatoes, garlic, and herbs.	90	120	4	White beans
+94	0	Thai	4	Som Tum	Thai green papaya salad made with shredded unripe papaya, tomatoes, green beans, chili peppers, lime juice, fish sauce, and peanuts.	25	20	4	Green papaya
+95	1	Italian	3	Pasta Puttanesca	Quick and flavorful Italian pasta dish made with tomatoes, olives, capers, garlic, and anchovies, often served with spaghetti or linguine.	30	25	4	Spaghetti
+96	0	Japanese	3	Katsu Curry	Japanese dish of breaded and deep-fried meat (often pork or chicken) served with Japanese curry sauce and rice.	40	40	4	Pork cutlets
+97	1	Mexican	3	Mexican Street Corn	Grilled corn on the cob slathered with mayonnaise, chili powder, cotija cheese, and a squeeze of lime juice.	20	15	4	Corn
+98	0	Italian	4	Cannoli	Sicilian pastry consisting of tube-shaped shells of fried pastry dough filled with a sweet, creamy filling containing ricotta cheese.	40	30	4	Ricotta cheese
+99	1	French	4	Ratatouille	Provençal French vegetable stew dish made with eggplant, zucchini, bell peppers, tomatoes, onions, and various herbs.	40	45	4	Eggplant
+100	0	Thai	3	Pad Kee Mao	Thai stir-fried noodle dish made with wide rice noodles, meat (such as chicken, beef, or shrimp), Thai basil, chili peppers, and soy sauce.	30	25	4	Rice noodles
+101	1	Italian	3	Panzanella	Italian salad made with stale bread, tomatoes, onions, cucumbers, basil, and a vinaigrette dressing.	20	15	4	Bread
+102	0	Japanese	3	Yakitori	Japanese skewered chicken grilled over charcoal, typically seasoned with salt or a sweet-savory sauce called tare.	25	20	4	Chicken thighs
+103	1	Mexican	3	Chilaquiles	Traditional Mexican dish made with fried tortilla chips simmered in salsa or mole sauce, topped with cheese, crema, and sometimes eggs or shredded chicken.	30	35	4	Tortilla chips
+104	0	Italian	4	Tiramisu	Italian dessert made with layers of coffee-soaked ladyfingers and mascarpone cheese, flavored with cocoa powder.	30	20	4	Ladyfingers
+105	1	French	3	Quiche Lorraine	Savory French tart made with a filling of eggs, cream, cheese, and bacon, baked in a pastry crust.	35	40	4	Eggs
+106	0	Thai	3	Tom Kha Gai	Thai coconut soup made with chicken, coconut milk, galangal, lemongrass, kaffir lime leaves, mushrooms, and chili peppers.	30	25	4	Chicken
+107	1	Italian	3	Minestrone	Italian vegetable soup made with a variety of vegetables, beans, and pasta or rice, simmered in a tomato-based broth.	40	35	4	Vegetables
+108	0	Japanese	4	Okonomiyaki	Japanese savory pancake containing a variety of ingredients, usually including cabbage, meat, and seafood, topped with okonomiyaki sauce and mayonnaise.	40	30	4	Cabbage
+109	1	Mexican	3	Tacos de Carnitas	Traditional Mexican street food tacos made with slow-cooked pork (carnitas), served with chopped onions, cilantro, salsa, and lime wedges.	45	50	4	Pork shoulder
+110	0	Italian	3	Caprese Salad	Simple Italian salad made with fresh tomatoes, mozzarella cheese, basil leaves, olive oil, and balsamic vinegar.	15	10	4	Tomatoes
+111	1	French	3	French Onion Soup	Traditional French soup made with caramelized onions, beef broth, toasted bread, and melted cheese on top.	40	50	4	Onions
+112	0	Thai	3	Gai Pad Med Mamuang	Thai stir-fry dish made with chicken, cashew nuts, vegetables, and a savory sauce, served over rice.	30	25	4	Chicken breast
+113	1	Italian	4	Panzanella	Italian salad made with stale bread, tomatoes, onions, cucumbers, basil, and a vinaigrette dressing.	20	15	4	Bread
+114	0	Japanese	3	Takoyaki	Japanese snack made of battered and grilled octopus balls, typically filled with pieces of octopus, tempura scraps, pickled ginger, and green onion.	30	25	4	Octopus
+115	1	Mexican	3	Pozole	Traditional Mexican soup made with hominy, pork or chicken, and seasoned with chili peppers, garlic, and other spices.	60	50	4	Hominy
+116	0	Italian	3	Bruschetta	Classic Italian appetizer made with toasted bread topped with diced tomatoes, garlic, basil, and olive oil.	15	10	4	Tomatoes
+117	1	French	3	Gratin Dauphinois	French dish of sliced potatoes baked in milk, cream, and garlic, topped with cheese and breadcrumbs, then baked until golden and bubbly.	40	45	4	Potatoes
+118	0	Thai	3	Green Curry	Thai curry dish made with green curry paste, coconut milk, vegetables, and choice of meat.	30	40	4	Green curry paste
+119	1	Italian	3	Caprese Salad	Simple Italian salad made with fresh tomatoes, mozzarella cheese, basil leaves, olive oil, and balsamic vinegar.	15	10	4	Tomatoes
+120	0	Japanese	4	Miso Soup	Traditional Japanese soup made with miso paste, tofu, seaweed, and other ingredients.	15	20	4	Miso paste
