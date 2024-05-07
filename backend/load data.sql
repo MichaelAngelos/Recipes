@@ -47,3 +47,35 @@ LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
 SELECT * FROM ratings;
+
+LOAD DATA INFILE 'dummy_episode_cooks.tsv'
+INTO TABLE episode_cooks
+FIELDS TERMINATED BY '	'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+SELECT * FROM ratings;
+
+LOAD DATA INFILE 'dummy_episode_cuisines.tsv'
+INTO TABLE episode_cuisines
+FIELDS TERMINATED BY '	'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+SELECT * FROM ratings;
+
+LOAD DATA INFILE 'dummy_episode_judges.tsv'
+INTO TABLE episode_judges
+FIELDS TERMINATED BY '	'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+SELECT * FROM ratings;
+
+LOAD DATA INFILE 'dummy_episode_recipes.tsv'
+INTO TABLE episode_recipes
+FIELDS TERMINATED BY '	'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+SELECT * FROM ratings;
