@@ -7,7 +7,7 @@ CREATE TABLE Users(
 	user_id integer(10) NOT NULL AUTO_INCREMENT,
 	username varchar(64) NOT NULL,
     _password varchar(64) NOT NULL,
-    _role bit NOT NULL,
+    _role boolean NOT NULL,
     PRIMARY KEY (user_id)
 );
 
