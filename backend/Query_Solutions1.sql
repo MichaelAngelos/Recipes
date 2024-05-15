@@ -26,3 +26,8 @@ SELECT Count(chef_id) as Appearences from episode_cooks group by chef_id ORDER B
 #These are the chefs that have appeared 3 times less than the highest.Cannot do 5 because of current dummy data
 SELECT chef_id,Count(chef_id) as Appearences  FROM episode_cooks group by chef_id
 		HAVING Appearences < (SELECT Count(chef_id) as Appearences from episode_cooks group by chef_id ORDER BY Appearences DESC LIMIT 1) - 2;
+        
+        
+#Query 3.1
+
+SELECT chef_id,cuisine,AVG((Rating_1 + Rating_2 + Rating_3) /3) as Average_Rating FROM episode_list INNER JOIN ratings using (episode_id,chef_id) GROUP BY chef_id,cuisine
