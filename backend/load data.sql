@@ -1,10 +1,10 @@
 DELETE FROM ratings;
-DELETE FROM episodes;
 DELETE FROM episode_list;
 DELETE FROM episode_judges;
+DELETE FROM episodes;
 DELETE FROM Cooks_in_Recipe;
-DELETE FROM Cooks;
 DELETE FROM Recipe;
+DELETE FROM Cooks;
 DELETE FROM Users;
 
 LOAD DATA INFILE 'dummy_recipes.tsv'
