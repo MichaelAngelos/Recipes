@@ -1,8 +1,11 @@
 DELETE FROM ratings;
 DELETE FROM episodes;
+DELETE FROM episode_list;
+DELETE FROM episode_judges;
 DELETE FROM Cooks_in_Recipe;
 DELETE FROM Cooks;
 DELETE FROM Recipe;
+DELETE FROM Users;
 
 LOAD DATA INFILE 'dummy_recipes.tsv'
 INTO TABLE Recipe
@@ -11,6 +14,14 @@ LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
 SELECT * FROM Recipe;
+
+LOAD DATA INFILE 'dummy_users.tsv'
+INTO TABLE Users
+FIELDS TERMINATED BY '	'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+SELECT * FROM Users;
 
 #DELETE FROM Cooks;
 
@@ -48,34 +59,18 @@ IGNORE 1 ROWS;
 
 SELECT * FROM ratings;
 
-LOAD DATA INFILE 'dummy_episode_cooks.tsv'
-INTO TABLE episode_cooks
-FIELDS TERMINATED BY '	'
-LINES TERMINATED BY '\n'
-IGNORE 1 ROWS;
-
-SELECT * FROM ratings;
-
-LOAD DATA INFILE 'dummy_episode_cuisines.tsv'
-INTO TABLE episode_cuisines
-FIELDS TERMINATED BY '	'
-LINES TERMINATED BY '\n'
-IGNORE 1 ROWS;
-
-SELECT * FROM ratings;
-
 LOAD DATA INFILE 'dummy_episode_judges.tsv'
 INTO TABLE episode_judges
 FIELDS TERMINATED BY '	'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
-SELECT * FROM ratings;
+SELECT * FROM episode_judges;
 
-LOAD DATA INFILE 'dummy_episode_recipes.tsv'
+LOAD DATA INFILE 'dummy_episode_list.tsv'
 INTO TABLE episode_recipes
 FIELDS TERMINATED BY '	'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
-SELECT * FROM ratings;
+SELECT * FROM episode_recipes;
