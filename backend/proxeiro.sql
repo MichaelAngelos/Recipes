@@ -28,4 +28,6 @@ SELECT * FROM (
 	SELECT episode_id,group_concat(chef_id) as list_judges FROM episode_judges group by episode_id
 ) as temp3 using (episode_id) inner join (
 	SELECT episode_id,group_concat(rec_id) as list_recipes FROM episode_recipes group by episode_id
-) as temp4 using (episode_id)
+) as temp4 using (episode_id);
+
+SELECT * FROM Cooks where List_of_Specializations_in_Nations like '%American%' and Years_of_Experience = 25;

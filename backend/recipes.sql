@@ -10,19 +10,15 @@ CREATE TABLE Recipe(
     Difficulty_level integer(1) NOT NULL,
     recipe_name varchar(64) NOT NULL,
     description_ varchar(255) NOT NULL,
+    tip_1 varchar(255),
+    tip_2 varchar(255),
+    tip_3 varchar(255),
     prep_time integer(10) NOT NULL,
     cook_time integer(10) NOT NULL,
     portions integer(2) NOT NULL,
-    basic_ingredient varchar(64) NOT NULL,
+    basic_ingredient_id integer(10) NOT NULL,
     PRIMARY KEY(id)
-);
-
-CREATE TABLE Recipe_tips(
-	tip_id integer(10) NOT NULL,
-    rec_id integer(10) NOT NULL,
-	tip varchar(255) NOT NULL,
-    FOREIGN KEY (rec_id) REFERENCES Recipe(id),
-    PRIMARY KEY(tip_id,rec_id)
+	#FOREIGN KEY (basic_ingredient_id) REFERENCES Ingredients(ing_id)
 );
 
 CREATE TABLE Recipe_Tags(
@@ -147,7 +143,8 @@ CREATE TABLE Cooks(
     Years_of_Experience integer(2) NOT NULL,
     List_of_Specializations_in_Nations varchar(255) NOT NULL,
     Chef_title varchar(32) NOT NULL,
-    PRIMARY KEY(chef_id)
+    PRIMARY KEY          (chef_id),
+    FOREIGN KEY (chef_id) REFERENCES Users(user_id)
 );
 
 CREATE TABLE Cooks_in_Recipe(
@@ -160,22 +157,19 @@ CREATE TABLE Cooks_in_Recipe(
 
 CREATE TABLE Episodes(
 	episode_id integer(10) NOT NULL,
+    _year integer(4) NOT NULL,
+    _order integer(1),
     chef_id_of_winner integer(10) NOT NULL,
     FOREIGN KEY(chef_id_of_winner) REFERENCES Cooks(chef_id),
     PRIMARY KEY(episode_id)
 );
 
-CREATE TABLE Episode_cuisines(
+CREATE TABLE Episode_list(
 	episode_id integer(10) NOT NULL,
+    rec_id integer(10) NOT NULL,
+    chef_id integer(10) NOT NULL,
     cuisine varchar(32) NOT NULL,
 	FOREIGN KEY (episode_id) REFERENCES Episodes(episode_id)
-);
-
-CREATE TABLE Episode_Cooks(
-	episode_id integer(10) NOT NULL,
-    chef_id integer(10) NOT NULL,
-	FOREIGN KEY (episode_id) REFERENCES Episodes(episode_id),
-    FOREIGN KEY (chef_id) REFERENCES Cooks(chef_id)
 );
 
 CREATE TABLE Episode_Judges(
@@ -185,20 +179,22 @@ CREATE TABLE Episode_Judges(
     FOREIGN KEY (chef_id) REFERENCES Cooks(chef_id)
 );
 
-CREATE TABLE Episode_Recipes(
-	episode_id integer(10) NOT NULL,
-    rec_id integer(10) NOT NULL,
-	FOREIGN KEY (episode_id) REFERENCES Episodes(episode_id),
-    FOREIGN KEY (rec_id) REFERENCES Recipe(id)
-);
-
 CREATE TABLE Ratings(
 	chef_id integer(10) NOT NULL,
     episode_id integer(10) NOT NULL,
+	Rating_1 integer(1) NOT NULL,
+    Rating_2 integer(1) NOT NULL,
+    Rating_3 integer(1) NOT NULL,
+    PRIMARY KEY(chef_id,episode_id),
     FOREIGN KEY (episode_id) REFERENCES Episodes(episode_id),
-    FOREIGN KEY (chef_id) REFERENCES Cooks(chef_id),
-	All_3_Ratings char(6) NOT NULL,
-    PRIMARY KEY(chef_id,episode_id)
+    FOREIGN KEY (chef_id) REFERENCES Cooks(chef_id)
+);
+
+CREATE TABLE Users(
+	user_id integer(10) NOT NULL AUTO_INCREMENT,
+	username varchar(64) NOT NULL,
+    _password varchar(64) NOT NULL,
+    _role bit NOT NULL
 );
 
 SHOW TABLES;
