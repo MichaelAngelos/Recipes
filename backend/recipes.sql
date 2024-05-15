@@ -13,19 +13,16 @@ CREATE TABLE Users(
 
 CREATE TABLE Recipe(
 	id integer(10) NOT NULL,
-    CookingorConfectionary bool NOT NULL,
+	CookingorConfectionary bool NOT NULL,
 	Nation Varchar(32) NOT NULL,
-    Difficulty_level integer(1) NOT NULL,
-    recipe_name varchar(64) NOT NULL,
-    description_ varchar(255) NOT NULL,
-    tip_1 varchar(255),
-    tip_2 varchar(255),
-    tip_3 varchar(255),
-    prep_time integer(10) NOT NULL,
-    cook_time integer(10) NOT NULL,
-    portions integer(2) NOT NULL,
-    basic_ingredient_id integer(10) NOT NULL,
-    PRIMARY KEY(id)
+	Difficulty_level integer(1) NOT NULL,
+	recipe_name varchar(64) NOT NULL,
+	description_ varchar(255) NOT NULL,
+	prep_time integer(10) NOT NULL,
+	cook_time integer(10) NOT NULL,
+	portions integer(2) NOT NULL,
+	basic_ingredient_id integer(10) NOT NULL,
+	PRIMARY KEY(id)
 	#FOREIGN KEY (basic_ingredient_id) REFERENCES Ingredients(ing_id)
 );
 
