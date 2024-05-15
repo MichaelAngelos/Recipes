@@ -3,6 +3,14 @@
 use Recipes;
 #SHOW CREATE DATABASE Recipes;
 
+CREATE TABLE Users(
+	user_id integer(10) NOT NULL AUTO_INCREMENT,
+	username varchar(64) NOT NULL,
+    _password varchar(64) NOT NULL,
+    _role bit NOT NULL,
+    PRIMARY KEY (user_id)
+);
+
 CREATE TABLE Recipe(
 	id integer(10) NOT NULL,
     CookingorConfectionary bool NOT NULL,
@@ -143,7 +151,7 @@ CREATE TABLE Cooks(
     Years_of_Experience integer(2) NOT NULL,
     List_of_Specializations_in_Nations varchar(255) NOT NULL,
     Chef_title varchar(32) NOT NULL,
-    PRIMARY KEY          (chef_id),
+    PRIMARY KEY (chef_id),
     FOREIGN KEY (chef_id) REFERENCES Users(user_id)
 );
 
@@ -188,13 +196,6 @@ CREATE TABLE Ratings(
     PRIMARY KEY(chef_id,episode_id),
     FOREIGN KEY (episode_id) REFERENCES Episodes(episode_id),
     FOREIGN KEY (chef_id) REFERENCES Cooks(chef_id)
-);
-
-CREATE TABLE Users(
-	user_id integer(10) NOT NULL AUTO_INCREMENT,
-	username varchar(64) NOT NULL,
-    _password varchar(64) NOT NULL,
-    _role bit NOT NULL
 );
 
 SHOW TABLES;

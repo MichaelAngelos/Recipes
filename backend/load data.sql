@@ -68,9 +68,9 @@ IGNORE 1 ROWS;
 SELECT * FROM episode_judges;
 
 LOAD DATA INFILE 'dummy_episode_list.tsv'
-INTO TABLE episode_recipes
+INTO TABLE episode_list
 FIELDS TERMINATED BY '	'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
-SELECT * FROM episode_recipes;
+SELECT * FROM episode_list;
