@@ -1,0 +1,653 @@
+ing_id	rec_id	amount
+1	1	200 grams
+2	1	250 grams
+2	3	250 grams
+2	6	250 grams
+3	1	1 medium-sized
+3	3	1 medium-sized
+3	6	2 slices
+3	7	1 large
+3	8	1 large
+3	10	1
+3	13	1 small
+3	18	1 large
+3	22	1
+3	23	1 large
+3	25	1
+3	32	1
+3	33	1
+3	40	1
+3	42	1
+3	43	1
+3	45	1
+3	46	1/4 cup
+3	50	1
+3	51	1/2 cup
+3	52	1
+3	53	1
+3	55	1
+3	56	1
+3	63	1
+3	65	1
+3	66	1
+3	68	1
+3	69	1
+4	1	3 cloves
+4	3	3 cloves
+4	7	3 cloves
+4	8	3 cloves
+4	10	4 grams
+4	13	1 clove
+4	15	3 cloves
+4	17	4 cloves
+4	18	3 cloves
+5	1	1 medium-sized
+6	1	1 stalk
+7	1	2 tablespoons
+7	20	6 large
+7	22	1 can (400 grams)
+7	25	2
+7	32	2
+7	43	2 tablespoons
+7	46	1
+7	50	2
+7	55	2
+7	66	2 tablespoons
+8	1	1 can (400 grams)
+8	22	1 can (400 grams)
+9	1	1/2 cup
+10	1	2 cups
+10	10	5 grams
+11	1	2 leaves
+11	32	2
+11	33	2
+11	52	2 tablespoons
+11	56	2
+12	1	1 teaspoon
+12	22	1 teaspoon
+12	23	1 teaspoon
+13	1	1 teaspoon
+14	1	1 teaspoon
+14	4	1/2 teaspoon
+14	6	to taste
+14	7	1/2 teaspoon
+14	8	1 teaspoon
+14	9	1/4 teaspoon
+14	12	1 teaspoon
+14	13	to taste
+14	16	1/2 teaspoon
+14	17	1/2 teaspoon
+14	18	1/2 teaspoon
+14	19	1/4 teaspoon
+14	20	1 teaspoon
+14	22	1 teaspoon
+14	23	1 teaspoon
+14	25	1 teaspoon
+14	26	1 teaspoon
+14	28	1/2 teaspoon
+14	30	1/4 teaspoon
+14	32	1 teaspoon
+14	33	1 teaspoon
+14	35	1 teaspoon
+14	40	1 teaspoon
+14	41	1/4 teaspoon
+14	45	1 teaspoon
+14	46	1 teaspoon
+14	47	1 teaspoon
+14	49	1/4 teaspoon
+14	50	1/2 teaspoon
+14	53	1 teaspoon
+14	55	1 teaspoon
+14	58	1 teaspoon
+14	63	1 teaspoon
+14	64	1/4 teaspoon
+14	68	1 teaspoon
+14	69	1 teaspoon
+14	70	1 teaspoon
+15	1	1/2 teaspoon
+15	8	1/2 teaspoon
+15	13	to taste
+15	17	1/2 teaspoon
+15	18	1/2 teaspoon
+15	20	1/2 teaspoon
+15	22	1/2 teaspoon
+15	32	1 teaspoon
+15	33	1/2 teaspoon
+16	1	2 tablespoons
+16	8	4 tablespoons
+16	10	4 tablespoons
+16	15	2 tablespoons
+16	18	1/4 cup
+16	20	1/4 cup
+16	22	1/4 cup
+16	28	1/4 cup
+16	32	1/4 cup
+16	40	1/4 cup
+16	53	1/4 cup
+16	55	1/4 cup
+16	63	1/4 cup
+17	1	50 grams
+17	8	1/2 cup (grated)
+18	2	200 grams
+18	17	for frying
+19	2	100 grams
+19	8	4 tablespoons
+19	12	250 grams
+19	16	3/4 cup
+19	30	1/2 cup
+20	2	3 large
+20	11	4 large
+20	16	2 large
+20	18	3 large
+20	24	2
+20	29	2
+20	30	4
+20	36	4
+20	40	6
+20	41	2
+20	42	4
+20	53	4
+20	59	4
+20	63	6
+20	64	2
+20	65	4
+21	2	1/2 cup
+21	4	1 tablespoon
+21	5	1/4 cup
+21	9	1/4 cup
+21	11	1/2 cup
+21	12	1/4 cup
+21	14	1/4 cup
+21	16	3/4 cup
+21	17	2 tablespoons
+21	19	1/4 cup
+21	24	1/4 cup
+21	27	2 tablespoons
+21	28	1 tablespoon
+21	30	1 tablespoon
+22	2	200 ml
+22	15	1/2 cup
+23	2	2 teaspoons
+23	9	1/2 teaspoon
+23	16	1 teaspoon
+23	21	1 teaspoon
+23	36	1 tablespoon
+23	38	1 teaspoon
+23	41	2
+23	48	1 teaspoon
+23	59	1 tablespoon
+23	61	1 teaspoon
+23	64	2
+24	3	2 tablespoons
+25	3	2 medium-sized
+25	6	4 leaves
+25	13	1 small
+25	14	1/4 cup
+25	15	1 cup
+26	3	1 head
+27	3	1 cup
+27	23	4
+27	27	6
+27	33	4
+27	45	4
+27	46	4
+27	47	4
+27	56	4
+27	68	4
+27	69	4
+27	70	4
+28	3	1/2 cup
+28	36	1 cup
+28	42	1 1/2 cups
+28	59	1 cup
+28	65	1 1/2 cups
+29	3	10
+30	4	300 grams
+31	4	10 sheets
+31	31	2 cups
+31	34	1/4 cup
+31	36	1/4 teaspoon
+31	37	2 tablespoons
+31	38	1 cup
+31	41	1/4 cup
+31	42	1/2 teaspoon
+31	48	3/4 cup
+31	51	2 cups
+31	57	1/4 cup
+31	58	1/4 cup
+31	59	1/4 teaspoon
+31	60	2 tablespoons
+31	61	1 cup
+31	64	1/4 cup
+31	65	1/2 teaspoon
+32	4	2 tablespoons
+32	7	1/4 cup
+32	17	1/4 cup
+32	31	2 cups
+33	4	2 medium-sized
+33	31	1/2 cup
+34	4	1/2 cucumber
+34	31	2 1/2 teaspoons
+34	34	1/2 cup
+34	38	2 tablespoons
+34	57	1/4 cup
+34	61	2 tablespoons
+35	4	150 grams
+35	13	2 ripe avocados
+35	31	1 teaspoon
+35	34	1/4 cup
+35	35	1/4 cup
+35	50	1 teaspoon
+36	4	1 tablespoon
+36	7	1 tablespoon
+36	20	1 large
+36	32	500 grams
+36	50	500 grams
+37	4	2 tablespoons
+37	7	1/4 cup
+37	17	2 tablespoons
+37	32	200 grams
+37	50	300 grams
+38	4	1 tablespoon
+38	32	200 grams
+39	4	2 tablespoons
+39	17	1/4 cup
+39	27	1/4 cup
+39	29	2 tablespoons
+39	32	200 grams
+39	37	1/4 cup
+39	47	1/4 cup
+39	52	1 cup
+39	60	1/4 cup
+39	62	3 tablespoons
+39	70	1/4 cup
+40	5	2 ripe mangoes
+41	5	1 cup
+42	5	1/2 cup
+42	8	2 cups
+42	42	1 (9-inch)
+42	65	1 (9-inch)
+43	5	1/2 teaspoon
+43	9	1/4 teaspoon
+43	15	1 cup
+43	19	2 ripe mangoes
+43	35	1 cup
+43	58	1 cup
+44	12	1 cup
+46	6	4
+47	6	1 cup (shredded)
+48	6	1 slice
+48	51	1 cup
+49	6	2 tablespoons
+49	7	1/4 cup
+50	6	1 tablespoon
+51	6	to taste
+52	7	500 grams
+53	7	2
+53	20	1
+53	22	1
+53	55	2
+54	7	1/4 cup (cubed)
+55	7	2 tablespoons
+55	27	2 tablespoons
+56	7	1/4 cup
+56	16	1/2 cup
+56	26	1/4 cup
+57	7	for frying
+57	24	for frying
+57	25	2 tablespoons
+57	27	for frying
+57	29	1/4 cup
+57	30	for frying
+57	52	2 tablespoons
+58	7	1
+59	7	2 stalks
+62	8	2 medium-sized
+62	22	2
+62	55	2
+63	8	2 medium-sized
+63	40	3 medium
+63	52	2
+63	53	4
+63	63	3 medium
+64	8	500 grams
+65	8	1 teaspoon
+66	8	1/2 teaspoon
+67	8	4 tablespoons
+67	12	500 grams
+67	16	2 cups
+67	24	1 cup
+67	28	2 cups
+67	30	1 cup
+67	41	2 cups
+67	49	1/4 cup
+67	64	2 cups
+68	36	1/3 cup
+68	38	1/2 cup
+68	46	1/4 cup
+68	59	1/3 cup
+68	61	1/2 cup
+68	69	1/4 cup
+69	8	1/4 cup
+70	9	2 cups
+70	19	2 cups
+71	9	2 cups
+71	24	1/2 cup
+71	25	1 cup
+71	28	1 cup
+71	30	1 cup
+71	34	3/4 cup
+71	38	1 cup
+71	41	1 cup
+71	57	3/4 cup
+71	61	1 cup
+71	64	1 cup
+72	9	1/4 cup
+72	43	for serving
+72	66	for serving
+73	9	1/4 teaspoon
+74	9	1 cup
+74	35	2 cups
+74	45	2 cups
+74	58	2 cups
+74	68	2 cups
+75	10	500 grams
+75	15	500 grams
+75	17	500 grams
+75	26	1/2 teaspoon
+76	10	10 grams
+76	15	1 teaspoon
+76	32	1/4 teaspoon
+77	10	4 grams
+78	10	20 grams
+79	10	10 grams
+80	11	200 grams
+81	11	1 cup
+82	11	500 grams
+83	11	for dusting
+84	12	2 1/4 teaspoons
+84	28	2 teaspoons
+85	12	1 large
+85	21	1/2 cup
+85	54	1/2 cup
+86	12	1/2 cup
+86	16	2 cups
+87	13	1
+88	13	1
+89	13	2 tablespoons
+89	18	500 grams
+89	25	500 grams
+90	14	3/4 cup
+90	18	200 grams
+91	14	1 cup
+91	17	1/2 cup
+91	18	1/4 cup
+92	19	1 cup
+94	15	2 teaspoons
+94	20	1 teaspoon
+95	15	1 teaspoon
+95	25	1 teaspoon
+95	35	1 teaspoon
+95	45	1 teaspoon
+95	58	1 teaspoon
+95	68	1 teaspoon
+96	15	1 teaspoon
+96	25	1/2 teaspoon
+96	35	1/2 teaspoon
+96	45	1/2 teaspoon
+96	58	1/2 teaspoon
+96	68	1/2 teaspoon
+97	15	1/2 teaspoon
+97	26	1/2 teaspoon
+97	40	1/2 teaspoon
+97	42	1/4 teaspoon
+97	45	1/2 teaspoon
+97	46	1/2 teaspoon
+97	47	1/2 teaspoon
+97	53	1/2 teaspoon
+97	55	1/2 teaspoon
+97	63	1/2 teaspoon
+97	65	1/4 teaspoon
+97	68	1/2 teaspoon
+97	69	1/2 teaspoon
+97	70	1/2 teaspoon
+98	15	1/2 teaspoon
+98	21	2 cups
+98	54	500 grams
+99	21	1 cup
+99	54	1 cup
+100	21	1/4 cup
+100	54	1/4 cup
+101	21	1/4 cup
+101	54	1/4 cup
+102	22	2
+102	55	2
+103	22	2
+104	22	1/4 cup
+105	23	for garnish
+106	23	for garnish
+107	24	1 teaspoon
+107	41	2 teaspoons
+107	64	2 teaspoons
+108	16	1/2 teaspoon
+108	24	1/4 cup
+108	28	1/4 cup
+108	47	1/4 cup
+108	70	1/4 cup
+109	14	1/2 cup
+109	24	1/2 cup
+109	44	1 batch
+109	57	1/2 cup
+109	67	1 batch
+110	25	400 grams
+111	25	2
+111	35	2
+111	50	1
+111	58	2
+112	23	1 teaspoon
+112	25	1 teaspoon
+112	43	1 teaspoon
+112	66	1 teaspoon
+113	25	1 teaspoon
+113	43	1 teaspoon
+113	56	1 teaspoon
+113	66	1 teaspoon
+114	20	2 tablespoons
+114	27	2 tablespoons
+115	15	for garnish
+115	20	1/4 cup
+115	29	for garnish
+116	21	1
+116	54	12
+117	18	1 package
+117	38	1 package
+117	61	1 package
+118	20	1/2
+118	32	1 sprig
+118	43	1 teaspoon
+118	66	1 teaspoon
+119	33	1 teaspoon
+119	56	1 teaspoon
+120	32	1
+121	32	1/2 cup
+122	33	1 cup
+122	50	1 cup
+123	29	300 grams
+123	33	1 teaspoon
+124	29	200 grams
+124	37	300 grams
+124	60	300 grams
+125	29	100 grams
+126	29	2
+126	33	1 teaspoon
+127	29	2
+128	29	2 tablespoons
+129	29	3 tablespoons
+129	62	2 tablespoons
+130	29	2 tablespoons
+130	39	2 tablespoons
+130	62	2 tablespoons
+131	29	1/4 cup
+132	29	for garnish
+134	35	2 tablespoons
+134	57	for dusting
+135	36	900 grams
+135	59	900 grams
+137	36	1 tablespoon
+137	59	1 tablespoon
+138	37	4 cups
+138	39	2 cups
+138	56	4 cups
+138	60	4 cups
+138	68	4 cups
+138	69	2 cups
+139	37	1/2 cup
+139	47	1-inch piece
+139	60	1/2 cup
+139	70	1-inch piece
+140	37	1/4 cup
+140	60	1/4 cup
+141	37	200 grams
+141	47	2 tablespoons
+141	60	200 grams
+141	70	2 tablespoons
+142	37	200 grams
+142	60	200 grams
+143	37	200 grams
+143	60	200 grams
+144	17	4
+144	27	4
+144	37	4
+144	60	4
+145	37	200 grams
+145	60	200 grams
+146	37	200 grams
+146	60	200 grams
+147	29	200 grams
+147	37	200 grams
+147	60	200 grams
+149	38	1
+149	43	1
+149	52	1
+149	61	1
+149	66	1
+150	27	500 grams
+150	35	500 grams
+150	39	500 grams
+150	58	500 grams
+150	62	500 grams
+151	26	1 kg
+152	39	1/2 cup
+152	62	1/2 cup
+153	39	for garnish
+153	62	for garnish
+154	41	for frying
+154	64	for frying
+155	42	8 slices
+155	65	8 slices
+156	42	1 cup
+156	65	1 cup
+157	43	4
+157	66	4
+158	43	2
+158	66	2
+159	43	2
+159	66	2
+161	43	1 teaspoon
+161	66	1 teaspoon
+162	43	4
+162	66	4
+163	43	1 teaspoon
+163	66	1 teaspoon
+164	20	2
+164	22	2
+164	23	4
+164	25	3 cloves
+164	26	1/2 teaspoon
+164	27	4
+164	29	4
+164	32	4
+164	43	4
+164	52	4
+164	55	4
+164	66	4
+165	43	1/4 cup
+165	66	1/4 cup
+166	50	1/4 cup
+167	44	1 batch
+167	67	1 batch
+168	44	1
+168	67	1
+169	45	500 grams
+169	58	500 grams
+169	68	500 grams
+170	45	4 cups
+170	46	2 cups
+171	25	1-inch piece
+171	27	1-inch piece
+172	46	500 grams
+172	69	500 grams
+173	46	1 package
+173	69	1 package
+174	47	1 whole
+174	70	1 whole
+175	17	2 tablespoons
+175	27	2 tablespoons
+176	47	2
+176	52	2
+176	70	2
+177	47	1/2 teaspoon
+177	70	1/2 teaspoon
+178	48	1 cup
+179	48	6
+179	51	6
+180	48	2 tablespoons
+181	49	1 cup
+183	29	200 grams
+183	39	300 grams
+184	29	2 tablespoons
+184	50	1 cup
+184	58	2 tablespoons
+185	15	2 tablespoons
+185	33	1/4 cup
+185	50	1 cup
+186	26	1/4 teaspoon
+187	41	1 teaspoon
+187	51	1
+187	54	1 teaspoon
+187	64	1 teaspoon
+188	52	500 grams
+189	52	2
+190	52	4
+191	15	1-inch piece
+191	17	1-inch piece
+191	52	1/4 cup
+192	54	1 teaspoon
+194	19	for garnish
+194	23	1 kg
+194	33	1 kg
+194	56	1 kg
+195	23	1 can (400 grams)
+195	56	1 can
+196	34	1 cup
+196	57	1 cup
+196	62	2 cups
+197	14	for dusting
+198	15	for serving
+198	35	1 tablespoon
+198	45	1-inch piece
+198	52	1-inch piece
+198	58	1 tablespoon
+198	68	1-inch piece
+199	17	10
+199	35	1 tablespoon
+199	58	1 tablespoon
+200	35	1/4 cup
+200	58	1/4 cup
+201	35	1/4 cup
+201	58	1/4 cup
+202	35	1/4 teaspoon
+202	39	2 tablespoons
+202	58	1/4 teaspoon
+203	36	1 1/2 cups
+203	59	1 1/2 cups

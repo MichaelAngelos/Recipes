@@ -1,0 +1,438 @@
+step_id	rec_id	_order	step_details
+1	1	1	Heat a large pot of water over high heat and bring to a boil.
+2	1	2	Add the pasta to the boiling water and cook according to the package instructions until al dente.
+3	1	3	Meanwhile, heat the olive oil in a large skillet over medium heat. Add the minced garlic and cook until fragrant, about 1 minute.
+4	1	4	Add the diced onion and cook until softened, about 5 minutes.
+5	1	5	Add the ground beef to the skillet and cook until browned, breaking it up with a spoon as it cooks.
+6	1	6	Stir in the crushed tomatoes, tomato paste, Italian seasoning, salt, and pepper. Simmer for 10-15 minutes until the sauce thickens slightly.
+7	1	7	Once the pasta is cooked, drain it and return it to the pot. Pour the sauce over the pasta and toss to combine.
+8	1	8	Serve hot, garnished with grated Parmesan cheese and fresh basil leaves if desired.
+9	2	1	In a heatproof bowl set over a pot of simmering water, melt the chocolate and butter together, stirring until smooth.
+10	2	2	In a separate bowl, whisk together the egg yolks and sugar until pale and thickened.
+11	2	3	Gradually pour the melted chocolate mixture into the egg mixture, stirring constantly.
+12	2	4	In another bowl, whip the heavy cream until stiff peaks form. Gently fold the whipped cream into the chocolate mixture until well combined.
+13	2	5	Divide the mousse mixture among serving glasses or ramekins. Refrigerate for at least 2 hours, or until set.
+14	2	6	Before serving, garnish with whipped cream and chocolate shavings if desired.
+15	3	1	Heat the oil in a large skillet over medium-high heat. Add the ground beef and cook until browned, breaking it up with a spoon as it cooks.
+16	3	2	Add the diced onion and cook until softened, about 5 minutes.
+17	3	3	Stir in the taco seasoning and cook for another 2-3 minutes.
+18	3	4	Transfer the beef mixture to a serving dish and set aside.
+19	3	5	In the same skillet, warm the tortillas for about 30 seconds on each side.
+20	3	6	To assemble the tacos, place a spoonful of the beef mixture onto each tortilla. Top with your favorite toppings such as shredded lettuce, diced tomatoes, cheese, and salsa.
+21	3	7	Serve immediately with lime wedges on the side.
+22	4	1	Cook the sushi rice according to the package instructions and let it cool to room temperature.
+23	4	2	Place a sheet of nori on a bamboo sushi mat, shiny side down.
+24	4	3	Spread a thin layer of sushi rice evenly over the nori, leaving a 1-inch border along the top edge.
+25	4	4	Arrange your desired fillings (such as sliced avocado, cucumber, and cooked shrimp) along the bottom edge of the nori sheet.
+26	4	5	Using the bamboo mat, tightly roll up the nori sheet into a compact cylinder, applying gentle pressure to seal the edge.
+27	4	6	Using a sharp knife, slice the sushi roll into 8 equal pieces and serve with soy sauce, pickled ginger, and wasabi on the side.
+28	5	1	In a blender, combine the mango, yogurt, milk, honey, and ice cubes.
+29	5	2	Blend until smooth and creamy, adding more milk if necessary to reach your desired consistency.
+30	5	3	Pour the mango lassi into glasses and garnish with a slice of fresh mango or a sprinkle of ground cardamom if desired.
+31	6	1	Preheat a grill or skillet over medium-high heat.
+32	6	2	Form the ground beef into patties and season with salt and pepper.
+33	6	3	Grill the burgers for 4-5 minutes on each side, or until cooked to your desired level of doneness.
+34	6	4	While the burgers are cooking, toast the burger buns on the grill until lightly golden brown.
+35	6	5	Assemble the burgers by placing a cooked patty on each bun and topping with your favorite toppings such as cheese, lettuce, tomato, and pickles.
+36	6	6	Serve immediately with french fries or potato chips on the side.
+37	7	1	In a bowl, whisk together the ketchup, vinegar, soy sauce, brown sugar, and cornstarch until smooth. Set aside.
+38	7	2	Heat the vegetable oil in a large skillet or wok over high heat. Add the diced pork and cook until browned on all sides.
+39	7	3	Remove the pork from the skillet and set aside. In the same skillet, add the bell peppers, pineapple chunks, and minced garlic. Cook until the vegetables are tender-crisp.
+40	7	4	Return the cooked pork to the skillet and pour in the sauce mixture. Cook, stirring constantly, until the sauce has thickened and coats the pork and vegetables evenly.
+41	7	5	Serve hot over steamed rice, garnished with sliced green onions and sesame seeds if desired.
+42	8	1	Preheat the oven to 375°F (190°C). Grease a 9x13 inch baking dish with olive oil.
+43	8	2	Peel the eggplants and slice them into 1/4-inch thick rounds. Place the slices in a colander and sprinkle with salt. Let them sit for 10-15 minutes to release excess moisture, then pat dry with paper towels.
+44	8	3	Heat 2 tablespoons of olive oil in a large skillet over medium heat. Add the eggplant slices and cook until golden brown on both sides, about 5 minutes per side. Remove from the skillet and set aside.
+45	8	4	In the same skillet, add another tablespoon of olive oil and sauté the onions until softened, about 5 minutes. Add the minced garlic and cook for another minute.
+46	8	5	Spread a thin layer of tomato sauce in the bottom of the prepared baking dish. Arrange a layer of eggplant slices on top, followed by a layer of sautéed onions and garlic.
+47	8	6	Repeat the layers until all of the eggplant, onions, and garlic are used up, finishing with a layer of eggplant on top. Sprinkle with grated Parmesan cheese.
+48	8	7	Bake in the preheated oven for 30-35 minutes, or until the moussaka is bubbly and golden brown on top.
+49	8	8	Let the moussaka cool for 10-15 minutes before slicing and serving. Enjoy!
+50	9	1	In a medium saucepan, combine the coconut milk, water, rice, sugar, and salt.
+51	9	2	Bring the mixture to a simmer over medium heat, then reduce the heat to low and cover.
+52	9	3	Cook for 20-25 minutes, stirring occasionally, until the rice is tender and the mixture has thickened.
+53	9	4	Stir in the vanilla extract and let the pudding cool slightly before serving.
+54	9	5	Serve warm or chilled, topped with a sprinkle of cinnamon or toasted coconut flakes if desired.
+55	10	1	Heat the olive oil in a large skillet or paella pan over medium heat.
+56	10	2	Add the onion, bell pepper, and garlic, and cook until softened, about 5 minutes.
+57	10	3	Add the rice and saffron to the skillet and cook for 1-2 minutes, stirring constantly.
+58	10	4	Pour in the chicken broth and bring to a boil. Reduce the heat to low, cover, and simmer for 15-20 minutes, or until the rice is almost cooked through.
+59	10	5	Stir in the shrimp, chicken, peas, and roasted red peppers. Cover and cook for an additional 5-7 minutes, or until the shrimp are pink and opaque and the chicken is cooked through.
+60	10	6	Remove the skillet from the heat and let it sit, covered, for 5 minutes before serving.
+61	10	7	Garnish with chopped parsley and lemon wedges, and serve hot.
+62	11	1	In a large bowl, beat together the egg yolks and sugar until pale and creamy.
+63	11	2	Add the mascarpone cheese to the bowl and beat until smooth and well combined.
+64	11	3	In a separate bowl, whip the heavy cream until stiff peaks form.
+65	11	4	Gently fold the whipped cream into the mascarpone mixture until smooth and creamy.
+66	11	5	Combine the espresso and rum in a shallow dish. Dip each ladyfinger into the espresso mixture for a few seconds, then layer them in the bottom of a serving dish.
+67	11	6	Spread half of the mascarpone mixture over the ladyfingers, then repeat with another layer of dipped ladyfingers and the remaining mascarpone mixture.
+68	11	7	Cover the tiramisu and refrigerate for at least 4 hours, or overnight, to set.
+69	11	8	Before serving, dust the top of the tiramisu with cocoa powder and garnish with chocolate shavings if desired.
+70	12	1	Preheat the oven to 375°F (190°C). Line a baking sheet with parchment paper.
+71	12	2	Unroll the croissant dough and separate it into triangles along the perforated lines.
+72	12	3	Place a piece of chocolate or chocolate-hazelnut spread at the wide end of each triangle.
+73	12	4	Roll up the croissants, starting at the wide end and tucking in the sides as you go.
+74	12	5	Place the rolled croissants on the prepared baking sheet and brush the tops with beaten egg.
+75	12	6	Bake for 12-15 minutes, or until the croissants are golden brown and puffed up.
+76	12	7	Remove from the oven and let cool slightly before serving.
+77	13	1	In a large bowl, mash the avocados with a fork until smooth but still slightly chunky.
+78	13	2	Add the diced onion, jalapeño, cilantro, lime juice, and salt to the bowl, and stir until well combined.
+79	13	3	Taste and adjust the seasoning as needed, adding more salt or lime juice if desired.
+80	13	4	Transfer the guacamole to a serving bowl and garnish with additional cilantro and a sprinkle of red pepper flakes if desired.
+81	13	5	Serve immediately with tortilla chips or sliced vegetables for dipping.
+82	14	1	In a microwave-safe bowl, combine the mochiko flour and sugar. Stir in the water until smooth.
+83	14	2	Cover the bowl with plastic wrap and microwave on high for 2 minutes. Remove from the microwave and stir.
+84	14	3	Re-cover the bowl and microwave for an additional 2 minutes. Stir again.
+85	14	4	Repeat the process of microwaving for 2 minutes and stirring until the mixture becomes thick and sticky.
+86	14	5	Let the mochi dough cool slightly before handling. Dust a clean work surface with potato starch or cornstarch and transfer the mochi dough to the surface.
+87	14	6	Using a sharp knife or bench scraper, divide the mochi dough into small pieces and shape them into balls.
+88	14	7	Enjoy the mochi immediately, or store them in an airtight container for later. They are best when fresh.
+89	15	1	In a large bowl, combine the yogurt, lemon juice, ginger, garlic, turmeric, garam masala, cumin, paprika, salt, and cayenne pepper.
+90	15	2	Add the chicken pieces to the bowl and toss until well coated in the marinade. Cover and refrigerate for at least 1 hour, or overnight.
+91	15	3	Preheat the grill to medium-high heat. Thread the chicken onto skewers and grill for 10-12 minutes, turning occasionally, until cooked through and charred in spots.
+92	15	4	While the chicken is cooking, make the sauce. In a large skillet, heat the butter over medium heat. Add the onions and cook until softened, about 5 minutes.
+93	15	5	Stir in the tomato sauce, cream, sugar, and salt. Bring to a simmer and cook for 5-7 minutes, or until the sauce has thickened slightly.
+94	15	6	Add the cooked chicken to the skillet and toss until evenly coated in the sauce. Cook for an additional 2-3 minutes, then remove from the heat.
+95	15	7	Garnish with chopped cilantro and serve hot with rice or naan bread.
+96	16	1	Preheat the oven to 350°F (175°C). Line a baking sheet with parchment paper or a silicone baking mat.
+97	16	2	In a large mixing bowl, cream together the butter, granulated sugar, and brown sugar until light and fluffy.
+98	16	3	Add the eggs one at a time, mixing well after each addition. Stir in the vanilla extract.
+99	16	4	In a separate bowl, whisk together the flour, baking soda, and salt. Gradually add the dry ingredients to the wet ingredients and mix until just combined.
+100	16	5	Fold in the chocolate chips until evenly distributed throughout the dough.
+101	16	6	Drop rounded tablespoons of dough onto the prepared baking sheet, spacing them about 2 inches apart.
+102	16	7	Bake for 8-10 minutes, or until the edges are lightly golden brown. Let the cookies cool on the baking sheet for a few minutes before transferring them to a wire rack to cool completely.
+103	16	8	Enjoy your freshly baked chocolate chip cookies with a glass of milk!
+104	17	1	In a large bowl, whisk together the soy sauce, hoisin sauce, rice vinegar, honey, sesame oil, and cornstarch until smooth.
+105	17	2	Add the chicken pieces to the bowl and toss until well coated in the sauce. Let marinate for 10-15 minutes.
+106	17	3	Heat the vegetable oil in a large skillet or wok over medium-high heat. Add the chicken and cook until browned and cooked through, about 5-7 minutes.
+107	17	4	Remove the chicken from the skillet and set aside. In the same skillet, add the garlic, ginger, and dried chili peppers (if using). Cook for 1-2 minutes, or until fragrant.
+108	17	5	Return the chicken to the skillet and pour in the sauce. Cook, stirring constantly, until the sauce has thickened and coats the chicken evenly.
+109	17	6	Garnish with sliced green onions and sesame seeds, and serve hot with steamed rice.
+110	18	1	Preheat the oven to 375°F (190°C). Grease a 9x13 inch baking dish with olive oil.
+111	18	2	In a large bowl, mix together the spinach, feta cheese, ricotta cheese, eggs, garlic, dill, salt, and pepper until well combined.
+112	18	3	Unroll the phyllo dough and place one sheet in the prepared baking dish, letting the edges hang over the sides.
+113	18	4	Brush the phyllo sheet with melted butter, then place another sheet on top and brush with butter again. Repeat this process with half of the phyllo sheets.
+114	18	5	Spread the spinach and cheese mixture evenly over the phyllo dough in the baking dish.
+115	18	6	Top with the remaining phyllo sheets, brushing each one with melted butter as before. Fold the overhanging edges of the phyllo dough over the top to enclose the filling.
+116	18	7	Bake for 45-50 minutes, or until the spanakopita is golden brown and crisp on top.
+117	18	8	Let cool for a few minutes before slicing and serving. Enjoy your homemade spanakopita!
+118	19	1	In a medium saucepan, combine the coconut milk, sugar, and salt. Bring to a simmer over medium heat.
+119	19	2	Add the rinsed sticky rice to the saucepan and stir to combine.
+120	19	3	Reduce the heat to low, cover, and simmer for 20-25 minutes, or until the rice is tender and has absorbed most of the liquid.
+121	19	4	While the rice is cooking, prepare the mangoes. Peel and slice the mangoes into thin strips.
+122	19	5	Once the rice is cooked, remove it from the heat and let it sit, covered, for 5 minutes to steam.
+123	19	6	Serve the sticky rice warm or at room temperature, topped with the sliced mangoes and a drizzle of coconut sauce.
+124	20	1	In a blender or food processor, combine the tomatoes, cucumber, bell pepper, onion, garlic, olive oil, vinegar, salt, and pepper.
+125	20	2	Blend until smooth, adding more olive oil or water if needed to reach your desired consistency.
+126	20	3	Transfer the gazpacho to a large bowl and refrigerate for at least 2 hours, or until well chilled.
+127	20	4	Before serving, taste and adjust the seasoning as needed. Serve cold, garnished with chopped fresh herbs if desired.
+128	21	1	In a large mixing bowl, combine the ricotta cheese, powdered sugar, and vanilla extract.
+129	21	2	Stir in the chocolate chips and candied fruit until evenly distributed throughout the mixture.
+130	21	3	Cover the bowl with plastic wrap and refrigerate for at least 30 minutes to firm up the filling.
+131	21	4	Once chilled, fill a piping bag fitted with a large round tip with the cannoli filling.
+132	21	5	Pipe the filling into the cannoli shells, starting from one end and filling until the other end.
+133	21	6	Dip the ends of the filled cannoli into the chopped pistachios or chocolate chips to coat.
+134	21	7	Repeat with the remaining cannoli shells and filling. Serve immediately or store in the refrigerator until ready to serve.
+135	22	1	Preheat the oven to 400°F (200°C). Line a baking sheet with parchment paper.
+136	22	2	In a large mixing bowl, toss together the diced eggplant, zucchini, bell peppers, onion, and cherry tomatoes with olive oil, garlic, salt, and pepper.
+137	22	3	Spread the vegetables out in an even layer on the prepared baking sheet.
+138	22	4	Roast in the preheated oven for 25-30 minutes, or until the vegetables are tender and lightly browned, stirring halfway through.
+139	22	5	While the vegetables are roasting, prepare the sauce. In a small saucepan, heat the olive oil over medium heat. Add the garlic and cook for 1-2 minutes, or until fragrant.
+140	22	6	Add the crushed tomatoes, basil, oregano, salt, and pepper to the saucepan. Simmer for 10-15 minutes, stirring occasionally, until the sauce has thickened slightly.
+141	22	7	Once the vegetables are done roasting, transfer them to a serving dish and drizzle with the prepared sauce.
+142	23	1	In a large pot, combine the hominy, chicken broth, and water. Bring to a boil over high heat.
+143	23	2	Reduce the heat to medium-low and simmer, uncovered, for 30 minutes, stirring occasionally.
+144	23	3	Meanwhile, prepare the pork. In a large skillet or Dutch oven, heat the vegetable oil over medium-high heat. Add the pork shoulder pieces and cook until browned on all sides.
+145	23	4	Transfer the browned pork to the pot with the hominy and broth.
+146	23	5	Add the onion, garlic, dried chilies, oregano, cumin, and salt to the pot. Stir to combine.
+147	23	6	Simmer the pozole, uncovered, for an additional 1-2 hours, or until the pork is tender and the flavors have melded together.
+148	23	7	Taste and adjust the seasoning as needed, adding more salt or chili flakes if desired.
+149	23	8	Serve the pozole hot, garnished with shredded cabbage, sliced radishes, diced onion, chopped cilantro, lime wedges, and a side of warm tortillas.
+150	24	1	In a mixing bowl, whisk together the flour, sugar, baking powder, and salt.
+151	24	2	In a separate bowl, whisk together the milk, eggs, and vanilla extract until well combined.
+152	24	3	Pour the wet ingredients into the dry ingredients and whisk until smooth.
+153	24	4	Heat a non-stick skillet or griddle over medium heat and lightly grease with butter or cooking spray.
+154	24	5	Pour 1/4 cup of batter onto the skillet for each churro, spreading it out into a circle with the back of a spoon.
+155	24	6	Cook the churros for 2-3 minutes on each side, or until golden brown and cooked through.
+156	24	7	Transfer the cooked churros to a plate and dust with powdered sugar. Serve warm with chocolate sauce or caramel sauce for dipping.
+157	25	1	In a medium saucepan, combine the heavy cream, milk, sugar, and vanilla bean (if using). Heat over medium heat until the mixture is just simmering.
+158	25	2	In a separate bowl, sprinkle the gelatin over the cold water and let it sit for 5 minutes to bloom.
+159	25	3	Once the cream mixture is simmering, remove it from the heat and whisk in the bloomed gelatin until fully dissolved.
+160	25	4	Strain the mixture through a fine-mesh sieve into a large measuring cup or bowl. Discard the vanilla bean, if used.
+161	25	5	Pour the panna cotta mixture into individual serving glasses or molds. Chill in the refrigerator for at least 4 hours, or until set.
+162	25	6	To serve, dip the bottoms of the glasses or molds in hot water for a few seconds to loosen the panna cotta. Invert onto serving plates and garnish as desired with fresh fruit, coulis, or mint leaves.
+163	26	1	In a large stockpot, heat the olive oil over medium heat. Add the onions, carrots, and celery, and cook until softened, about 5 minutes.
+164	26	2	Add the garlic, tomato paste, and saffron, and cook for an additional 1-2 minutes, or until fragrant.
+165	26	3	Add the canned tomatoes, fish stock, white wine, and bay leaf to the pot. Bring to a simmer and cook for 10-15 minutes, stirring occasionally.
+166	26	4	Season the broth with salt and pepper to taste. Add the mussels, clams, shrimp, and fish to the pot and simmer for 5-7 minutes, or until the seafood is cooked through.
+167	26	5	Remove the bay leaf and discard. Ladle the bouillabaisse into serving bowls and garnish with chopped parsley.
+168	27	1	In a large Dutch oven or heavy-bottomed pot, heat the vegetable oil over medium-high heat.
+169	27	2	Add the pork shoulder pieces to the pot and cook until browned on all sides, about 5-7 minutes.
+170	27	3	Transfer the browned pork to a plate and set aside. Add the onion and garlic to the pot and cook until softened, about 3-4 minutes.
+171	27	4	Return the pork to the pot and add the orange juice, lime juice, beer, oregano, cumin, salt, and pepper.
+172	27	5	Bring the mixture to a simmer, then reduce the heat to low, cover, and cook for 2-3 hours, or until the pork is tender and falls apart easily.
+173	27	6	Once the pork is cooked, remove it from the pot and shred it using two forks. Return the shredded pork to the pot and stir to coat in the cooking liquid.
+174	27	7	To serve, warm the corn tortillas in a dry skillet or over an open flame. Fill each tortilla with a spoonful of carnitas and top with chopped onion, cilantro, and a squeeze of lime juice.
+175	28	1	In a large mixing bowl, whisk together the glutinous rice flour, sugar, and water until smooth.
+176	28	2	Spoon a small amount of the mochi dough onto a piece of plastic wrap dusted with potato starch or cornstarch.
+177	28	3	Place a piece of sweetened red bean paste in the center of the dough, then fold the dough over the filling to enclose it completely.
+178	28	4	Roll the mochi into a smooth ball, ensuring that the filling is completely sealed inside.
+179	28	5	Repeat with the remaining mochi dough and red bean paste filling.
+180	28	6	Enjoy the daifuku immediately, or store them in an airtight container at room temperature for up to 2 days.
+181	29	1	Rinse the basmati rice under cold water until the water runs clear. Soak the rice in cold water for 30 minutes, then drain and set aside.
+182	29	2	In a large skillet or Dutch oven, heat the ghee over medium heat. Add the whole spices and cook for 1-2 minutes, or until fragrant.
+183	29	3	Add the sliced onions to the skillet and cook until golden brown, about 8-10 minutes.
+184	29	4	Add the marinated chicken pieces to the skillet and cook until browned on all sides, about 5-7 minutes.
+185	29	5	Add the drained rice to the skillet and stir to coat in the spices and chicken drippings.
+186	29	6	Pour in the chicken broth and stir to combine. Bring to a boil, then reduce the heat to low, cover, and simmer for 15-20 minutes, or until the rice is cooked through and fluffy.
+187	29	7	Remove the skillet from the heat and let it sit, covered, for 5 minutes before fluffing the rice with a fork. Serve hot with raita or your favorite curry.
+188	30	1	In a large mixing bowl, cream together the cream cheese and sugar until smooth and creamy.
+189	30	2	Add the eggs, one at a time, mixing well after each addition. Stir in the sour cream, vanilla extract, and lemon zest until combined.
+190	30	3	Pour the cheesecake batter into the prepared crust and spread it out evenly with a spatula.
+191	30	4	Bake the cheesecake in the preheated oven for 40-45 minutes, or until the edges are set and the center is slightly jiggly.
+192	30	5	Turn off the oven and leave the cheesecake inside with the door slightly ajar for 1 hour to cool slowly.
+193	30	6	Remove the cheesecake from the oven and refrigerate for at least 4 hours, or overnight, to chill and set.
+194	30	7	Once chilled, slice the cheesecake into portions and serve with your favorite fruit topping or whipped cream.
+195	31	1	In a large pot, combine the chicken broth, coconut milk, sugar, and salt. Bring to a simmer over medium heat.
+196	31	2	In a small bowl, whisk together the cornstarch and water until smooth. Stir the cornstarch slurry into the simmering liquid.
+197	31	3	Cook, stirring constantly, until the mixture thickens slightly, about 2-3 minutes.
+198	31	4	Remove the pot from the heat and stir in the vanilla extract and almond extract. Let the mixture cool slightly.
+199	31	5	Transfer the panna cotta mixture to individual serving cups or molds. Cover and refrigerate for at least 4 hours, or until set.
+200	31	6	To serve, dip the bottoms of the cups or molds in hot water for a few seconds to loosen the panna cotta. Invert onto serving plates and garnish as desired.
+201	32	1	In a large stockpot, heat the olive oil over medium heat. Add the onions, fennel, celery, and garlic, and cook until softened, about 5 minutes.
+202	32	2	Add the tomatoes, white wine, fish stock, saffron, and bay leaf to the pot. Bring to a simmer and cook for 15-20 minutes, stirring occasionally.
+203	32	3	Add the fish fillets, shrimp, and mussels to the pot. Cover and simmer for 5-7 minutes, or until the seafood is cooked through.
+204	32	4	Season the bouillabaisse with salt and pepper to taste. Stir in the chopped parsley and lemon juice.
+205	32	5	To serve, ladle the bouillabaisse into bowls and garnish with additional parsley. Serve with crusty bread for dipping.
+206	33	1	In a large mixing bowl, combine the pork shoulder pieces with the orange juice, lime juice, garlic, cumin, chili powder, oregano, salt, and pepper.
+207	33	2	Cover and refrigerate the pork for at least 2 hours, or overnight, to marinate.
+208	33	3	When ready to cook, preheat the oven to 325°F (160°C). Transfer the pork and marinade to a roasting pan or baking dish.
+209	33	4	Cover the pan with aluminum foil and roast in the preheated oven for 3-4 hours, or until the pork is tender and easily shreds with a fork.
+210	33	5	Once the pork is cooked, remove it from the oven and shred it using two forks. Return the shredded pork to the pan and toss with the cooking juices.
+211	33	6	Serve the carnitas hot, with warm tortillas, chopped onion, cilantro, lime wedges, and your favorite salsa or toppings.
+212	34	1	In a mixing bowl, combine the glutinous rice flour, sugar, and water. Stir until a smooth dough forms.
+213	34	2	Divide the dough into equal portions and flatten each portion into a small disk.
+214	34	3	Place a small amount of sweetened red bean paste in the center of each disk of dough.
+215	34	4	Fold the edges of the dough up and over the filling, pinching to seal tightly.
+216	34	5	Roll the filled dough balls in additional glutinous rice flour to coat.
+217	34	6	Enjoy the daifuku immediately, or store them in an airtight container at room temperature for up to 2 days.
+218	35	1	Rinse the basmati rice under cold water until the water runs clear. Soak the rice in cold water for 30 minutes, then drain and set aside.
+219	35	2	In a large skillet or Dutch oven, heat the ghee over medium heat. Add the whole spices and cook for 1-2 minutes, or until fragrant.
+220	35	3	Add the sliced onions to the skillet and cook until golden brown, about 8-10 minutes.
+221	35	4	Add the marinated chicken pieces to the skillet and cook until browned on all sides, about 5-7 minutes.
+222	35	5	Add the drained rice to the skillet and stir to coat in the spices and chicken drippings.
+223	35	6	Pour in the chicken broth and stir to combine. Bring to a boil, then reduce the heat to low, cover, and simmer for 15-20 minutes, or until the rice is cooked through and fluffy.
+224	35	7	Remove the skillet from the heat and let it sit, covered, for 5 minutes before fluffing the rice with a fork. Serve hot with raita or your favorite curry.
+225	36	1	Preheat the oven to 325°F (160°C). Grease a 9-inch (23cm) springform pan and line the bottom with parchment paper.
+226	36	2	In a large mixing bowl, combine the graham cracker crumbs, melted butter, and sugar. Press the mixture into the bottom of the prepared pan.
+227	36	3	In another large mixing bowl, beat the cream cheese until smooth. Add the sugar and beat until creamy and well combined.
+228	36	4	Add the eggs, one at a time, beating well after each addition. Stir in the sour cream, vanilla extract, and lemon juice until smooth.
+229	36	5	Pour the cheesecake batter over the crust in the prepared pan. Smooth the top with a spatula.
+230	36	6	Bake the cheesecake in the preheated oven for 45-50 minutes, or until the edges are set but the center is slightly wobbly.
+231	36	7	Turn off the oven and leave the cheesecake inside with the door slightly ajar for 1 hour to cool slowly.
+232	36	8	Remove the cheesecake from the oven and refrigerate for at least 4 hours, or overnight, to chill and set.
+233	37	1	In a large pot, combine the chicken broth, soy sauce, mirin, sake, and sugar. Bring to a simmer over medium heat.
+234	37	2	Add the sliced pork belly to the pot and simmer for 3-4 minutes, or until cooked through.
+235	37	3	Add the tofu, mushrooms, and napa cabbage to the pot. Simmer for an additional 3-4 minutes, or until the vegetables are tender.
+236	37	4	To serve, ladle the hot pot into individual bowls and garnish with chopped green onions and sesame seeds. Serve with steamed rice or noodles on the side.
+237	38	1	Preheat the oven to 350°F (175°C). Grease a 9x13 inch baking dish with butter or cooking spray.
+238	38	2	In a large mixing bowl, whisk together the eggs, sugar, and vanilla extract until well combined.
+239	38	3	In a separate saucepan, heat the milk and butter over medium heat until the butter is melted and the mixture is steaming.
+240	38	4	Slowly pour the hot milk mixture into the egg mixture, whisking constantly, until smooth and well combined.
+241	38	5	Arrange the bread slices in the prepared baking dish, overlapping slightly if necessary.
+242	38	6	Pour the egg mixture over the bread, ensuring that each slice is evenly coated.
+243	38	7	Let the bread soak in the egg mixture for 10-15 minutes, pressing down occasionally to ensure thorough soaking.
+244	38	8	Bake in the preheated oven for 45-50 minutes, or until the pudding is set and golden brown on top.
+245	39	1	In a large pot, heat the coconut milk over medium heat until it starts to simmer.
+246	39	2	Add the green curry paste to the pot and stir until it is well combined with the coconut milk.
+247	39	3	Add the chicken or tofu to the pot and simmer until cooked through, about 10 minutes.
+248	39	4	Add the bamboo shoots, bell peppers, and Thai basil leaves to the pot and simmer for an additional 5 minutes.
+249	39	5	Season the curry with fish sauce, sugar, and lime juice to taste. Serve hot with steamed rice.
+250	40	1	In a large skillet, heat the olive oil over medium heat. Add the potatoes and cook until they start to soften, about 5 minutes.
+251	40	2	Add the onions and bell peppers to the skillet and cook until softened, about 5-7 minutes.
+252	40	3	In a separate bowl, beat the eggs with salt and pepper. Pour the egg mixture over the vegetables in the skillet.
+253	40	4	Cook the omelette, lifting the edges occasionally to let the uncooked egg flow underneath, until the bottom is set but the top is still slightly runny.
+254	40	5	Flip the omelette carefully and cook for another 2-3 minutes, or until cooked through.
+255	40	6	Serve the Spanish omelette hot, garnished with chopped parsley if desired.
+256	41	1	In a large pot, heat the vegetable oil over medium-high heat until it reaches 375°F (190°C).
+257	41	2	In a mixing bowl, combine the flour, sugar, baking powder, and salt. In a separate bowl, whisk together the eggs, ricotta cheese, and vanilla extract.
+258	41	3	Add the wet ingredients to the dry ingredients and stir until just combined. Be careful not to overmix.
+259	41	4	Scoop tablespoon-sized portions of the dough and carefully drop them into the hot oil. Fry until golden brown, about 3-4 minutes per side.
+260	41	5	Remove the zeppole from the oil and drain on paper towels. Dust with powdered sugar before serving.
+261	42	1	Preheat the oven to 375°F (190°C). Grease a 9-inch (23cm) pie dish with butter or cooking spray.
+262	42	2	In a skillet, cook the bacon until crispy. Remove from the skillet and drain on paper towels, then crumble into small pieces.
+263	42	3	In the same skillet, cook the onion and mushrooms until softened, about 5-7 minutes. Remove from heat and set aside.
+264	42	4	In a mixing bowl, whisk together the eggs, milk, salt, and pepper until well combined.
+265	42	5	Spread the cooked bacon, onion, and mushrooms evenly in the bottom of the prepared pie dish. Pour the egg mixture over the top.
+266	42	6	Bake in the preheated oven for 30-35 minutes, or until the quiche is set and golden brown on top.
+267	42	7	Remove from the oven and let cool for a few minutes before slicing and serving.
+268	43	1	In a large skillet, heat the oil over medium heat. Add the onion and garlic and cook until softened, about 5 minutes.
+269	43	2	Add the ground beef and cook until browned, breaking it up with a spoon as it cooks.
+270	43	3	Stir in the tomatoes, black beans, chili powder, cumin, oregano, salt, and pepper. Simmer for 10-15 minutes to allow the flavors to meld.
+271	43	4	Stir in the chocolate until melted and well combined. Taste and adjust seasoning if necessary.
+272	43	5	Serve the mole negro hot, garnished with chopped cilantro and a dollop of sour cream, if desired.
+273	44	1	In a mixing bowl, combine the flour, sugar, baking powder, and salt. In a separate bowl, whisk together the eggs, milk, and vanilla extract.
+274	44	2	Add the wet ingredients to the dry ingredients and stir until just combined. Be careful not to overmix.
+275	44	3	Heat a taiyaki pan or waffle iron and lightly grease with oil or cooking spray. Pour a small amount of batter into each mold, filling it halfway.
+276	44	4	Place a small amount of sweetened red bean paste in the center of each mold, then top with more batter to cover.
+277	44	5	Close the taiyaki pan or waffle iron and cook until golden brown and crispy, about 4-5 minutes.
+278	44	6	Remove the taiyaki from the pan and let cool for a few minutes before serving. Enjoy warm.
+279	45	1	Rinse the basmati rice under cold water until the water runs clear. Soak the rice in cold water for 30 minutes, then drain and set aside.
+280	45	2	In a large skillet or Dutch oven, heat the ghee over medium heat. Add the whole spices and cook for 1-2 minutes, or until fragrant.
+281	45	3	Add the sliced onions to the skillet and cook until golden brown, about 8-10 minutes.
+282	45	4	Add the marinated chicken pieces to the skillet and cook until browned on all sides, about 5-7 minutes.
+283	45	5	Add the drained rice to the skillet and stir to coat in the spices and chicken drippings.
+284	45	6	Pour in the chicken broth and stir to combine. Bring to a boil, then reduce the heat to low, cover, and simmer for 15-20 minutes, or until the rice is cooked through and fluffy.
+285	45	7	Remove the skillet from the heat and let it sit, covered, for 5 minutes before fluffing the rice with a fork. Serve hot with raita or your favorite curry.
+286	46	1	Preheat the oven to 400°F (200°C). Roll out one pie crust and place it in the bottom of a 9-inch pie dish.
+287	46	2	In a large skillet, melt the butter over medium heat. Add the onion, carrots, celery, and garlic, and cook until softened, about 5 minutes.
+288	46	3	Add the flour to the skillet and cook for 1-2 minutes, stirring constantly.
+289	46	4	Gradually whisk in the chicken broth and milk until smooth. Bring to a simmer and cook until thickened, about 5 minutes.
+290	46	5	Add the cooked chicken, peas, corn, thyme, salt, and pepper to the skillet. Stir to combine.
+291	46	6	Pour the chicken mixture into the prepared pie dish. Roll out the remaining pie crust and place it over the filling. Crimp the edges to seal.
+292	46	7	Brush the top crust with beaten egg, then cut a few slits in the top to vent.
+293	46	8	Bake in the preheated oven for 30-35 minutes, or until the crust is golden brown and the filling is bubbling.
+294	46	9	Remove from the oven and let cool for a few minutes before serving. Enjoy!
+295	47	1	Preheat the oven to 425°F (220°C). Rinse the duck inside and out, then pat dry with paper towels.
+296	47	2	Using a sharp knife, score the skin of the duck in a crosshatch pattern, being careful not to cut into the meat.
+297	47	3	In a small bowl, combine the salt, pepper, and five-spice powder. Rub the mixture all over the duck, including inside the cavity.
+298	47	4	Place the duck on a rack set inside a roasting pan. Roast in the preheated oven for 1 hour, or until the skin is crispy and golden brown.
+299	47	5	Remove the duck from the oven and let it rest for 10-15 minutes before carving. Serve hot with plum sauce and steamed buns.
+300	48	1	In a large mixing bowl, whisk together the milk, cream, sugar, and vanilla extract until the sugar has dissolved.
+301	48	2	Pour the mixture into an ice cream maker and churn according to the manufacturer's instructions until it reaches a soft serve consistency.
+302	48	3	Transfer the churned gelato to a freezer-safe container and freeze for at least 4 hours, or until firm.
+303	48	4	Scoop the gelato into bowls or cones and serve immediately. Enjoy!
+304	49	1	In a large mixing bowl, combine the semolina flour, all-purpose flour, salt, and baking soda.
+305	49	2	Add water gradually and knead the mixture into a stiff dough. Cover and let it rest for 30 minutes.
+306	49	3	After resting, divide the dough into small portions and roll each portion into a ball.
+307	49	4	Flatten each ball slightly and make a small indentation in the center with your thumb.
+308	49	5	Heat oil in a deep frying pan over medium heat. Fry the puris until they puff up and turn golden brown on both sides.
+309	49	6	Remove from the oil and drain on paper towels. Serve the pani puris with spicy mint water and sweet tamarind chutney.
+310	50	1	In a large bowl, combine the fish, lime juice, lemon juice, and orange juice. Let it marinate in the refrigerator for at least 30 minutes.
+311	50	2	Add the chopped onions, tomatoes, cilantro, jalapeno, and cucumber to the bowl with the marinated fish. Stir to combine.
+312	50	3	Season with salt, pepper, and hot sauce to taste. Let the ceviche sit in the refrigerator for another 15-20 minutes to allow the flavors to meld.
+313	50	4	To serve, divide the ceviche into bowls or onto plates. Garnish with additional cilantro and serve with tortilla chips or crackers on the side.
+314	51	1	Preheat the oven to 325°F (160°C). Place ramekins or shallow baking dishes in a roasting pan and fill the pan with hot water to create a water bath.
+315	51	2	In a mixing bowl, whisk together the egg yolks and sugar until pale and creamy. Stir in the vanilla extract and heavy cream until well combined.
+316	51	3	Evenly divide the custard mixture among the ramekins. Tap the ramekins gently on the counter to remove any air bubbles.
+317	51	4	Place the roasting pan in the preheated oven and bake for 30-35 minutes, or until the custards are set around the edges but still slightly jiggly in the center.
+318	51	5	Remove the custards from the water bath and let them cool to room temperature. Refrigerate for at least 2 hours, or until chilled.
+319	51	6	Just before serving, sprinkle a thin layer of granulated sugar over the tops of the custards. Use a kitchen torch to caramelize the sugar until golden brown and bubbly.
+320	51	7	Let the crème brûlée sit for a few minutes to allow the caramelized sugar to harden, then serve immediately.
+321	52	1	In a large pot, heat the oil over medium heat. Add the curry paste and cook for 1-2 minutes, or until fragrant.
+322	52	2	Add the beef or chicken to the pot and cook until browned on all sides, about 5-7 minutes.
+323	52	3	Stir in the coconut milk, fish sauce, palm sugar, lime leaves, and peanuts. Bring to a simmer and cook for 15-20 minutes.
+324	52	4	Add the potatoes, onions, and carrots to the pot and simmer until the vegetables are tender, about 20-25 minutes.
+325	52	5	Taste the curry and adjust seasoning with more fish sauce, sugar, or lime juice as needed. Serve hot with jasmine rice.
+326	53	1	In a large skillet, heat the olive oil over medium heat. Add the potatoes and cook until they start to soften, about 5 minutes.
+327	53	2	Add the onions and cook until softened and translucent, about 5-7 minutes.
+328	53	3	Add the sliced potatoes to the skillet and cook until golden brown and crispy on the bottom, about 8-10 minutes.
+329	53	4	Using a large plate or lid, carefully flip the tortilla and slide it back into the skillet. Cook until the other side is golden brown and crispy, about 5-7 minutes.
+330	53	5	Slide the tortilla onto a serving plate and let it cool slightly before slicing into wedges. Serve warm or at room temperature.
+331	54	1	In a mixing bowl, combine the flour, sugar, baking powder, and salt. In a separate bowl, whisk together the eggs, milk, and vanilla extract.
+332	54	2	Add the wet ingredients to the dry ingredients and stir until just combined. Be careful not to overmix.
+333	54	3	Heat a taiyaki pan or waffle iron and lightly grease with oil or cooking spray. Pour a small amount of batter into each mold, filling it halfway.
+334	54	4	Place a small amount of sweetened red bean paste in the center of each mold, then top with more batter to cover.
+335	54	5	Close the taiyaki pan or waffle iron and cook until golden brown and crispy, about 4-5 minutes.
+336	54	6	Remove the taiyaki from the pan and let cool for a few minutes before serving. Enjoy warm.
+337	55	1	Preheat the oven to 375°F (190°C). Grease a 9x13 inch baking dish with butter or cooking spray.
+338	55	2	In a large mixing bowl, whisk together the eggs, sugar, and vanilla extract until well combined.
+339	55	3	In a separate saucepan, heat the milk and butter over medium heat until the butter is melted and the mixture is hot but not boiling.
+340	55	4	Gradually whisk the hot milk mixture into the egg mixture until smooth. Stir in the cooked rice and raisins.
+341	55	5	Pour the mixture into the prepared baking dish and sprinkle with cinnamon on top.
+342	55	6	Bake in the preheated oven for 45-50 minutes, or until the pudding is set and golden brown on top.
+343	55	7	Remove from the oven and let cool for a few minutes before serving. Serve warm or at room temperature.
+344	56	1	In a large pot, heat the olive oil over medium heat. Add the onion and garlic and cook until softened, about 5 minutes.
+345	56	2	Add the diced tomatoes, tomato paste, sugar, and seasonings to the pot. Stir to combine.
+346	56	3	Bring the sauce to a simmer and let it cook for about 20-25 minutes, stirring occasionally, until it thickens.
+347	56	4	Meanwhile, bring a large pot of salted water to a boil. Add the spaghetti and cook according to package instructions until al dente.
+348	56	5	Drain the spaghetti and add it to the pot with the sauce. Toss to coat the spaghetti evenly with the sauce.
+349	56	6	Serve the spaghetti bolognese hot, garnished with grated Parmesan cheese and fresh basil leaves, if desired.
+350	57	1	In a mixing bowl, combine the flour, sugar, baking powder, and salt. In a separate bowl, whisk together the eggs, milk, and vanilla extract.
+351	57	2	Add the wet ingredients to the dry ingredients and stir until just combined. Be careful not to overmix.
+352	57	3	Fold in the chocolate chips until evenly distributed throughout the batter.
+353	57	4	Drop spoonfuls of dough onto a baking sheet lined with parchment paper, leaving space between each cookie for spreading.
+354	57	5	Bake in the preheated oven for 10-12 minutes, or until the cookies are golden brown around the edges.
+355	57	6	Remove from the oven and let the cookies cool on the baking sheet for a few minutes before transferring to a wire rack to cool completely.
+356	57	7	Enjoy the chocolate chip cookies warm or at room temperature with a glass of milk.
+357	58	1	In a large mixing bowl, combine the chicken pieces with soy sauce, rice wine vinegar, and cornstarch. Let marinate for 10-15 minutes.
+358	58	2	In a separate bowl, mix together the chicken broth, soy sauce, hoisin sauce, rice wine vinegar, sugar, and sesame oil. Set aside.
+359	58	3	Heat a wok or large skillet over high heat. Add the vegetable oil and heat until shimmering.
+360	58	4	Add the chicken pieces to the wok and stir-fry until browned and cooked through, about 4-5 minutes.
+361	58	5	Remove the chicken from the wok and set aside. Add the garlic, ginger, and dried chilies to the wok and stir-fry for 30 seconds.
+362	58	6	Add the sauce mixture to the wok and bring to a simmer. Cook until the sauce thickens slightly, about 2-3 minutes.
+363	58	7	Return the cooked chicken to the wok and toss to coat in the sauce. Serve hot with steamed rice and garnish with sliced green onions.
+364	59	1	In a large pot, heat the olive oil over medium heat. Add the onions and cook until softened and translucent, about 5 minutes.
+365	59	2	Add the garlic and cook for another minute, until fragrant.
+366	59	3	Add the diced tomatoes, tomato paste, sugar, and spices to the pot. Stir to combine.
+367	59	4	Bring the sauce to a simmer and let it cook for about 20-25 minutes, stirring occasionally, until it thickens.
+368	59	5	Meanwhile, bring a large pot of salted water to a boil. Add the spaghetti and cook according to package instructions until al dente.
+369	59	6	Drain the spaghetti and add it to the pot with the sauce. Toss to coat the spaghetti evenly with the sauce.
+370	59	7	Serve the spaghetti bolognese hot, garnished with grated Parmesan cheese and fresh basil leaves, if desired.
+371	60	1	In a large pot, bring the chicken broth to a boil over medium-high heat. Add the tofu and mushrooms and cook for 2-3 minutes.
+372	60	2	Reduce the heat to low and stir in the miso paste until dissolved. Simmer for another 2-3 minutes.
+373	60	3	Add the spinach and green onions to the pot and cook until wilted, about 1-2 minutes.
+374	60	4	Remove the pot from the heat and stir in the soy sauce and sesame oil. Taste and adjust seasoning if necessary.
+375	60	5	Serve the hot pot immediately, garnished with additional sliced green onions and a drizzle of sesame oil if desired.
+376	60	6	Enjoy the hot pot with steamed rice or noodles on the side.
+377	61	1	In a medium saucepan, combine the milk, sugar, and vanilla extract. Heat over medium-low heat until the sugar has dissolved, stirring occasionally.
+378	61	2	In a separate bowl, whisk together the egg yolks and cornstarch until smooth.
+379	61	3	Slowly pour the hot milk mixture into the egg yolk mixture, whisking constantly to temper the eggs.
+380	61	4	Return the mixture to the saucepan and cook over medium heat, stirring constantly, until thickened, about 5-7 minutes.
+381	61	5	Remove from heat and stir in the butter until melted and smooth. Let the pastry cream cool slightly before using.
+382	61	6	Use the pastry cream as a filling for cakes, tarts, eclairs, or cream puffs. Enjoy!
+383	62	1	Preheat the oven to 350°F (175°C). Grease a 9-inch (23cm) pie dish with butter or cooking spray.
+384	62	2	In a large mixing bowl, whisk together the eggs, milk, salt, and pepper until well combined.
+385	62	3	Spread the grated cheese evenly over the bottom of the pie dish. Pour the egg mixture over the cheese.
+386	62	4	Bake in the preheated oven for 25-30 minutes, or until the center is set and the top is golden brown.
+387	62	5	Remove from the oven and let cool for a few minutes before slicing and serving. Enjoy!
+388	63	1	In a large pot, heat the oil over medium heat. Add the onion and cook until softened and translucent, about 5 minutes.
+389	63	2	Add the garlic and cook for another minute, until fragrant.
+390	63	3	Add the diced tomatoes, tomato paste, sugar, and spices to the pot. Stir to combine.
+391	63	4	Bring the sauce to a simmer and let it cook for about 20-25 minutes, stirring occasionally, until it thickens.
+392	63	5	Meanwhile, bring a large pot of salted water to a boil. Add the spaghetti and cook according to package instructions until al dente.
+393	63	6	Drain the spaghetti and add it to the pot with the sauce. Toss to coat the spaghetti evenly with the sauce.
+394	63	7	Serve the spaghetti bolognese hot, garnished with grated Parmesan cheese and fresh basil leaves, if desired.
+395	64	1	In a large mixing bowl, combine the flour, sugar, baking powder, and salt. In a separate bowl, whisk together the eggs, milk, and vanilla extract.
+396	64	2	Add the wet ingredients to the dry ingredients and stir until just combined. Be careful not to overmix.
+397	64	3	Heat a taiyaki pan or waffle iron and lightly grease with oil or cooking spray. Pour a small amount of batter into each mold, filling it halfway.
+398	64	4	Place a small amount of sweetened red bean paste in the center of each mold, then top with more batter to cover.
+399	64	5	Close the taiyaki pan or waffle iron and cook until golden brown and crispy, about 4-5 minutes.
+400	64	6	Remove the taiyaki from the pan and let cool for a few minutes before serving. Enjoy warm.
+401	65	1	In a large mixing bowl, combine the chicken pieces with soy sauce, rice wine vinegar, and cornstarch. Let marinate for 10-15 minutes.
+402	65	2	In a separate bowl, mix together the chicken broth, soy sauce, hoisin sauce, rice wine vinegar, sugar, and sesame oil. Set aside.
+403	65	3	Heat a wok or large skillet over high heat. Add the vegetable oil and heat until shimmering.
+404	65	4	Add the chicken pieces to the wok and stir-fry until browned and cooked through, about 4-5 minutes.
+405	65	5	Remove the chicken from the wok and set aside. Add the garlic, ginger, and dried chilies to the wok and stir-fry for 30 seconds.
+406	65	6	Add the sauce mixture to the wok and bring to a simmer. Cook until the sauce thickens slightly, about 2-3 minutes.
+407	65	7	Return the cooked chicken to the wok and toss to coat in the sauce. Serve hot with steamed rice and garnish with sliced green onions.
+408	66	1	In a large pot, bring the chicken broth to a boil over medium-high heat. Add the tofu and mushrooms and cook for 2-3 minutes.
+409	66	2	Reduce the heat to low and stir in the miso paste until dissolved. Simmer for another 2-3 minutes.
+410	66	3	Add the spinach and green onions to the pot and cook until wilted, about 1-2 minutes.
+411	66	4	Remove the pot from the heat and stir in the soy sauce and sesame oil. Taste and adjust seasoning if necessary.
+412	66	5	Serve the hot pot immediately, garnished with additional sliced green onions and a drizzle of sesame oil if desired.
+413	66	6	Enjoy the hot pot with steamed rice or noodles on the side.
+414	67	1	In a medium saucepan, combine the milk, sugar, and vanilla extract. Heat over medium-low heat until the sugar has dissolved, stirring occasionally.
+415	67	2	In a separate bowl, whisk together the egg yolks and cornstarch until smooth.
+416	67	3	Slowly pour the hot milk mixture into the egg yolk mixture, whisking constantly to temper the eggs.
+417	67	4	Return the mixture to the saucepan and cook over medium heat, stirring constantly, until thickened, about 5-7 minutes.
+418	67	5	Remove from heat and stir in the butter until melted and smooth. Let the pastry cream cool slightly before using.
+419	67	6	Use the pastry cream as a filling for cakes, tarts, eclairs, or cream puffs. Enjoy!
+420	68	1	Preheat the oven to 350°F (175°C). Grease a 9-inch (23cm) pie dish with butter or cooking spray.
+421	68	2	In a large mixing bowl, whisk together the eggs, milk, salt, and pepper until well combined.
+422	68	3	Spread the grated cheese evenly over the bottom of the pie dish. Pour the egg mixture over the cheese.
+423	68	4	Bake in the preheated oven for 25-30 minutes, or until the center is set and the top is golden brown.
+424	68	5	Remove from the oven and let cool for a few minutes before slicing and serving. Enjoy!
+425	69	1	In a large pot, heat the oil over medium heat. Add the onion and cook until softened and translucent, about 5 minutes.
+426	69	2	Add the garlic and cook for another minute, until fragrant.
+427	69	3	Add the diced tomatoes, tomato paste, sugar, and spices to the pot. Stir to combine.
+428	69	4	Bring the sauce to a simmer and let it cook for about 20-25 minutes, stirring occasionally, until it thickens.
+429	69	5	Meanwhile, bring a large pot of salted water to a boil. Add the spaghetti and cook according to package instructions until al dente.
+430	69	6	Drain the spaghetti and add it to the pot with the sauce. Toss to coat the spaghetti evenly with the sauce.
+431	69	7	Serve the spaghetti bolognese hot, garnished with grated Parmesan cheese and fresh basil leaves, if desired.
+432	70	1	In a large mixing bowl, combine the flour, sugar, baking powder, and salt. In a separate bowl, whisk together the eggs, milk, and vanilla extract.
+433	70	2	Add the wet ingredients to the dry ingredients and stir until just combined. Be careful not to overmix.
+434	70	3	Heat a taiyaki pan or waffle iron and lightly grease with oil or cooking spray. Pour a small amount of batter into each mold, filling it halfway.
+435	70	4	Place a small amount of sweetened red bean paste in the center of each mold, then top with more batter to cover.
+436	70	5	Close the taiyaki pan or waffle iron and cook until golden brown and crispy, about 4-5 minutes.
+437	70	6	Remove the taiyaki from the pan and let cool for a few minutes before serving. Enjoy warm.

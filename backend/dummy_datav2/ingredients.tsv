@@ -1,0 +1,204 @@
+ing_id	ing_name	fat_per_100_gr_or_ml	protein_per_100_gr_or_ml	carbohydrates_per_100_gr_or_ml	calories_per_100_gr_or_ml
+1	Spaghetti pasta	1.00	13.00	74.00	371.00
+2	Ground beef	27.00	20.00	0.00	250.00
+3	Onion	0.10	1.10	9.30	40.00
+4	Garlic	0.50	6.00	33.00	149.00
+5	Carrot	0.24	0.93	9.58	41.00
+6	Celery	0.20	0.70	2.97	14.00
+7	Tomato paste	0.50	4.30	17.50	82.00
+8	Canned tomatoes	0.20	1.00	3.90	21.00
+9	Red wine	0.00	0.10	2.60	83.00
+10	Beef or chicken broth	1.10	1.60	0.60	12.00
+11	Bay leaves	8.36	7.61	74.97	313.00
+12	Dried oregano	4.28	9.00	68.92	265.00
+13	Dried basil	4.80	14.40	48.40	251.00
+14	Salt	0.00	0.00	0.00	0.00
+15	Pepper	3.30	10.40	64.80	251.00
+16	Olive oil	100.00	0.00	0.00	900.00
+17	Parmesan cheese	29.00	38.00	3.20	431.00
+18	Semi-sweet chocolate	31.30	4.60	59.40	530.00
+19	Unsalted butter	81.11	0.85	0.06	717.00
+20	Eggs	10.00	13.00	1.10	155.00
+21	Granulated sugar	0.00	0.00	100.00	387.00
+22	Heavy cream	34.00	2.80	2.10	345.00
+23	Vanilla extract	0.00	0.00	14.60	288.00
+24	Taco seasoning	7.00	3.00	53.00	289.00
+25	Tomato	0.20	0.90	3.90	18.00
+26	Lettuce	0.20	1.40	2.90	15.00
+27	Shredded cheese	33.00	25.00	0.00	400.00
+28	Sour cream	21.00	2.60	3.00	213.00
+29	Salsa	0.50	0.90	7.30	36.00
+30	Tortillas	5.70	8.70	48.10	297.00
+31	Sushi rice	0.00	6.80	79.00	360.00
+32	Nori seaweed sheets	0.40	0.40	6.70	35.00
+33	Rice vinegar	0.00	0.00	0.40	14.00
+34	Sugar	0.00	0.00	100.00	387.00
+35	Avocado	14.70	2.00	8.50	160.00
+36	Cucumber	0.10	0.60	2.20	15.00
+37	Crab or imitation crab	0.20	20.20	0.60	84.00
+38	Sesame seeds	50.00	17.00	23.00	573.00
+39	Soy sauce	0.10	1.90	6.30	61.00
+40	Wasabi	0.60	5.90	14.10	92.00
+41	Pickled ginger	0.10	0.30	7.70	30.00
+42	Ripe mango	0.27	0.82	14.98	60.00
+43	Yogurt	3.30	10.00	4.70	61.00
+44	Milk	3.60	3.30	4.70	64.00
+45	Cardamom powder	6.70	10.80	68.47	311.00
+46	Hamburger buns	4.00	10.00	50.00	273.00
+47	Cheddar cheese	33.00	25.00	1.30	406.00
+48	Pickles	0.30	0.90	5.00	12.00
+49	Ketchup	0.10	1.20	23.60	104.00
+50	Mustard	6.00	4.70	6.00	66.00
+51	Mayonnaise	79.00	0.60	1.30	718.00
+52	Pork loin	4.10	23.60	0.00	136.00
+53	Bell peppers	0.20	1.00	6.00	27.00
+54	Pineapple	0.10	0.50	13.10	50.00
+55	Cornstarch	0.10	0.30	91.30	381.00
+56	Brown sugar	0.00	0.00	100.00	387.00
+57	Vegetable oil	100.00	0.00	0.00	900.00
+58	Bell pepper (for garnish)	0.20	1.00	6.00	27.00
+59	Pineapple (for garnish)	0.10	0.50	13.10	50.00
+60	Green onions (for garnish)	0.20	1.80	7.30	32.00
+61	Sesame seeds (for garnish)	50.00	17.00	23.00	573.00
+62	Eggplant	0.20	0.80	5.70	24.00
+63	Potatoes	0.10	2.00	17.00	77.00
+64	Ground lamb	19.90	25.60	0.00	294.00
+65	Cinnamon	3.20	3.90	81.00	261.00
+66	Nutmeg	36.30	5.80	49.20	525.00
+67	All-purpose flour	1.00	10.40	76.00	364.00
+68	Butter	81.11	0.85	0.06	717.00
+69	Bread crumbs	4.30	12.40	74.50	390.00
+70	Coconut milk	23.84	2.00	6.34	230.00
+71	Water	0.00	0.00	0.00	0.00
+72	Raisins	0.50	2.50	79.20	299.00
+73	Cinnamon powder	3.19	3.99	80.59	261.00
+74	Basmati rice	0.50	7.00	35.00	160.00
+75	Sweet paprika	14.76	14.76	33.49	282.00
+76	Saffron threads	5.85	11.43	65.37	310.00
+77	Arborio rice	0.30	6.70	77.70	360.00
+78	Frozen peas	0.40	5.40	14.00	81.00
+79	Lemon wedges	0.30	0.80	2.50	12.00
+80	Ladyfingers	1.10	5.50	58.00	320.00
+81	Espresso	15.00	7.40	1.90	157.00
+82	Mascarpone cheese	47.00	4.50	3.00	460.00
+83	Cocoa powder	10.90	19.60	57.90	228.00
+84	Active dry yeast	1.10	24.50	21.60	228.00
+85	Chocolate chips	24.00	5.50	68.00	450.00
+86	Lime	0.30	0.70	11.80	30.00
+87	Jalapeno pepper	0.20	0.90	3.90	29.00
+88	Cilantro	0.50	2.10	3.70	23.00
+89	Spinach	0.40	2.90	3.60	23.00
+90	Feta cheese	21.00	14.00	4.00	264.00
+91	Dill	1.10	3.50	6.70	43.00
+92	Sticky rice	0.30	6.00	80.30	360.00
+93	Mango	0.30	0.80	14.80	60.00
+94	Cumin	22.27	17.81	44.24	375.00
+95	Garam masala	14.30	11.00	50.00	351.00
+96	Turmeric powder	9.88	9.68	67.14	354.00
+97	Black pepper	6.30	10.40	64.80	251.00
+98	Ricotta cheese	13.00	11.00	2.80	174.00
+99	Powdered sugar	0.00	0.00	100.00	387.00
+100	Candied fruit	0.00	0.00	75.00	310.00
+101	Pistachios	45.40	20.90	27.20	562.00
+102	Zucchini	0.50	1.20	3.10	17.00
+103	Yellow squash	0.20	0.60	2.00	15.00
+104	Fresh basil	0.60	3.15	2.65	23.00
+105	Radishes	0.10	0.70	2.00	16.00
+106	Cabbage	0.10	1.30	6.00	25.00
+107	Baking powder	0.00	0.00	100.00	401.00
+108	Honey	0.00	0.30	82.00	304.00
+109	Red bean paste	0.10	6.70	31.60	194.00
+110	Paneer cheese	20.00	18.00	1.50	265.00
+111	Green chilies	0.20	1.30	4.70	29.00
+112	Cumin seeds	22.27	17.81	44.24	375.00
+113	Coriander powder	17.77	12.37	49.67	351.00
+114	Red wine vinegar	0.00	0.00	0.20	3.00
+115	Fresh cilantro	0.50	2.10	3.70	23.00
+116	Cannoli shells	15.00	4.00	64.00	412.00
+117	Phyllo dough	13.00	8.00	58.00	347.00
+118	Thyme	7.04	8.09	63.94	276.00
+119	Fish fillets	0.90	20.50	0.00	105.00
+120	Fennel bulb	0.20	1.20	7.30	31.00
+121	White wine	0.10	0.10	2.60	82.00
+122	Orange juice	0.20	0.70	8.20	45.00
+123	Chicken breast	1.00	31.00	0.50	165.00
+124	Tofu	4.80	8.10	1.90	76.00
+125	Bean sprouts	0.10	3.40	3.10	32.00
+126	Shallots	0.10	2.50	16.80	72.00
+127	Red chili pepper	0.20	1.90	9.40	40.00
+128	Tamarind paste	0.60	2.00	68.00	287.00
+129	Fish sauce	0.10	2.60	1.80	12.00
+130	Palm sugar	0.00	0.00	100.00	387.00
+131	Roasted peanuts	49.20	26.30	16.10	600.00
+132	Lime wedges	0.10	0.40	2.80	11.00
+133	Gelatin powder	0.00	86.00	0.00	335.00
+134	Strawberries	0.30	0.80	7.70	32.00
+135	Cream cheese	34.50	6.20	3.90	350.00
+136	Flour	1.00	10.40	76.00	364.00
+137	Lemon zest	0.30	0.80	2.50	12.00
+138	Chicken broth	0.40	1.30	0.20	6.00
+139	Sake	0.00	0.30	1.40	134.00
+140	Mirin	0.00	0.50	40.00	238.00
+141	Shiitake mushrooms	0.20	2.20	3.30	34.00
+142	Enoki mushrooms	0.40	1.50	2.30	22.00
+143	Napa cabbage	0.10	1.20	3.20	16.00
+144	Green onions	0.20	1.80	7.30	32.00
+145	Fish balls	11.40	13.00	18.70	250.00
+146	Udon noodles	1.00	9.40	66.70	332.00
+147	Shirataki noodles	0.00	0.20	0.40	3.00
+148	Lemon peel	0.30	0.70	9.00	47.00
+149	Cinnamon stick	3.19	3.99	80.59	261.00
+150	Chicken thighs	8.69	17.55	0.00	150.00
+151	Green curry paste	1.60	2.00	8.00	50.00
+152	Bamboo shoots	0.10	0.70	3.10	15.00
+153	Thai basil leaves	0.64	3.15	2.65	23.00
+154	Pie crust	16.50	4.10	47.30	295.00
+155	Bacon	42.00	12.00	0.40	417.00
+156	Swiss cheese	27.80	25.40	0.40	380.00
+157	Ancho chilies	17.11	13.63	63.54	350.00
+158	Mulato chilies	12.19	11.30	64.33	328.00
+159	Pasilla chilies	13.72	12.14	65.11	335.00
+160	Coriander seeds	15.45	12.37	61.67	298.00
+161	Black peppercorns	6.33	10.95	38.33	251.00
+162	Cloves	20.00	6.00	65.00	323.00
+163	Oregano	4.28	9.00	68.92	265.00
+164	Garlic cloves	0.50	6.00	33.00	149.00
+165	Almonds	49.42	21.15	21.55	575.00
+166	Chocolate	31.30	4.60	59.40	530.00
+167	Cake batter	16.50	4.10	47.30	295.00
+168	Taiyaki mold	0.00	0.00	0.00	0.00
+169	Mixed vegetables	0.20	1.80	7.30	32.00
+170	Vegetable broth	0.20	0.50	0.10	4.00
+171	Ginger	0.80	1.80	17.80	80.00
+172	Chicken breasts	1.00	31.00	0.50	165.00
+173	Frozen mixed vegetables	0.20	1.80	7.30	32.00
+174	Duck	28.40	19.90	0.00	337.00
+175	Hoisin sauce	1.40	2.80	53.60	266.00
+176	Star anise	15.00	2.00	50.00	337.00
+177	Five-spice powder	3.30	7.60	59.20	314.00
+178	Cream	28.30	2.70	2.90	340.00
+179	Egg yolks	32.50	15.90	0.60	322.00
+180	Gelatin	0.00	86.00	0.00	335.00
+181	Semolina flour	1.05	12.68	73.92	360.00
+182	Oil	100.00	0.00	0.00	900.00
+183	Shrimp	0.90	20.30	0.00	106.00
+184	Lime juice	0.00	0.50	1.90	11.00
+185	Lemon juice	0.00	0.30	2.50	11.00
+186	Jalapeño	0.20	0.90	3.90	29.00
+187	Vanilla bean	0.10	0.30	12.00	288.00
+188	Beef stew meat	25.20	29.10	0.00	351.00
+189	Carrots	0.24	0.93	9.58	41.00
+190	Cardamom pods	6.70	10.80	68.47	311.00
+191	Peanuts	49.20	26.30	16.10	600.00
+192	Orange zest	0.00	0.20	13.80	131.00
+193	Basil	0.60	3.15	2.65	23.00
+194	Pork shoulder	20.30	26.60	0.00	308.00
+195	Hominy	0.30	3.60	22.60	119.00
+196	Sweet rice flour	0.00	0.80	85.60	354.00
+197	Potato starch	0.10	0.20	82.50	336.00
+198	Ginger paste	0.60	1.10	14.10	61.00
+199	Garlic paste	0.10	1.90	24.90	106.00
+200	Cilantro leaves	0.50	2.10	3.70	23.00
+201	Mint leaves	0.80	3.70	3.80	44.00
+202	Saffron	5.85	11.43	65.37	310.00
+203	Graham crackers	14.29	6.35	73.29	386.00

@@ -1,0 +1,61 @@
+chef_id	_name	Phone_number	birth_yr	Age	Years_of_Experience	List_of_Specializations_in_Nations	Chef_title
+1	John Smith	123	1980	42	20	Italian, French, Japanese	Chef
+2	Emily Johnson	234	1985	37	15	Mexican, Chinese, American	2nd Cook
+3	Michael Williams	345	1990	32	10	Indian, Greek, American	Assistant Chef
+4	Jessica Brown	456	1975	47	25	Spanish, Greek, Italian	Chef
+5	David Jones	567	1972	50	30	Italian, French, Japanese	1st Cook
+6	Sarah Davis	678	1988	34	8	Greek, Thai, Spanish	3rd Cook
+7	Daniel Miller	789	1979	43	22	American, Chinese, Indian	Chef
+8	Olivia Wilson	890	1983	39	18	Thai, Mexican, Greek	Chef
+9	James Moore	901	1970	52	35	Italian, Indian, French	Chef
+10	Emma Taylor	12	1987	35	9	Japanese, Mexican, Greek	2nd Cook
+11	Liam Anderson	123	1982	40	19	French, Greek, Italian	Assistant Chef
+12	Mia Thomas	234	1992	30	7	Chinese, Japanese, American	Chef
+13	William Lee	345	1984	38	17	Indian, Chinese, Mexican	3rd Cook
+14	Sophia Clark	456	1977	45	28	French, Italian, Spanish	Chef
+15	Benjamin Hall	567	1973	49	32	Japanese, Chinese, Thai	1st Cook
+16	Isabella Lewis	678	1989	33	11	Greek, Indian, Mexican	2nd Cook
+17	Ethan Walker	789	1981	41	21	Mexican, Thai, Chinese	Chef
+18	Charlotte Baker	890	1986	36	14	Italian, French, Mexican	Chef
+19	Noah Garcia	901	1978	44	26	Greek, Spanish, Italian	3rd Cook
+20	Amelia Murphy	12	1991	31	6	Japanese, Chinese, Indian	Assistant Chef
+21	Alexander Cook	123	1976	46	29	Italian, French, American	Chef
+22	Harper Gonzalez	234	1980	42	23	Greek, Chinese, Spanish	Chef
+23	Daniel Martinez	345	1984	38	16	Indian, Mexican, French	3rd Cook
+24	Addison Hill	456	1972	50	33	Italian, Greek, French	Chef
+25	Sebastian Perez	567	1988	34	12	Mexican, Spanish, American	2nd Cook
+26	Evelyn Bailey	678	1982	40	20	Chinese, Japanese, Thai	Assistant Chef
+27	Jackson Rivera	789	1990	32	9	Indian, Greek, Italian	Chef
+28	Lily Wood	890	1975	47	30	Thai, Chinese, Japanese	Chef
+29	Aiden Ward	901	1979	43	24	Greek, Mexican, Spanish	1st Cook
+30	Zoe Cooper	12	1986	36	15	Mexican, Italian, Thai	2nd Cook
+31	Miles Rivera	123	1987	35	18	Indian, Chinese, Thai	Assistant Chef
+32	Nora Peterson	234	1983	39	22	Italian, French, Greek	Chef
+33	Elijah Gray	345	1974	48	31	Chinese, Japanese, Thai	Chef
+34	Stella Murphy	456	1971	51	34	Mexican, Spanish, Indian	Chef
+35	Lucas Howard	567	1989	33	10	Italian, French, Greek	3rd Cook
+36	Hazel Adams	678	1978	44	27	Thai, Chinese, Japanese	Chef
+37	Owen Wright	789	1981	41	21	Indian, Greek, Italian	Chef
+38	Ellie Parker	890	1985	37	16	Mexican, Spanish, Japanese	Assistant Chef
+39	Isaac Cooper	901	1977	45	28	French, Greek, Italian	Chef
+40	Ruby Ross	12	1992	30	7	Spanish, Greek, Indian	Chef
+41	Levi Rogers	123	1976	46	29	Indian, Chinese, Thai	3rd Cook
+42	Luna Turner	234	1980	42	23	Mexican, Italian, French	Chef
+43	Henry Bell	345	1984	38	25	Greek, Spanish, Italian	Chef
+44	Mila Brooks	456	1973	49	32	Thai, Chinese, American	2nd Cook
+45	Leo Price	567	1970	52	35	Spanish, Indian, Greek	Chef
+46	Bella Wright	678	1988	34	10	Japanese, Chinese, Thai	Chef
+47	Jack Cox	789	1982	40	21	Indian, Greek, Italian	Chef
+48	Violet Long	890	1975	47	30	Italian, French, Spanish	Chef
+49	Luke Reed	901	1979	43	22	Mexican, Chinese, Thai	2nd Cook
+50	Ivy Gray	12	1986	36	15	Spanish, Indian, Greek	3rd Cook
+51	Owen Bailey	123	1987	35	18	Chinese, Japanese, Thai	Chef
+52	Willow Bell	234	1983	39	16	Indian, Greek, Spanish	3rd Cook
+53	Finn Cox	345	1974	48	31	Italian, French, Japanese	Chef
+54	Nova Long	456	1971	51	34	Greek, Spanish, Indian	Chef
+55	River Reed	567	1989	33	10	French, Italian, Spanish	Chef
+56	Juniper Gray	678	1978	44	27	Japanese, Chinese, Thai	Chef
+57	Aspen Bailey	789	1981	41	22	Italian, French, Greek	3rd Cook
+58	Phoenix Cox	890	1985	37	16	Spanish, Indian, Greek	Chef
+59	Skyler Bell	901	1977	45	28	Chinese, Japanese, Thai	Chef
+60	Blaze Long	12	1992	30	7	Indian, Greek, Spanish	1st Cook
