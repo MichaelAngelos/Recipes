@@ -83,17 +83,7 @@ INSERT INTO Users(user_id, username, _password, _role) VALUES(1, 'john_smith', '
 ,(57, 'user7', 'pass7', 0)
 ,(58, 'user8', 'pass8', 0)
 ,(59, 'user9', 'pass9', 0)
-,(60, 'user10', 'pass10', 0)
-,(380, 'user1', 'password1', 1)
-,(381, 'user2', 'password2', 0)
-,(382, 'user3', 'password3', 1)
-,(383, 'user4', 'password4', 0)
-,(384, 'user5', 'password5', 1)
-,(385, 'user6', 'password6', 0)
-,(386, 'user7', 'password7', 1)
-,(387, 'user8', 'password8', 0)
-,(388, 'user9', 'password9', 1)
-,(389, 'user10', 'password10', 0);
+,(60, 'user10', 'pass10', 0);
 
 # create ingredients records
 INSERT INTO ingredients(ing_id, ing_name, fat_per_100_gr_or_ml, protein_per_100_gr_or_ml, carbohydrates_per_100_gr_or_ml, calories_per_100_gr_or_ml) VALUES(1, 'Spaghetti pasta', 1.00, 13.00, 74.00, 371.00)

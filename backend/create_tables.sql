@@ -203,4 +203,8 @@ CREATE TABLE Ratings(
     FOREIGN KEY (chef_id) REFERENCES Cooks(chef_id)
 );
 
+CREATE VIEW sorted_steps AS
+SELECT * FROM recipe_steps
+order by rec_id,_order;
+
 SHOW TABLES;
