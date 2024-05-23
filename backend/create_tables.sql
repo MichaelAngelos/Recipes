@@ -111,6 +111,7 @@ CREATE TABLE Ingredients_in_Recipes(
 CREATE TABLE Ingredient_group(
 	group_id integer(10) NOT NULL,
     group_name varchar(64) NOT NULL,
+    _Description varchar(255) NOT NULL,
     PRIMARY KEY(group_id)
 );
 
