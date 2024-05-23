@@ -5,7 +5,7 @@ use Recipes;
 
 CREATE TABLE Users(
 	user_id integer(10) NOT NULL AUTO_INCREMENT,
-	username varchar(64) NOT NULL UNIQUE,
+	username varchar(64) NOT NULL,
     _password varchar(64) NOT NULL,
     _role boolean NOT NULL,
     PRIMARY KEY (user_id)
@@ -36,12 +36,17 @@ CREATE TABLE Recipe(
 	FOREIGN KEY (basic_ingredient_id) REFERENCES Ingredients(ing_id)
 );
 
-CREATE TABLE Recipe_Tags(
-	tag_id integer(10) NOT NULL AUTO_INCREMENT,
-    rec_id integer(10) NOT NULL,
-	tag varchar(64) NOT NULL,
-    FOREIGN KEY (rec_id) REFERENCES Recipe(id),
-    PRIMARY KEY(tag_id,rec_id)
+CREATE TABLE Tags(
+	id integer(10) NOT NULL AUTO_INCREMENT,
+	name varchar(64) NOT NULL,
+	PRIMARY KEY(id)
+);
+
+CREATE TABLE Recipe_belongs_to_Tags (
+	rec_id integer(10) NOT NULL,
+	tag_id integer(10) NOT NULL,
+	FOREIGN KEY(rec_id) REFERENCES Recipe(id),
+	FOREIGN KEY(tag_id) REFERENCES Tags(id)
 );
 
 CREATE TABLE Recipe_Steps(
@@ -106,6 +111,7 @@ CREATE TABLE Ingredients_in_Recipes(
 CREATE TABLE Ingredient_group(
 	group_id integer(10) NOT NULL,
     group_name varchar(64) NOT NULL,
+    _Description varchar(255) NOT NULL,
     PRIMARY KEY(group_id)
 );
 
