@@ -2,7 +2,7 @@ DELIMITER //
 
 CREATE PROCEDURE BackupDatabase()
 BEGIN
-    SET @dbBackup := CONCAT('mysqldump -u root -p  your_database_name > /path/to/backup/', DATE_FORMAT(NOW(), '%Y%m%d%H%i%s'), '_your_database_name.sql');
+    SET @dbBackup := CONCAT('mysqldump -u root -p  recipes > /path/to/backup/', DATE_FORMAT(NOW(), '%Y%m%d%H%i%s'), '_your_database_name.sql');
     PREPARE stmt FROM @dbBackup;
     EXECUTE stmt;
     DEALLOCATE PREPARE stmt;

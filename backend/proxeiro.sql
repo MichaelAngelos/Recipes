@@ -31,3 +31,68 @@ SELECT * FROM (
 ) as temp4 using (episode_id);
 
 SELECT * FROM Cooks where List_of_Specializations_in_Nations like '%American%' and Years_of_Experience = 25;
+
+SELECT * FROM recipe inner join meal_types_of_recipes ON id = rec_id inner join meal_type using (meal_id);
+
+SELECT GROUP_CONCAT(eq_id,'---',amount) FROM equipment GROUP BY rec_id;
+
+SELECT * FROM recipe inner join meal_types_of_recipes ON id = rec_id inner join meal_type using (meal_id)
+INNER JOIN(
+	SELECT rec_id,GROUP_CONCAT(eq_name,'---',amount SEPARATOR '___') AS equipment_used FROM equipment_in_recipes inner join equipment using (eq_id) GROUP BY rec_id
+) as a using (rec_id);
+
+SELECT *,GROUP_CONCAT(eq_name,'---',amount SEPARATOR '___') AS equipment_used
+FROM recipe
+inner join meal_types_of_recipes ON id = rec_id
+inner join meal_type using (meal_id)
+inner join equipment_in_recipes using (rec_id)
+inner join equipment using (eq_id)
+GROUP BY id;
+
+
+SELECT * FROM recipe inner join meal_types_of_recipes ON id = rec_id inner join meal_type using (meal_id)
+INNER JOIN(
+	SELECT rec_id,GROUP_CONCAT(eq_name,'---',amount SEPARATOR '___') AS equipment_used FROM equipment_in_recipes inner join equipment using (eq_id) GROUP BY rec_id
+) as a using (rec_id);
+
+SELECT Recipe.*,meal_type,GROUP_CONCAT(eq_name,'---',equipment_in_recipes.amount SEPARATOR '___') AS equipment_used,b.ingredients_used
+FROM recipe
+inner join meal_types_of_recipes ON id = rec_id
+inner join meal_type using (meal_id)
+inner join equipment_in_recipes using (rec_id)
+inner join equipment using (eq_id)
+inner join (
+ SELECT *,GROUP_CONCAT(ing_name,'---',amount SEPARATOR '___') as ingredients_used FROM recipe inner join ingredients_in_recipes on id = rec_id inner join ingredients using (ing_id) group by rec_id
+) as b using (rec_id)
+GROUP BY rec_id;
+
+SELECT recipe.*,GROUP_CONCAT(ing_name,'---',amount SEPARATOR '___') FROM Recipe inner join ingredients_in_recipes on id = rec_id inner join ingredients using (ing_id) group by rec_id;
+
+SELECT * FROM recipe inner join ingredients_in_recipes on id = rec_id inner join ingredients using (ing_id) order by id;
+
+#All Recipe meal_type,equipment and ingredients
+SELECT Recipe.*,meal_type,GROUP_CONCAT(eq_name,'---',equipment_in_recipes.amount SEPARATOR '___') AS equipment_used,b.ingredients_used
+FROM recipe
+inner join meal_types_of_recipes ON id = rec_id
+inner join meal_type using (meal_id)
+inner join equipment_in_recipes using (rec_id)
+inner join equipment using (eq_id)
+inner join (
+ SELECT *,GROUP_CONCAT(ing_name,'---',amount SEPARATOR '___') as ingredients_used FROM recipe inner join ingredients_in_recipes on id = rec_id inner join ingredients using (ing_id) group by rec_id
+) as b using (rec_id)
+GROUP BY rec_id;
+
+SELECT Recipe.*,meal_type,GROUP_CONCAT(eq_name,'---',equipment_in_recipes.amount SEPARATOR '___') AS equipment_used,b.ingredients_used
+FROM recipe
+left join meal_types_of_recipes ON id = rec_id
+left join meal_type using (meal_id)
+left join equipment_in_recipes using (rec_id)
+left join equipment using (eq_id)
+left join (
+ SELECT *,GROUP_CONCAT(ing_name,'---',amount SEPARATOR '___') as ingredients_used FROM recipe inner join ingredients_in_recipes on id = rec_id inner join ingredients using (ing_id) group by rec_id
+) as b using (rec_id)
+GROUP BY rec_id;
+
+SELECT * FROM recipe left join recipe_steps on id = rec_id order by id,_order;
+
+SELECT recipe.*,GROUP_CONCAT(step_details SEPARATOR '___') FROM recipe left join recipe_steps on id = rec_id group by rec_id order by id,_order;
