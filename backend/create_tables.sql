@@ -32,7 +32,11 @@ CREATE TABLE Recipe(
 	cook_time integer(10) NOT NULL,
 	portions integer(2) NOT NULL,
 	basic_ingredient_id integer(10) NOT NULL,
-    meal_type ENUM ('Breakfast','Brunch','Lunch','Dinner','Appetizers','Snacks','Desserts','Side Dishes'),
+    meal_type varchar(64) NOT NULL,
+    check (meal_type in ('Breakfast','Brunch','Lunch','Dinner','Appetizers','Snacks','Desserts','Side Dishes')),
+    tip_1 varchar(255),
+    tip_2 varchar(255),
+    tip_3 varchar(255),
 	PRIMARY KEY(id),
 	FOREIGN KEY (basic_ingredient_id) REFERENCES Ingredients(ing_id)
 );
@@ -181,5 +185,38 @@ CREATE TABLE Ratings(
 CREATE VIEW sorted_steps AS
 SELECT * FROM recipe_steps
 order by rec_id,_order;
+
+#drop view all_recipe_data;
+CREATE VIEW all_recipe_data AS
+SELECT Recipe.*,category_of_food.cat_name  as category,GROUP_CONCAT(eq_name,'---',equipment_in_recipes.amount SEPARATOR '___') AS equipment_used,
+ing_table.ingredients_used,steps.ordered_steps,tags_fetch.tag_list,theme_name,theme_desc,fat,protein,carbohydrates,calories,cook_list
+FROM recipe
+left join equipment_in_recipes on id = rec_id
+left join equipment using (eq_id)
+left join (
+ SELECT *,GROUP_CONCAT(ing_name,'---',amount SEPARATOR '___') as ingredients_used FROM recipe inner join ingredients_in_recipes on id = rec_id inner join ingredients using (ing_id) group by rec_id
+) as ing_table using (rec_id)
+left join (
+	SELECT recipe.*,GROUP_CONCAT(step_details SEPARATOR '___') as ordered_steps FROM recipe left join sorted_steps on id = rec_id group by recipe.id
+) as steps on recipe.id = steps.id
+left join (
+	SELECT *,GROUP_CONCAT(tag SEPARATOR '___') as tag_list FROM RECIPE left join recipe_tags on id = rec_id group by id
+) as tags_fetch on recipe.id = tags_fetch.rec_id
+left join recipe_misc on recipe.id = recipe_misc.rec_id
+left join theme using (theme_id)
+left join recipe_nutrition_per_portion on recipe.id = recipe_nutrition_per_portion.rec_id
+left join (
+	SELECT rec_id,GROUP_CONCAT(chef_id SEPARATOR '___') as cook_list FROM cooks_in_recipe GROUP BY rec_id
+) as cooks_list on recipe.id = cooks_list.rec_id
+left join (
+	SELECT * FROM ingredient_belongs_in_group inner join ingredient_group using (group_id)
+) as category_of_food on recipe.basic_ingredient_id = category_of_food.ing_id
+GROUP BY id;
+
+SELECT * FROM all_recipe_data;
+
+DELIMITER ;
+
+
 
 SHOW TABLES;

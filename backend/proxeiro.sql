@@ -197,4 +197,28 @@ SELECT * FROM meal_type;
 SELECT * FROM Recipe;
 
 SELECT id,CookingorConfectionary,Nation,Difficulty_level,recipe_name,description_,prep_time,cook_time,portions,basic_ingredient_id,meal_type.meal_type
-FROM recipe inner join meal_types_of_recipes on id=rec_id inner join meal_type using (meal_id) order by id asc
+FROM recipe inner join meal_types_of_recipes on id=rec_id inner join meal_type using (meal_id) order by id asc;
+
+SELECT * FROM meal_types_of_recipes;
+
+SELECT * FROM all_recipe_data;
+SELECT * FROM recipe;
+SELECT * FROM ingredients_in_recipes;
+
+START TRANSACTION;
+
+-- Execute your SQL statements
+INSERT INTO recipe (CookingorConfectionary, Nation,Difficulty_Level,recipe_name,description_,prep_time,cook_time,portions,basic_ingredient_id,meal_type)
+VALUES (0,"Greek",2,"Tzatziki","Delicious condiment",10,10,4,9,"asdasdasdsds");
+
+-- Check for errors or conditions
+-- If an error occurs, rollback the transaction
+COMMIT;
+
+SELECT * FROM recipe;
+SELECT * FROM cooks_in_recipe;
+
+CALL InsertRecipeWithChef(0, 'Greek', 2, 'Tzatziki', 'Delicious condiment', 10, 10, 4, 9, 'Side Dishes', 5);
+
+SELECT _role FROM users where user_id = 4;
+
