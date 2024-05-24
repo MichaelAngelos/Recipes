@@ -32,21 +32,21 @@ CREATE TABLE Recipe(
 	cook_time integer(10) NOT NULL,
 	portions integer(2) NOT NULL,
 	basic_ingredient_id integer(10) NOT NULL,
+    meal_type varchar(64) NOT NULL,
+    check (meal_type in ('Breakfast','Brunch','Lunch','Dinner','Appetizers','Snacks','Desserts','Side Dishes')),
+    tip_1 varchar(255),
+    tip_2 varchar(255),
+    tip_3 varchar(255),
 	PRIMARY KEY(id),
 	FOREIGN KEY (basic_ingredient_id) REFERENCES Ingredients(ing_id)
 );
 
-CREATE TABLE Tags(
-	id integer(10) NOT NULL AUTO_INCREMENT,
-	name varchar(64) NOT NULL,
-	PRIMARY KEY(id)
-);
-
-CREATE TABLE Recipe_belongs_to_Tags (
-	rec_id integer(10) NOT NULL,
-	tag_id integer(10) NOT NULL,
-	FOREIGN KEY(rec_id) REFERENCES Recipe(id),
-	FOREIGN KEY(tag_id) REFERENCES Tags(id)
+CREATE TABLE Recipe_Tags(
+	tag_id integer(10) NOT NULL AUTO_INCREMENT,
+    rec_id integer(10) NOT NULL,
+	tag varchar(64) NOT NULL,
+    FOREIGN KEY (rec_id) REFERENCES Recipe(id),
+    PRIMARY KEY(tag_id,rec_id)
 );
 
 CREATE TABLE Recipe_Steps(
@@ -66,20 +66,6 @@ CREATE TABLE Recipe_Nutrition_per_Portion(
     calories Decimal(5,2) NOT NULL,
     FOREIGN KEY (rec_id) REFERENCES Recipe(id),
     PRIMARY KEY(rec_id)
-);
-
-CREATE TABLE Meal_Type(
-	meal_id integer(10) NOT NULL AUTO_INCREMENT,
-    meal_type varchar(32) NOT NULL,
-    PRIMARY KEY(meal_id)
-);
-
-CREATE TABLE Meal_Types_of_Recipes(
-	meal_id integer(10) NOT NULL,
-    rec_id integer(10) NOT NULL,
-    FOREIGN KEY (meal_id) REFERENCES Meal_Type(meal_id),
-    FOREIGN KEY (rec_id) REFERENCES Recipe(id),
-    PRIMARY KEY(meal_id,rec_id)
 );
 
 CREATE TABLE Equipment(
@@ -112,6 +98,7 @@ CREATE TABLE Ingredient_group(
 	group_id integer(10) NOT NULL,
     group_name varchar(64) NOT NULL,
     _Description varchar(255) NOT NULL,
+    cat_name varchar(64) NOT NULL,
     PRIMARY KEY(group_id)
 );
 
@@ -123,12 +110,6 @@ CREATE TABLE Ingredient_Belongs_in_Group(
     PRIMARY KEY(group_id,ing_id)
 );
 
-CREATE TABLE Categories(
-	cat_id integer(10) NOT NULL,
-    cat_name varchar(64) NOT NULL,
-    PRIMARY KEY(cat_id)
-);
-
 CREATE TABLE Theme(
 	theme_id integer(10) NOT NULL,
     theme_name varchar(64) NOT NULL,
@@ -138,10 +119,8 @@ CREATE TABLE Theme(
 
 CREATE TABLE Recipe_misc(
 	rec_id integer(10) NOT NULL,
-    cat_id integer(10) NOT NULL,
     theme_id integer(10) NOT NULL,
     FOREIGN KEY (rec_id) REFERENCES Recipe(id),
-    FOREIGN KEY (cat_id) REFERENCES Categories(cat_id),
     FOREIGN KEY (theme_id) REFERENCES Theme(theme_id),
     PRIMARY KEY(rec_id)
 );
@@ -151,7 +130,7 @@ CREATE TABLE Cooks(
     _name varchar(64) NOT NULL,
 	Phone_number integer(10) NOT NULL,
     birth_yr integer(4) NOT NULL,
-    Age integer(2) NOT NULL,
+    Age integer(2) NOT NULL CHECK (Age > 0),
     Years_of_Experience integer(2) NOT NULL,
     List_of_Specializations_in_Nations varchar(255) NOT NULL,
     Chef_title varchar(32) NOT NULL,
@@ -206,5 +185,38 @@ CREATE TABLE Ratings(
 CREATE VIEW sorted_steps AS
 SELECT * FROM recipe_steps
 order by rec_id,_order;
+
+#drop view all_recipe_data;
+CREATE VIEW all_recipe_data AS
+SELECT Recipe.*,category_of_food.cat_name  as category,GROUP_CONCAT(eq_name,'---',equipment_in_recipes.amount SEPARATOR '___') AS equipment_used,
+ing_table.ingredients_used,steps.ordered_steps,tags_fetch.tag_list,theme_name,theme_desc,fat,protein,carbohydrates,calories,cook_list
+FROM recipe
+left join equipment_in_recipes on id = rec_id
+left join equipment using (eq_id)
+left join (
+ SELECT *,GROUP_CONCAT(ing_name,'---',amount SEPARATOR '___') as ingredients_used FROM recipe inner join ingredients_in_recipes on id = rec_id inner join ingredients using (ing_id) group by rec_id
+) as ing_table using (rec_id)
+left join (
+	SELECT recipe.*,GROUP_CONCAT(step_details SEPARATOR '___') as ordered_steps FROM recipe left join sorted_steps on id = rec_id group by recipe.id
+) as steps on recipe.id = steps.id
+left join (
+	SELECT *,GROUP_CONCAT(tag SEPARATOR '___') as tag_list FROM RECIPE left join recipe_tags on id = rec_id group by id
+) as tags_fetch on recipe.id = tags_fetch.rec_id
+left join recipe_misc on recipe.id = recipe_misc.rec_id
+left join theme using (theme_id)
+left join recipe_nutrition_per_portion on recipe.id = recipe_nutrition_per_portion.rec_id
+left join (
+	SELECT rec_id,GROUP_CONCAT(chef_id SEPARATOR '___') as cook_list FROM cooks_in_recipe GROUP BY rec_id
+) as cooks_list on recipe.id = cooks_list.rec_id
+left join (
+	SELECT * FROM ingredient_belongs_in_group inner join ingredient_group using (group_id)
+) as category_of_food on recipe.basic_ingredient_id = category_of_food.ing_id
+GROUP BY id;
+
+SELECT * FROM all_recipe_data;
+
+DELIMITER ;
+
+
 
 SHOW TABLES;

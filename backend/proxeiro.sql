@@ -173,4 +173,52 @@ left join (
 ) as cooks_list on recipe.id = cooks_list.rec_id
 GROUP BY id;
 
-select * from cooks_in_recipe order by rec_id
+select * from cooks_in_recipe order by rec_id;
+
+SELECT episode_id,chef_id,SUM(chef_title_as_num) as title_sum
+from (
+	select *,
+	CASE
+		WHEN chef_title = 'Chef' THEN 1
+		WHEN chef_title = 'Assistant Chef' THEN 2
+		WHEN chef_title = '1st Cook' THEN 3
+		WHEN chef_title = '2nd Cook' THEN 4
+		WHEN chef_title = '3rd Cook' THEN 5
+	END AS chef_title_as_num
+	from cooks
+	left join episode_list using (chef_id)
+) as temp group by episode_id order by title_sum desc limit 10;
+
+SELECT episode_id,cooks.* FROM episode_list inner join cooks using (chef_id)
+UNION
+SELECT episode_id,cooks.* FROM episode_judges inner join cooks using (chef_id);
+
+SELECT * FROM meal_type;
+SELECT * FROM Recipe;
+
+SELECT id,CookingorConfectionary,Nation,Difficulty_level,recipe_name,description_,prep_time,cook_time,portions,basic_ingredient_id,meal_type.meal_type
+FROM recipe inner join meal_types_of_recipes on id=rec_id inner join meal_type using (meal_id) order by id asc;
+
+SELECT * FROM meal_types_of_recipes;
+
+SELECT * FROM all_recipe_data;
+SELECT * FROM recipe;
+SELECT * FROM ingredients_in_recipes;
+
+START TRANSACTION;
+
+-- Execute your SQL statements
+INSERT INTO recipe (CookingorConfectionary, Nation,Difficulty_Level,recipe_name,description_,prep_time,cook_time,portions,basic_ingredient_id,meal_type)
+VALUES (0,"Greek",2,"Tzatziki","Delicious condiment",10,10,4,9,"asdasdasdsds");
+
+-- Check for errors or conditions
+-- If an error occurs, rollback the transaction
+COMMIT;
+
+SELECT * FROM recipe;
+SELECT * FROM cooks_in_recipe;
+
+CALL InsertRecipeWithChef(0, 'Greek', 2, 'Tzatziki', 'Delicious condiment', 10, 10, 4, 9, 'Side Dishes', 5);
+
+SELECT _role FROM users where user_id = 4;
+
