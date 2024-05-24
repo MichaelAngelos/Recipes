@@ -1,11 +1,11 @@
-group_id	group_name
-1	Grains
-2	Proteins
-3	Vegetables
-4	Fruits
-5	Dairy
-6	Fats and Oils
-7	Legumes and Nuts
-8	Sugars and Sweeteners
-9	Beverages
-10	Processed and Packaged Foods
+group_id	group_name	group_desc	cat_name
+1	Vegetables	All raw vegetables, e.g., lettuce, cabbage, carrot, tomato, cucumber, onion, etc. All cooked vegetables, e.g., broccoli, cauliflower, zucchini, greens, beets, etc. Starchy vegetables, e.g., peas, corn, squash. Potatoes and their varieties are not included.	Vegetable-based
+2	Fruits	All raw fruits, e.g., oranges, apples, pears, bananas, peaches, etc. All dried fruits, e.g., apricots, raisins, figs, etc. Natural fruit juices (100% without added sugar).	Fruit-based
+3	Cereals and Potatoes	Consists of grains and starchy vegetables like bread, rice, pasta, and potatoes. These foods are rich in carbohydrates and nutrients like fiber, vitamins, and minerals, providing energy and supporting overall health.	Carbohydrate-Rich
+4	Milk and its products	Consists of milk and its products,for example cheese or yogurt. Does not include butter	Dairy
+5	Legumes	Lentils, Beans, Chickpeas, Fava beans, Dry peas, Varieties of all the above	Legumes
+6	Red Meat	Beef, veal, Pork, Lamb, sheep, Goat, Game: e.g., wild boar, deer, hare, All processed products of the above	Red Meat-Based
+7	White Meat	Chicken, Turkey, Duck, Rabbit, Game: e.g., pheasant, quail, partridge, All processed products of the above	Poultry
+8	eggs	All eggs	Eggs
+9	Fish and Seafood	Fish, for example, sardines, anchovy, hake, sprat, horse mackerel, scorpionfish, red porgy, bogue, cod, haddock, tuna, sea bass, sea bream, mullet. Seafood (mollusks, crustaceans, shellfish), for example, squid, cuttlefish, octopus, shrimp, mussels, oysters.	Seafood
+10	Added Fats and Οils, Οlives and Νuts	Added fats and oils: Olive oil Other plant-based oils (seed oils): sunflower oil, corn oil, soybean oil, sesame oil, etc. Margarine Butter Olives Nuts and seeds Walnuts, almonds, pistachios, hazelnuts, etc. Sunflower seeds, sesame seeds, etc. Spreads derived from the above (e.g., tahini)	Fatty Food
