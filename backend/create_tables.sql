@@ -32,21 +32,17 @@ CREATE TABLE Recipe(
 	cook_time integer(10) NOT NULL,
 	portions integer(2) NOT NULL,
 	basic_ingredient_id integer(10) NOT NULL,
+    meal_type ENUM ('Breakfast','Brunch','Lunch','Dinner','Appetizers','Snacks','Desserts','Side Dishes'),
 	PRIMARY KEY(id),
 	FOREIGN KEY (basic_ingredient_id) REFERENCES Ingredients(ing_id)
 );
 
-CREATE TABLE Tags(
-	id integer(10) NOT NULL AUTO_INCREMENT,
-	name varchar(64) NOT NULL,
-	PRIMARY KEY(id)
-);
-
-CREATE TABLE Recipe_belongs_to_Tags (
-	rec_id integer(10) NOT NULL,
-	tag_id integer(10) NOT NULL,
-	FOREIGN KEY(rec_id) REFERENCES Recipe(id),
-	FOREIGN KEY(tag_id) REFERENCES Tags(id)
+CREATE TABLE Recipe_Tags(
+	tag_id integer(10) NOT NULL AUTO_INCREMENT,
+    rec_id integer(10) NOT NULL,
+	tag varchar(64) NOT NULL,
+    FOREIGN KEY (rec_id) REFERENCES Recipe(id),
+    PRIMARY KEY(tag_id,rec_id)
 );
 
 CREATE TABLE Recipe_Steps(
@@ -66,20 +62,6 @@ CREATE TABLE Recipe_Nutrition_per_Portion(
     calories Decimal(5,2) NOT NULL,
     FOREIGN KEY (rec_id) REFERENCES Recipe(id),
     PRIMARY KEY(rec_id)
-);
-
-CREATE TABLE Meal_Type(
-	meal_id integer(10) NOT NULL AUTO_INCREMENT,
-    meal_type varchar(32) NOT NULL,
-    PRIMARY KEY(meal_id)
-);
-
-CREATE TABLE Meal_Types_of_Recipes(
-	meal_id integer(10) NOT NULL,
-    rec_id integer(10) NOT NULL,
-    FOREIGN KEY (meal_id) REFERENCES Meal_Type(meal_id),
-    FOREIGN KEY (rec_id) REFERENCES Recipe(id),
-    PRIMARY KEY(meal_id,rec_id)
 );
 
 CREATE TABLE Equipment(
@@ -112,6 +94,7 @@ CREATE TABLE Ingredient_group(
 	group_id integer(10) NOT NULL,
     group_name varchar(64) NOT NULL,
     _Description varchar(255) NOT NULL,
+    cat_name varchar(64) NOT NULL,
     PRIMARY KEY(group_id)
 );
 
@@ -123,12 +106,6 @@ CREATE TABLE Ingredient_Belongs_in_Group(
     PRIMARY KEY(group_id,ing_id)
 );
 
-CREATE TABLE Categories(
-	cat_id integer(10) NOT NULL,
-    cat_name varchar(64) NOT NULL,
-    PRIMARY KEY(cat_id)
-);
-
 CREATE TABLE Theme(
 	theme_id integer(10) NOT NULL,
     theme_name varchar(64) NOT NULL,
@@ -138,10 +115,8 @@ CREATE TABLE Theme(
 
 CREATE TABLE Recipe_misc(
 	rec_id integer(10) NOT NULL,
-    cat_id integer(10) NOT NULL,
     theme_id integer(10) NOT NULL,
     FOREIGN KEY (rec_id) REFERENCES Recipe(id),
-    FOREIGN KEY (cat_id) REFERENCES Categories(cat_id),
     FOREIGN KEY (theme_id) REFERENCES Theme(theme_id),
     PRIMARY KEY(rec_id)
 );
@@ -151,7 +126,7 @@ CREATE TABLE Cooks(
     _name varchar(64) NOT NULL,
 	Phone_number integer(10) NOT NULL,
     birth_yr integer(4) NOT NULL,
-    Age integer(2) NOT NULL,
+    Age integer(2) NOT NULL CHECK (Age > 0),
     Years_of_Experience integer(2) NOT NULL,
     List_of_Specializations_in_Nations varchar(255) NOT NULL,
     Chef_title varchar(32) NOT NULL,
