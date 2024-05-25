@@ -774,7 +774,7 @@ app.post(startURL+"/crud_admin",(req,res) => {
         : (operation_on_Table == "update") ? [req.body.data.column_set,req.body.data.row_id]
         : null
 
-        recipes.query(sql,sql_parameters,(err,result) => {
+        recipes.query("SELECT * FROM users where user_id =" + req.body.user_id,(err,result) => {
             if (err){
                 console.log(err)
                 res.status(400).send(err)
@@ -787,8 +787,33 @@ app.post(startURL+"/crud_admin",(req,res) => {
                 return connection.release()
             }
             else {
-                res.send(result);
-                connection.release()
+                result=result[0];
+
+                if (result["_role"] != 1) {
+                    console.log("Invalid user id given.User id provided is not of admin")
+                    return res.status(400).send("Invalid user id given.User id provided is not of admin")
+                }
+                else {
+                    recipes.query(sql,sql_parameters,(err,result) => {
+                        if (err){
+                            console.log(err)
+                            res.status(400).send(err)
+                            return connection.release()
+                        }
+            
+                        if (result.length === 0){
+                            console.log("Got Empty response from Database\nPropably no dummy data available for request")
+                            res.status(204).send()
+                            return connection.release()
+                        }
+                        else {
+                            res.send(result);
+                            connection.release()
+                        }
+                        console.log("Successfully performed operation:")
+                        console.log(result)
+                    })
+                }
             }
             console.log("Successfully performed operation:")
             console.log(result)
