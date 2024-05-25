@@ -37,6 +37,19 @@ function separate_result_column(result_column) {
     }
 }
 
+function isJsonString(param) {
+    if (typeof param !== 'string') {
+      return false;
+    }
+    
+    try {
+      JSON.parse(param);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
 const connection_string={
     host: 'localhost',
     user: 'root',
@@ -678,5 +691,110 @@ app.post(startURL+"/newrecipe",(req,res) => {
         })
     })
 })
+
+tables_of_db = [
+    "cooks",
+    "cooks_in_recipe",
+    "episode_judges",
+    "episode_list",
+    "episodes",
+    "equipment",
+    "equipment_in_recipes",
+    "ingredient_belongs_in_group",
+    "ingredient_group",
+    "ingredients",
+    "ingredients_in_recipes",
+    "ratings",
+    "recipe",
+    "recipe_misc",
+    "recipe_nutrition_per_portion",
+    "recipe_steps",
+    "recipe_tags",
+    "sorted_steps",
+    "theme",
+    "users",
+]
+
+operations_of_tables = {
+    "cooks" : {
+        "add" : "INSERT INTO cooks (name,Phone_number,birth_yr,Age,Years_of_Experience,List_of_Specializations_in_Nations,Chef_title) VALUES (?,?,?,?,?,?,?)",
+        "update" : "UPDATE cooks SET ? where chef_id = ?",
+    },
+    "cooks_in_recipe" : {
+        "add" : "INSERT INTO cooks (chef_id,rec_id) VALUES (?,?)",
+        "update" : "UPDATE cooks SET ? where chef_id = ?",
+    }
+}
+
+app.post(startURL+"/crud_admin",(req,res) => {
+     //Parameter Checking
+    if (req.body.user_id === undefined || req.body.user_id == ''){
+        console.log("Didn't provide user id for admin operation")
+        return res.status(400).send("Didn't provide user id for admin operation")
+    }
+    if (!tables_of_db.includes(req.body.table)){
+        console.log("Table parameter is incorrect,provide the name of an existing table")
+        return res.status(400).send("Table parameter is incorrect,provide the name of an existing table")
+    }
+    if ((req.body.operation != "add") && (req.body.operation !="remove") && (req.body.operation !="update") && (req.body.operation !="read")){
+        console.log("Operation not defined properly.Must be either add,remove or update")
+        return res.status(400).send("Operation not defined properly.Must be either add,remove or update")
+    }
+    if (req.body.operation != "read" && req.body.data === undefined) {
+        console.log("No data parameter given")
+        return res.status(400).send("No data parameter given")
+    }
+    
+    operation_on_Table = req.body.operation
+    table_to_operate_on =  req.body.table
+
+    recipes.getConnection((err,connection) => {
+        if (err){
+            console.log("error connecting to db")
+            res.status(500).send()
+            connection.release()
+            throw err
+        }
+        console.log("Connected!\n")
+
+        let sql;
+        if (operation_on_Table == "read") {
+            sql = "SELECT * FROM " + table_to_operate_on
+        }
+        else if (operation_on_Table == "remove") {
+            sql = "DELETE FROM " + table_to_operate_on + " WHERE " + req.body.data.condition
+        }
+        else if (operation_on_Table == "update") {
+            sql = "UPDATE " + table_to_operate_on + " SET " + req.body.data.column_set + " WHERE " + req.body.data.condition
+        }
+        else sql=operations_of_tables[req.body.table][req.body.operation]
+
+        sql_parameters = 
+        (operation_on_Table == "add") ? req.body.data.entry_list
+        : (operation_on_Table == "update") ? [req.body.data.column_set,req.body.data.row_id]
+        : null
+
+        recipes.query(sql,sql_parameters,(err,result) => {
+            if (err){
+                console.log(err)
+                res.status(400).send(err)
+                return connection.release()
+            }
+
+            if (result.length === 0){
+                console.log("Got Empty response from Database\nPropably no dummy data available for request")
+                res.status(204).send()
+                return connection.release()
+            }
+            else {
+                res.send(result);
+                connection.release()
+            }
+            console.log("Successfully performed operation:")
+            console.log(result)
+        })
+    })
+})
+
 
 app.listen(PORT, () => {console.log('Server started on port 5000')})
