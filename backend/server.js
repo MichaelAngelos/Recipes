@@ -604,7 +604,6 @@ app.post(startURL + "/newepisode", (req, res) => {
     });
 });
 
-app.listen(PORT, () => {console.log('Server started on port 5000')})
 app.post(startURL+"/newrecipe",(req,res) => {
     //Parameter Checking
     error_proper_syntax_string=
