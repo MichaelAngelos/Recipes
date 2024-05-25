@@ -1,0 +1,281 @@
+tag_id	rec_id	tag_name
+114	1	Pasta
+16	1	Comfort Food
+38	1	Main Course
+111	1	Italian
+106	2	Dessert
+108	2	French
+13	2	Chocolate
+97	2	Sweet
+113	3	Mexican
+95	3	Street Food
+38	3	Main Course
+99	3	Tacos
+112	4	Japanese
+72	4	Seafood
+2	4	Appetizer
+96	4	Sushi
+107	5	Drink
+110	5	Indian
+4	5	Beverage
+76	5	Smoothie
+1	6	American
+25	6	Fast Food
+38	6	Main Course
+7	6	Burger
+105	7	Chinese
+90	7	Stir-fry
+38	7	Main Course
+98	7	Sweet and Sour
+109	8	Greek
+9	8	Casserole
+38	8	Main Course
+16	8	Comfort Food
+106	9	Dessert
+119	9	Thai
+57	9	Pudding
+97	9	Sweet
+118	10	Spanish
+62	10	Rice Dish
+38	10	Main Course
+72	10	Seafood
+106	11	Dessert
+111	11	Italian
+14	11	Coffee
+97	11	Sweet
+115	12	Pastry
+108	12	French
+5	12	Breakfast
+77	12	Snack
+113	13	Mexican
+22	13	Dip
+2	13	Appetizer
+102	13	Vegan
+106	14	Dessert
+112	14	Japanese
+77	14	Snack
+97	14	Sweet
+110	15	Indian
+19	15	Curry
+38	15	Main Course
+85	15	Spicy
+106	16	Dessert
+1	16	American
+18	16	Cookies
+97	16	Sweet
+105	17	Chinese
+38	17	Main Course
+85	17	Spicy
+10	17	Chicken
+109	18	Greek
+2	18	Appetizer
+115	18	Pastry
+103	18	Vegetarian
+106	19	Dessert
+119	19	Thai
+97	19	Sweet
+60	19	Rice
+78	20	Soup
+118	20	Spanish
+15	20	Cold Dish
+102	20	Vegan
+106	21	Dessert
+111	21	Italian
+115	21	Pastry
+97	21	Sweet
+108	22	French
+86	22	Stew
+102	22	Vegan
+38	22	Main Course
+113	23	Mexican
+78	23	Soup
+38	23	Main Course
+16	23	Comfort Food
+106	24	Dessert
+112	24	Japanese
+48	24	Pancake
+97	24	Sweet
+110	25	Indian
+103	25	Vegetarian
+19	25	Curry
+38	25	Main Course
+1	26	American
+3	26	Barbecue
+38	26	Main Course
+16	26	Comfort Food
+105	27	Chinese
+90	27	Stir-fry
+85	27	Spicy
+38	27	Main Course
+106	28	Dessert
+109	28	Greek
+28	28	Fried
+97	28	Sweet
+119	29	Thai
+45	29	Noodles
+90	29	Stir-fry
+38	29	Main Course
+106	30	Dessert
+118	30	Spanish
+28	30	Fried
+97	30	Sweet
+106	31	Dessert
+111	31	Italian
+97	31	Sweet
+12	31	Chilled
+108	32	French
+72	32	Seafood
+86	32	Stew
+38	32	Main Course
+113	33	Mexican
+38	33	Main Course
+95	33	Street Food
+54	33	Pork
+106	34	Dessert
+112	34	Japanese
+77	34	Snack
+97	34	Sweet
+110	35	Indian
+62	35	Rice Dish
+38	35	Main Course
+85	35	Spicy
+106	36	Dessert
+1	36	American
+8	36	Cake
+97	36	Sweet
+105	37	Chinese
+38	37	Main Course
+17	37	Communal
+6	37	Broth
+106	38	Dessert
+109	38	Greek
+115	38	Pastry
+97	38	Sweet
+119	39	Thai
+19	39	Curry
+85	39	Spicy
+38	39	Main Course
+118	40	Spanish
+47	40	Omelette
+2	40	Appetizer
+38	40	Main Course
+106	41	Dessert
+111	41	Italian
+28	41	Fried
+97	41	Sweet
+108	42	French
+71	42	Savory
+100	42	Tart
+38	42	Main Course
+113	43	Mexican
+68	43	Sauce
+38	43	Main Course
+85	43	Spicy
+106	44	Dessert
+112	44	Japanese
+115	44	Pastry
+97	44	Sweet
+110	45	Indian
+62	45	Rice Dish
+103	45	Vegetarian
+38	45	Main Course
+1	46	American
+71	46	Savory
+52	46	Pie
+38	46	Main Course
+105	47	Chinese
+38	47	Main Course
+63	47	Roasted
+24	47	Duck
+106	48	Dessert
+111	48	Italian
+29	48	Frozen
+97	48	Sweet
+110	49	Indian
+95	49	Street Food
+77	49	Snack
+85	49	Spicy
+116	50	Peruvian
+2	50	Appetizer
+72	50	Seafood
+58	50	Raw
+106	51	Dessert
+108	51	French
+20	51	Custard
+97	51	Sweet
+119	52	Thai
+19	52	Curry
+43	52	Mild
+38	52	Main Course
+118	53	Spanish
+47	53	Omelette
+2	53	Appetizer
+38	53	Main Course
+106	54	Dessert
+111	54	Italian
+115	54	Pastry
+97	54	Sweet
+108	55	French
+86	55	Stew
+102	55	Vegan
+38	55	Main Course
+113	56	Mexican
+78	56	Soup
+38	56	Main Course
+16	56	Comfort Food
+106	57	Dessert
+112	57	Japanese
+77	57	Snack
+97	57	Sweet
+110	58	Indian
+62	58	Rice Dish
+38	58	Main Course
+85	58	Spicy
+106	59	Dessert
+1	59	American
+8	59	Cake
+97	59	Sweet
+105	60	Chinese
+38	60	Main Course
+17	60	Communal
+6	60	Broth
+106	61	Dessert
+109	61	Greek
+115	61	Pastry
+97	61	Sweet
+119	62	Thai
+19	62	Curry
+85	62	Spicy
+38	62	Main Course
+118	63	Spanish
+47	63	Omelette
+2	63	Appetizer
+38	63	Main Course
+106	64	Dessert
+111	64	Italian
+28	64	Fried
+97	64	Sweet
+108	65	French
+71	65	Savory
+100	65	Tart
+38	65	Main Course
+113	66	Mexican
+68	66	Sauce
+38	66	Main Course
+85	66	Spicy
+106	67	Dessert
+112	67	Japanese
+115	67	Pastry
+97	67	Sweet
+110	68	Indian
+62	68	Rice Dish
+103	68	Vegetarian
+38	68	Main Course
+1	69	American
+71	69	Savory
+52	69	Pie
+38	69	Main Course
+105	70	Chinese
+38	70	Main Course
+63	70	Roasted
+24	70	Duck
