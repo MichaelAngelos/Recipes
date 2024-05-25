@@ -31,7 +31,7 @@ function separate_result_column_from_list(result,column_name) {
 }
 
 function separate_result_column(result_column) {
-    console.log(result_column)
+    //console.log(result_column)
     if (result_column != null) {
         return separate_into_list(result_column);
     }
@@ -332,30 +332,7 @@ app.get(startURL+"/fetchrecipe",(req,res) => {
         console.log("Connected!\n")
         sql=
         `
-        SELECT Recipe.*,meal_type,GROUP_CONCAT(eq_name,'---',equipment_in_recipes.amount SEPARATOR '___') AS equipment_used,
-        ing_table.ingredients_used,steps.ordered_steps,tags_fetch.tag_list,theme_name,theme_desc,cat_name,fat,protein,carbohydrates,calories,cook_list
-        FROM recipe
-        left join meal_types_of_recipes ON recipe.id = rec_id
-        left join meal_type using (meal_id)
-        left join equipment_in_recipes using (rec_id)
-        left join equipment using (eq_id)
-        left join (
-        SELECT *,GROUP_CONCAT(ing_name,'---',amount SEPARATOR '___') as ingredients_used FROM recipe inner join ingredients_in_recipes on id = rec_id inner join ingredients using (ing_id) group by rec_id
-        ) as ing_table using (rec_id)
-        left join (
-            SELECT recipe.*,GROUP_CONCAT(step_details SEPARATOR '___') as ordered_steps FROM recipe left join sorted_steps on id = rec_id group by recipe.id
-        ) as steps on recipe.id = steps.id
-        left join (
-            SELECT *,GROUP_CONCAT(tag SEPARATOR '___') as tag_list FROM RECIPE left join recipe_tags on id = rec_id group by id
-        ) as tags_fetch on recipe.id = tags_fetch.rec_id
-        left join recipe_misc on recipe.id = recipe_misc.rec_id
-        left join theme using (theme_id)
-        left join categories using (cat_id)
-        left join recipe_nutrition_per_portion on recipe.id = recipe_nutrition_per_portion.rec_id
-        left join (
-            SELECT rec_id,GROUP_CONCAT(chef_id SEPARATOR '___') as cook_list FROM cooks_in_recipe GROUP BY rec_id
-        ) as cooks_list on recipe.id = cooks_list.rec_id
-        GROUP BY id having id = ?;
+        select * from all_recipe_data where id = ?;
         `
         recipes.query(sql,[recipe_id],(err,result) => {
             if (err){
@@ -382,7 +359,8 @@ app.get(startURL+"/fetchrecipe",(req,res) => {
                 res.send(result);
                 connection.release()
             }
-            console.log("A new account has been created with the information you have given!")
+            console.log("Successfully fetched recipe:")
+            console.log(result)
         })
     })
 })
@@ -625,5 +603,81 @@ app.post(startURL + "/newepisode", (req, res) => {
         });
     });
 });
+
+app.listen(PORT, () => {console.log('Server started on port 5000')})
+app.post(startURL+"/newrecipe",(req,res) => {
+    //Parameter Checking
+    error_proper_syntax_string=
+    `Not all parameters are passed.Proper syntax is this:
+    {
+        "chef_id" : any chef_id,
+        "CookingorConfectionary": 0 or 1,
+        "Nation": any nation,
+        "Difficulty_level": 1 to 5,
+        "recipe_name": the name of recipe,
+        "description_": recipe description,
+        "prep_time": any positive number,
+        "cook_time": any positive number,
+        "portions": any positive number,
+        "basic_ingredient_id": any existing ingredient id for ingredient group,
+        "meal_type": type of meal
+    }
+    `
+    //if lencth of parameters is different than expected.Naive parameter checking
+    if (Object.keys(req.body).length != 11){
+        console.log(error_proper_syntax_string)
+        return res.status(400).send(error_proper_syntax_string)
+    }
+
+    recipes.getConnection((err,connection) => {
+        if (err){
+            console.log("error connecting to db")
+            res.status(500).send()
+            connection.release()
+            throw err
+        }
+        console.log("Connected!\n")
+        sql=
+        `
+        CALL InsertRecipeWithChef(?,?,?,?,?,?,?,?,?,?,?);
+        `
+        recipes.query(sql,
+            [
+                req.body.CookingorConfectionary,
+                req.body.Nation,
+                req.body.Difficulty_level,
+                req.body.recipe_name,
+                req.body.description_,
+                req.body.prep_time,
+                req.body.cook_time,
+                req.body.portions,
+                req.body.basic_ingredient_id,
+                req.body.meal_type,
+                req.body.chef_id,
+            ],(err,result) => {
+            if (err){
+                console.log(err)
+                res.status(500).send()
+                return connection.release()
+            }
+
+            if (result.length === 0){
+                console.log("Got Empty response from Database\nPropably no dummy data available for request")
+                res.status(204).send()
+                return connection.release()
+            }
+            else {
+                result=result[0]
+                created_recipe_id = result[0]["new_recipe_id"]
+
+                res.send("A new recipe has been created with the recipe id: " + created_recipe_id 
+                        +'\nAdd equipment,ingredients,steps,tags and tips separately!');
+                connection.release()
+            }
+            console.log("Successfully fetched recipe:")
+            console.log(result)
+        })
+    })
+})
 
 app.listen(PORT, () => {console.log('Server started on port 5000')})

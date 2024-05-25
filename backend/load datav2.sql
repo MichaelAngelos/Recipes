@@ -6,14 +6,11 @@ DELETE FROM Cooks_in_Recipe;
 DELETE FROM Cooks;
 DELETE FROM Recipe_misc;
 DELETE FROM Theme;
-DELETE FROM Categories;
 DELETE FROM Ingredient_Belongs_in_Group;
 DELETE FROM Ingredient_group;
 DELETE FROM Ingredients_in_Recipes;
 DELETE FROM Equipment_in_Recipes;
 DELETE FROM Equipment;
-DELETE FROM Meal_Types_of_Recipes;
-DELETE FROM Meal_Type;
 DELETE FROM Recipe_Nutrition_per_Portion;
 DELETE FROM Recipe_Steps;
 DELETE FROM Recipe_Tags;
@@ -60,22 +57,6 @@ LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
 SELECT * FROM recipe_steps;
-
-LOAD DATA INFILE 'meal_type.tsv'
-INTO TABLE meal_type
-FIELDS TERMINATED BY '	'
-LINES TERMINATED BY '\n'
-IGNORE 1 ROWS;
-
-SELECT * FROM meal_type;
-
-LOAD DATA INFILE 'meal_type_of_recipes.tsv'
-INTO TABLE meal_types_of_recipes
-FIELDS TERMINATED BY '	'
-LINES TERMINATED BY '\n'
-IGNORE 1 ROWS;
-
-SELECT * FROM meal_types_of_recipes;
 
 LOAD DATA INFILE 'equipment.tsv'
 INTO TABLE equipment
