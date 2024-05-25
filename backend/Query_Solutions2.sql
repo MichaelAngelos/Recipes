@@ -1,7 +1,10 @@
 #Query 3.9
 #List of average values of weights of carbohydrates per years
-select _year, avg(carbohydrates) from 
-                 (Recipe_Nutrition_per_Portion natural join Episode_list natural join Episodes) group by _year;
+SELECT E._year, AVG(RNP.carbohydrates) AS avg_carbohydrates
+FROM Recipe_Nutrition_per_Portion RNP
+JOIN Episode_list EL ON RNP.rec_id = EL.rec_id
+JOIN Episodes E ON EL.episode_id = E.episode_id
+GROUP BY E._year;
 
 #Query 3.12
 #Most demanding episode per year
