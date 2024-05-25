@@ -366,8 +366,8 @@ app.get(startURL+"/fetchrecipe",(req,res) => {
 })
 
 app.post(startURL + "/newepisode", (req, res) => {
-    const { year, order } = req.body;
-
+    //const { year, order } = req.body;
+    req.body.year=year;
     if (year === undefined || order === undefined || order > 10) {
         return res.status(400).send('Required fields (year or order) wrong or missing');
     }
@@ -386,7 +386,7 @@ app.post(startURL + "/newepisode", (req, res) => {
             WHERE _year = ? AND _order = ?;
         `;
 
-        connection.query(sql, [year, order], async (err, result) => {
+        connection.query(sql, [_year, _order], async (err, result) => {
             if (err) {
                 console.log(err);
                 res.status(500).send();
@@ -409,7 +409,7 @@ app.post(startURL + "/newepisode", (req, res) => {
                 });
 
                 const recentEpisodesSql = `
-                    SELECT episode_id FROM episodes ORDER BY year DESC, episode_order DESC LIMIT 3;
+                    SELECT episode_id FROM episodes ORDER BY _year DESC, _order DESC LIMIT 3;
                 `;
                 const recentEpisodes = await new Promise((resolve, reject) => {
                     connection.query(recentEpisodesSql, (err, results) => {
@@ -418,13 +418,13 @@ app.post(startURL + "/newepisode", (req, res) => {
                     });
                 });
 
-                const getCandidates = async (table, idField) => {
+                /*const getCandidates = async (table, idField) => {
                     const recentSelectionsSql = `
                         SELECT ${idField}, COUNT(${idField}) AS count
                         FROM (
-                            SELECT * FROM episode_list WHERE episode_id IN (?)
+                            SELECT episode_id, chef_id FROM episode_list WHERE episode_id IN (?)
                             UNION ALL
-                            SELECT * FROM episode_Judges WHERE episode_id IN (?)
+                            SELECT episode_id, chef_id FROM episode_Judges WHERE episode_id IN (?)
                         ) AS recent_selections
                         GROUP BY ${idField}
                         HAVING count >= 3;
@@ -446,16 +446,56 @@ app.post(startURL + "/newepisode", (req, res) => {
                             else resolve(results);
                         });
                     });
-                };
+                };*/
 
-                const cuisines = await getCandidates('Recipe', 'Nation');
-                const cookers = await getCandidates('Cooks', 'chef_id');
+                //const getCandidateNations = async 
+                const recentCookersSql = `
+                    SELECT chef_id, COUNT(chef_id) AS count
+                    FROM episode_list inner join cooks using (chef_id)
+                    where episode_id in (?)
+                    GROUP BY chef_id
+                    HAVING count >= 3;
+                `;
+                const recentCookerSelections = await new Promise((resolve, reject) => {
+                    connection.query(recentCookersSql, [recentEpisodes, recentEpisodes], (err, results) => {
+                        if (err) reject(err);
+                        else resolve(results.map(row => row[idField]));
+                    });
+                });
+                const candidateCookersSql = `SELECT * FROM Cooks WHERE chef_id NOT IN (?) ORDER BY RAND() LIMIT 10`;
+ 
+                const Cookers = await new Promise((resolve, reject) => {
+                    connection.query(candidateCookersSql, [recentCookerSelections.length ? recentCookerSelections : [0]], (err, results) => {
+                        if (err) reject(err);
+                        else resolve(results);
+                    });
+                });
+                
+                /*const RecentNationsSql = `
+                    SELECT Nation, COUNT(Nation) AS count
+                    FROM episode_list inner join recipe on id = rec_id
+                    where episode_id in (48,49,50)
+                    GROUP BY Nation
+                    HAVING count >= 3;                
+                `;
+                const RecentNationsSelection = await new Promise((resolve, reject) => {
+                    connection.query(recentNationsSql, [recentEpisodes, recentEpisodes], (err, results) => {
+                        if (err) reject(err);
+                        else resolve(results.map(row => row[idField]));
+                    });
+                });
 
+                const candidateNationsSql = `SELECT * FROM Recipes WHERE Nation NOT IN (?) ORDER BY RAND() LIMIT 10`;
+
+                const */
+                //const cuisines = await getCandidates('Recipe', 'Nation');
+                //const cookers = await getCandidates('Cooks', 'chef_id');
+   
                 const recipesByCuisine = await Promise.all(
                     cuisines.map(cuisine => {
                         return new Promise((resolve, reject) => {
                             const fetchRecipeSql = `
-                                SELECT * FROM recipes WHERE Nation = ? ORDER BY RAND() LIMIT 1;
+                                SELECT * FROM recipes WHERE Nation = ? ORDER BY RAND() LIMIT 10;
                             `;
                             connection.query(fetchRecipeSql, [cuisine.id], (err, results) => {
                                 if (err) reject(err);
@@ -470,14 +510,38 @@ app.post(startURL + "/newepisode", (req, res) => {
                     cooker: cookers[index].id,
                     recipe: recipesByCuisine[index].id,
                 }));
+                
+                const recentJudgesSql = `
+                    SELECT chef_id, COUNT(chef_id) AS count
+                    FROM episode_judges inner join Cooks using (chef_id)
+                    WHERE episode_id IN (?)
+                    GROUP BY chef_id
+                    HAVING count >= 1;
+                `;
+                const recentJudgeSelections = await new Promise((resolve, reject) => {
+                    connection.query(recentJudgesSql, [recentEpisodes, recentEpisodes], (err, results) => {
+                        if (err) reject(err);
+                        else resolve(results.map(row => row[idField]));
+                    });
+                });
 
-                const judges = await getCandidates('Cooks', 'chef_id');
+                const candidateJudgesSql = `SELECT * FROM Cooks WHERE chef_id NOT IN (?) ORDER BY RAND() LIMIT 3`;
+
+                const Judges = await new Promise((resolve, reject) => {
+                    connection.query(candidateJudgesSql, [recentJudgeSelections.length ? recentJudgeSelections : [0]], (err, results) => {
+                        if (err) reject(err);
+                        else resolve(results);
+                    });
+                });
+            
+
+                //const judges = await getCandidates('Cooks', 'chef_id'); 
 
                 const insertEpisodeSql = `
                     INSERT INTO episodes (_year, _order) VALUES (?, ?);
                 `;
                 const { insertId: episodeId } = await new Promise((resolve, reject) => {
-                    connection.query(insertEpisodeSql, [year, order], (err, result) => {
+                    connection.query(insertEpisodeSql, [_year, _order], (err, result) => {
                         if (err) reject(err);
                         else resolve(result);
                     });
@@ -604,7 +668,8 @@ app.post(startURL + "/newepisode", (req, res) => {
     });
 });
 
-app.listen(PORT, () => {console.log('Server started on port 5000')})
+
+//app.listen(PORT, () => {console.log('Server started on port 5000')})
 app.post(startURL+"/newrecipe",(req,res) => {
     //Parameter Checking
     error_proper_syntax_string=
