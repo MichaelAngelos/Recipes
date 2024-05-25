@@ -605,7 +605,7 @@ app.post(startURL + "/newepisode", (req, res) => {
 });
 
 app.post(startURL+"/newrecipe",(req,res) => {
-    //Parameter Checking
+    //Parameter Checkin
     error_proper_syntax_string=
     `Not all parameters are passed.Proper syntax is this:
     {
