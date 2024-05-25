@@ -1,4 +1,4 @@
-id	CookingorConfectionary	Nation	Difficulty_level	recipe_name	description_	prep_time	cook_time	portions	basic_ingredient_id	meal_type
+id	CookingorConfectionary	Nation	Difficulty_level	recipe_name	description_	prep_time	cook_time	portions	basic_ingredient_id	meal_Type
 1	0	Italian	3	Spaghetti Bolognese	A classic Italian dish featuring al dente spaghetti noodles topped with rich, slow-simmered tomato sauce and savory ground beef.	20	40	4	1	Dinner
 2	1	French	2	Chocolate Mousse	Silky smooth chocolate mousse made with premium dark chocolate, whipped cream, and a hint of vanilla, creating an indulgent dessert experience.	15	30	6	18	Desserts
 3	0	Mexican	4	Tacos	Authentic street tacos filled with your choice of seasoned meat, fresh toppings, and zesty salsa, served on warm corn tortillas.	25	20	4	30	Dinner
