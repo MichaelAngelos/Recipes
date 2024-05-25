@@ -2,6 +2,8 @@ const mysql=require("mysql2")
 const express = require('express')
 const bodyParser = require('body-parser');
 const { exec } = require('child_process');
+const path = require('path');
+const fs = require('fs');
 const app = express()
 const PORT = 5000;
 
@@ -37,18 +39,14 @@ function separate_result_column(result_column) {
     }
 }
 
-function isJsonString(param) {
-    if (typeof param !== 'string') {
-      return false;
-    }
-    
-    try {
-      JSON.parse(param);
-      return true;
-    } catch (e) {
-      return false;
-    }
-  }
+function generateBackupFileName() {
+    const date = new Date();
+    var d = new Date,
+    dformat = [d.getFullYear(),d.getMonth()+1,d.getDate()].join('-')+'_'
+            +[d.getHours(),d.getMinutes(),d.getSeconds()].join('-');
+    const timestamp = dformat
+    return `recipes_backup_${timestamp}.sql`;
+}
 
 const connection_string={
     host: 'localhost',
@@ -828,5 +826,30 @@ app.post(startURL+"/crud_admin",(req,res) => {
     })
 })
 
+app.post(startURL+"/backupmake",(req,res) => {
+    const backupDir = req.query.backup_path || 'D:\\backup_database_of_recipe';
+    if (!fs.existsSync(backupDir)) {
+      fs.mkdirSync(backupDir, { recursive: true });
+    }
+  
+    const backupFileName = generateBackupFileName();
+    const backupFilePath = path.join(backupDir, backupFileName);
+    const mysqldumpCommand = `D:\\xampp\\mysql\\bin\\mysqldump -u root recipes > "${backupFilePath}"`;
+  
+    exec(mysqldumpCommand, (error, stdout, stderr) => {
+      if (error) {
+        console.error(`Error executing mysqldump: ${error.message}`);
+        return;
+      }
+  
+      if (stderr) {
+        console.error(`mysqldump stderr: ${stderr}`);
+        return;
+      }
+  
+      console.log(`Database backup created successfully at ${backupFilePath}`);
+      res.send(`Database backup created successfully at ${backupFilePath}`)
+    });
+})
 
 app.listen(PORT, () => {console.log('Server started on port 5000')})
