@@ -29,31 +29,37 @@ ORDER BY _year;
 
 #Query 3.13
 #Episode with least experienced contestants and judges
-select _year, _order, sum(chef_title_as_num) as title_sum
-from(
-    (select *,
-    CASE
-        WHEN chef_title = 'Chef' THEN 5
-        WHEN chef_title = 'Assistant Chef' THEN 4
-        WHEN chef_title = '1st Cook' THEN 3
-        WHEN chef_title = '2nd Cook' THEN 2
-        WHEN chef_title = '3rd Cook' THEN 1
-    END AS chef_title_as_num
-    from Cooks natural join Episodes natural join Episode_list
-    )
-    union
-    (select *,
-    CASE
-        WHEN chef_title = 'Chef' THEN 5
-        WHEN chef_title = 'Assistant Chef' THEN 4
-        WHEN chef_title = '1st Cook' THEN 3
-        WHEN chef_title = '2nd Cook' THEN 2
-        WHEN chef_title = '3rd Cook' THEN 1
-    END AS chef_title_as_num
-    from Cooks natural join Episodes natural join Episode_judges
-    )
-)
-order by title_sum asc limit 1;
+SELECT _year, _order, SUM(chef_title_as_num) AS title_sum 
+FROM (
+    SELECT E._year, E._order,
+        CASE
+            WHEN C.chef_title = 'Chef' THEN 5
+            WHEN C.chef_title = 'Assistant Chef' THEN 4
+            WHEN C.chef_title = '1st Cook' THEN 3
+            WHEN C.chef_title = '2nd Cook' THEN 2
+            WHEN C.chef_title = '3rd Cook' THEN 1
+        END AS chef_title_as_num
+    FROM Cooks C
+    JOIN Episode_list EL ON C.chef_id = EL.chef_id
+    JOIN Episodes E ON EL.episode_id = E.episode_id
+    
+    UNION ALL
+    
+    SELECT E._year, E._order,
+        CASE
+            WHEN C.chef_title = 'Chef' THEN 5
+            WHEN C.chef_title = 'Assistant Chef' THEN 4
+            WHEN C.chef_title = '1st Cook' THEN 3
+            WHEN C.chef_title = '2nd Cook' THEN 2
+            WHEN C.chef_title = '3rd Cook' THEN 1
+        END AS chef_title_as_num
+    FROM Cooks C
+    JOIN Episode_Judges EJ ON C.chef_id = EJ.chef_id
+    JOIN Episodes E ON EJ.episode_id = E.episode_id
+) AS combined
+GROUP BY _year, _order
+ORDER BY title_sum ASC
+LIMIT 1;
 
 #Query 3.14
 #Most times appeared theme
