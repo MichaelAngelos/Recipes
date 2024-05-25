@@ -34,7 +34,7 @@ IGNORE 1 ROWS;
 
 SELECT * FROM ingredients;
 
-LOAD DATA INFILE 'recipes_must_be_working.tsv'
+LOAD DATA INFILE 'recipes.tsv'
 INTO TABLE Recipe
 FIELDS TERMINATED BY '	'
 LINES TERMINATED BY '\n'
