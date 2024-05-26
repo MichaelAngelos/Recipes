@@ -8,7 +8,7 @@ SELECT * FROM Cooks where List_of_Specializations_in_Nations like '%American%' a
 
 #Also Went on Episodes
 SELECT * FROM Cooks where List_of_Specializations_in_Nations like '%American%'
-	and Years_of_Experience = 25 and chef_id IN (SELECT chef_id FROM episode_cooks);
+	and Years_of_Experience = 25 and chef_id IN (SELECT chef_id FROM episode_list);
 
 	#SELECT * FROM episode_cooks
 
@@ -23,7 +23,7 @@ SELECT * FROM Cooks where chef_id NOT IN (Select chef_id from episode_judges);
 
 # fifth query
 select s.ci as chef_id from (SELECT * FROM episode_judges as ej JOIN (select e.episode_id as ei, e._year, ej.chef_id as ci, COUNT(ej.episode_id) total from episodes e join episode_judges ej ON e.episode_id = ej.episode_id GROUP BY ej.chef_id, e._year HAVING COUNT(ej.episode_id) > 3) as t ON t.ci = ej.chef_id and t.ei = ej.episode_id GROUP BY t.total HAVING count(*) >=2) as f JOIN (select e.episode_id as ei, e._year, ej.chef_id as ci, COUNT(ej.episode_id) total from episodes e join episode_judges ej ON e.episode_id = ej.episode_id GROUP BY ej.chef_id, e._year HAVING COUNT(ej.episode_id) > 3) AS s ON s.total = f.total; 
-----------> needs to be more effiecient
+#----------> needs to be more effiecient
 
 
 #Query 3.7
@@ -33,7 +33,7 @@ SELECT Count(chef_id) as Appearences from episode_list group by chef_id ORDER BY
 
 #These are the chefs that have appeared 3 times less than the highest.Cannot do 5 because of current dummy data
 SELECT chef_id,Count(chef_id) as Appearences  FROM episode_list group by chef_id
-		HAVING Appearences < (SELECT Count(chef_id) as Appearences from episode_list group by chef_id ORDER BY Appearences DESC LIMIT 1) - 2;
+		HAVING Appearences < (SELECT Count(chef_id) as Appearences from episode_list group by chef_id ORDER BY Appearences DESC LIMIT 1) - 4 order by appearences desc;
         
 
 # 8 query
