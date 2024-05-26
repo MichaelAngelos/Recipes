@@ -182,6 +182,20 @@ CREATE TABLE Ratings(
     FOREIGN KEY (chef_id) REFERENCES Cooks(chef_id)
 );
 
+CREATE TABLE Images (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    image_url VARCHAR(255) NOT NULL,
+    image_desc VARCHAR(255) NOT NULL,
+    ing_id integer(10),
+    rec_id integer(10),
+    chef_id integer(10),
+    eq_id integer(10),
+    FOREIGN KEY (rec_id) REFERENCES Recipe(id),
+    FOREIGN KEY (ing_id) REFERENCES ingredients(ing_id),
+    FOREIGN KEY (chef_id) REFERENCES Cooks(chef_id),
+    FOREIGN KEY (eq_id) REFERENCES Equipment(eq_id)
+);
+
 CREATE VIEW sorted_steps AS
 SELECT * FROM recipe_steps
 order by rec_id,_order;
@@ -217,6 +231,41 @@ SELECT * FROM all_recipe_data;
 
 DELIMITER ;
 
+CREATE TRIGGER after_recipe_insert
+AFTER INSERT ON ingredients_in_recipes
+FOR EACH ROW
+BEGIN
+    DECLARE existing_log_id INT;
+    DECLARE ing_fat DECIMAL(10,2);
+    DECLARE ing_protein DECIMAL(10,2);
+    DECLARE ing_carbs DECIMAL(10,2);
+    DECLARE ing_cal DECIMAL(10,2);
 
+    -- Check if a log entry for this rec_id already exists
+    SELECT rec_id INTO existing_log_id
+    FROM recipe_nutrition_per_portion
+    WHERE rec_id = NEW.rec_id
+    LIMIT 1;
+
+    -- Get the nutrition values from ingredients table
+    SELECT fat_per_100_gr_or_ml, protein_per_100_gr_or_ml, carbohydrates_per_100_gr_or_ml, calories_per_100_gr_or_ml 
+    INTO ing_fat, ing_protein, ing_carbs, ing_cal
+    FROM ingredients
+    WHERE ing_id = NEW.ing_id;
+
+    -- If it exists, update the log entry
+    IF existing_log_id IS NOT NULL THEN
+        UPDATE recipe_nutrition_per_portion
+        SET fat = fat + (ing_fat * NEW.amount) / 100,
+            protein = protein + (ing_protein * NEW.amount) / 100,
+            carbohydrates = carbohydrates + (ing_carbs * NEW.amount) / 100,
+            calories = calories + (ing_cal * NEW.amount) / 100
+        WHERE rec_id = NEW.rec_id;
+    ELSE
+        -- If it doesn't exist, insert a new log entry
+        INSERT INTO recipe_nutrition_per_portion (rec_id, fat, protein, carbohydrates, calories)
+        VALUES (NEW.rec_id, (ing_fat * NEW.amount) / 100, (ing_protein * NEW.amount) / 100, (ing_carbs * NEW.amount) / 100, (ing_cal * NEW.amount) / 100);
+    END IF;
+END;
 
 SHOW TABLES;
