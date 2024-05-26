@@ -222,3 +222,8 @@ CALL InsertRecipeWithChef(0, 'Greek', 2, 'Tzatziki', 'Delicious condiment', 10, 
 
 SELECT _role FROM users where user_id = 4;
 
+SELECT * FROM recipe where meal_type not in ('Breakfast','Brunch','Lunch','Dinner','Appetizers','Snacks','Desserts','Side Dishes');
+
+UPDATE recipe
+SET meal_type = REPLACE(meal_type, '\n', '');
+SELECT * FROM recipe;
