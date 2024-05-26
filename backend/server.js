@@ -366,13 +366,14 @@ app.get(startURL+"/fetchrecipe",(req,res) => {
 })
 
 app.post(startURL + "/newepisode", (req, res) => {
-    //const { year, order } = req.body;
-    req.body.year=year;
+    year = req.body.year;
+    order = req.body.order;
+
     if (year === undefined || order === undefined || order > 10) {
         return res.status(400).send('Required fields (year or order) wrong or missing');
     }
 
-    recipes.getConnection((err, connection) => {
+    recipes.getConnection(async (err, connection) => {
         if (err) {
             console.log("Error connecting to db");
             res.status(500).send();
@@ -380,293 +381,294 @@ app.post(startURL + "/newepisode", (req, res) => {
             throw err;
         }
 
-        const sql = `
-            SELECT COUNT(*) AS count 
-            FROM Episodes 
-            WHERE _year = ? AND _order = ?;
-        `;
+        try {
+            await new Promise((resolve, reject) => {
+                connection.beginTransaction(err => {
+                    if (err) reject(err);
+                    else resolve();
+                });
+            });
 
-        connection.query(sql, [_year, _order], async (err, result) => {
-            if (err) {
-                console.log(err);
-                res.status(500).send();
-                connection.release();
-                return;
-            }
+            const episodeExistsSql = `
+                SELECT COUNT(*) AS count 
+                FROM Episodes 
+                WHERE _year = ? AND _order = ?;
+            `;
 
-            if (result[0].count > 0) {
+            const [episodeExistsResult] = await new Promise((resolve, reject) => {
+                connection.query(episodeExistsSql, [year, order], (err, results) => {
+                    if (err) reject(err);
+                    else resolve(results);
+                });
+            });
+
+            if (episodeExistsResult.count > 0) {
                 res.status(400).send("Episode already exists, try again");
                 connection.release();
                 return;
             }
 
-            try {
-                await new Promise((resolve, reject) => {
-                    connection.beginTransaction(err => {
-                        if (err) reject(err);
-                        else resolve();
-                    });
+            // Fetching recent episodes
+            const recentEpisodesSql = `
+                SELECT episode_id FROM episodes ORDER BY _year DESC, _order DESC LIMIT 3;
+            `;
+            const recentEpisodes = await new Promise((resolve, reject) => {
+                connection.query(recentEpisodesSql, (err, results) => {
+                    if (err) reject(err);
+                    else resolve(results.map(row => row.episode_id));
                 });
+            });
 
-                const recentEpisodesSql = `
-                    SELECT episode_id FROM episodes ORDER BY _year DESC, _order DESC LIMIT 3;
-                `;
-                const recentEpisodes = await new Promise((resolve, reject) => {
-                    connection.query(recentEpisodesSql, (err, results) => {
-                        if (err) reject(err);
-                        else resolve(results.map(row => row.episode_id));
-                    });
+            // Fetching recent cookers
+            const recentCookersSql = `
+                SELECT chef_id, COUNT(chef_id) AS count
+                FROM episode_list INNER JOIN cooks USING (chef_id)
+                WHERE episode_id IN (?)
+                GROUP BY chef_id
+                HAVING count >= 3;
+            `;
+            const recentCookerSelections = await new Promise((resolve, reject) => {
+                connection.query(recentCookersSql, [recentEpisodes], (err, results) => {
+                    if (err) reject(err);
+                    else resolve(results.map(row => row.chef_id));
                 });
+            });
 
-                /*const getCandidates = async (table, idField) => {
-                    const recentSelectionsSql = `
-                        SELECT ${idField}, COUNT(${idField}) AS count
-                        FROM (
-                            SELECT episode_id, chef_id FROM episode_list WHERE episode_id IN (?)
-                            UNION ALL
-                            SELECT episode_id, chef_id FROM episode_Judges WHERE episode_id IN (?)
-                        ) AS recent_selections
-                        GROUP BY ${idField}
-                        HAVING count >= 3;
-                    `;
-                    const recentSelections = await new Promise((resolve, reject) => {
-                        connection.query(recentSelectionsSql, [recentEpisodes, recentEpisodes], (err, results) => {
-                            if (err) reject(err);
-                            else resolve(results.map(row => row[idField]));
-                        });
-                    });
-
-                    const candidatesSql = `
-                        SELECT * FROM ${table} WHERE ${idField} NOT IN (?)
-                        ORDER BY RAND() LIMIT 10;
-                    `;
-                    return await new Promise((resolve, reject) => {
-                        connection.query(candidatesSql, [recentSelections.length ? recentSelections : [0]], (err, results) => {
-                            if (err) reject(err);
-                            else resolve(results);
-                        });
-                    });
-                };*/
-
-                //const getCandidateNations = async 
-                const recentCookersSql = `
-                    SELECT chef_id, COUNT(chef_id) AS count
-                    FROM episode_list inner join cooks using (chef_id)
-                    where episode_id in (?)
-                    GROUP BY chef_id
-                    HAVING count >= 3;
-                `;
-                const recentCookerSelections = await new Promise((resolve, reject) => {
-                    connection.query(recentCookersSql, [recentEpisodes, recentEpisodes], (err, results) => {
-                        if (err) reject(err);
-                        else resolve(results.map(row => row[idField]));
-                    });
+            // Fetching candidate cookers
+            const candidateCookersSql = `
+                SELECT * FROM Cooks 
+                WHERE chef_id NOT IN (?) 
+                ORDER BY RAND() 
+                LIMIT 10;
+            `;
+            const cookers = await new Promise((resolve, reject) => {
+                connection.query(candidateCookersSql, [recentCookerSelections.length ? recentCookerSelections : [0]], (err, results) => {
+                    if (err) reject(err);
+                    else resolve(results);
                 });
-                const candidateCookersSql = `SELECT * FROM Cooks WHERE chef_id NOT IN (?) ORDER BY RAND() LIMIT 10`;
- 
-                const Cookers = await new Promise((resolve, reject) => {
-                    connection.query(candidateCookersSql, [recentCookerSelections.length ? recentCookerSelections : [0]], (err, results) => {
-                        if (err) reject(err);
-                        else resolve(results);
-                    });
+            });
+
+            // Fetching recent nations
+            const recentNationsSql = `
+                SELECT Nation, COUNT(Nation) AS count
+                FROM episode_list INNER JOIN recipe ON id = rec_id
+                WHERE episode_id IN (?)
+                GROUP BY Nation
+                HAVING count >= 3;
+            `;
+            const recentNationsSelection = await new Promise((resolve, reject) => {
+                connection.query(recentNationsSql, [recentEpisodes], (err, results) => {
+                    if (err) reject(err);
+                    else resolve(results.map(row => row.Nation));
                 });
-                
-                /*const RecentNationsSql = `
-                    SELECT Nation, COUNT(Nation) AS count
-                    FROM episode_list inner join recipe on id = rec_id
-                    where episode_id in (48,49,50)
-                    GROUP BY Nation
-                    HAVING count >= 3;                
-                `;
-                const RecentNationsSelection = await new Promise((resolve, reject) => {
-                    connection.query(recentNationsSql, [recentEpisodes, recentEpisodes], (err, results) => {
-                        if (err) reject(err);
-                        else resolve(results.map(row => row[idField]));
-                    });
+            });
+
+            // Fetching candidate cuisines
+            const candidateNationsSql = `
+                SELECT * FROM Recipe 
+                WHERE Nation NOT IN (?) 
+                ORDER BY RAND() 
+                LIMIT 10;
+            `;
+            const cuisines = await new Promise((resolve, reject) => {
+                connection.query(candidateNationsSql, [recentNationsSelection.length ? recentNationsSelection : [0]], (err, results) => {
+                    if (err) reject(err);
+                    else resolve(results);
                 });
+            });
 
-                const candidateNationsSql = `SELECT * FROM Recipes WHERE Nation NOT IN (?) ORDER BY RAND() LIMIT 10`;
-
-                const */
-                //const cuisines = await getCandidates('Recipe', 'Nation');
-                //const cookers = await getCandidates('Cooks', 'chef_id');
-   
-                const recipesByCuisine = await Promise.all(
-                    cuisines.map(cuisine => {
-                        return new Promise((resolve, reject) => {
-                            const fetchRecipeSql = `
-                                SELECT * FROM recipes WHERE Nation = ? ORDER BY RAND() LIMIT 10;
-                            `;
-                            connection.query(fetchRecipeSql, [cuisine.id], (err, results) => {
-                                if (err) reject(err);
-                                else resolve(results[0]);
-                            });
-                        });
-                    })
-                );
-
-                const assignments = cuisines.map((cuisine, index) => ({
-                    cuisine: cuisine.id,
-                    cooker: cookers[index].id,
-                    recipe: recipesByCuisine[index].id,
-                }));
-                
-                const recentJudgesSql = `
-                    SELECT chef_id, COUNT(chef_id) AS count
-                    FROM episode_judges inner join Cooks using (chef_id)
-                    WHERE episode_id IN (?)
-                    GROUP BY chef_id
-                    HAVING count >= 1;
-                `;
-                const recentJudgeSelections = await new Promise((resolve, reject) => {
-                    connection.query(recentJudgesSql, [recentEpisodes, recentEpisodes], (err, results) => {
-                        if (err) reject(err);
-                        else resolve(results.map(row => row[idField]));
-                    });
-                });
-
-                const candidateJudgesSql = `SELECT * FROM Cooks WHERE chef_id NOT IN (?) ORDER BY RAND() LIMIT 3`;
-
-                const Judges = await new Promise((resolve, reject) => {
-                    connection.query(candidateJudgesSql, [recentJudgeSelections.length ? recentJudgeSelections : [0]], (err, results) => {
-                        if (err) reject(err);
-                        else resolve(results);
-                    });
-                });
-            
-
-                //const judges = await getCandidates('Cooks', 'chef_id'); 
-
-                const insertEpisodeSql = `
-                    INSERT INTO episodes (_year, _order) VALUES (?, ?);
-                `;
-                const { insertId: episodeId } = await new Promise((resolve, reject) => {
-                    connection.query(insertEpisodeSql, [_year, _order], (err, result) => {
-                        if (err) reject(err);
-                        else resolve(result);
-                    });
-                });
-
-                const insertAssignmentsSql = `
-                    INSERT INTO episode_list (episode_id, cuisine, chef_id, rec_id) VALUES ?
-                `;
-                const assignmentsValues = assignments.map(a => [episodeId, a.cuisine, a.cooker, a.recipe]);
-                await new Promise((resolve, reject) => {
-                    connection.query(insertAssignmentsSql, [assignmentsValues], (err) => {
-                        if (err) reject(err);
-                        else resolve();
-                    });
-                });
-
-                const insertJudgesSql = `
-                    INSERT INTO episode_judges (episode_id, chef_id) VALUES ?
-                `;
-                const judgesValues = judges.map(judge => [episodeId, judge.id]);
-                await new Promise((resolve, reject) => {
-                    connection.query(insertJudgesSql, [judgesValues], (err) => {
-                        if (err) reject(err);
-                        else resolve();
-                    });
-                });
-
-                await new Promise((resolve, reject) => {
-                    connection.commit(err => {
-                        if (err) reject(err);
-                        else resolve();
-                    });
-                });
-
-                // Generate random scores and insert them into the database
-                const generateRandomScore = () => Math.floor(Math.random() * 5) + 1;
-                const scorePromises = assignments.map(assignment => {
-                    return judges.map(judge => {
-                        const score = generateRandomScore();
-                        const insertScoreSql = `
-                            INSERT INTO episode_scores (episode_id, chef_id,  score) VALUES (?, ?,  ?);
+            // Fetching recipes by cuisine
+            const recipesByCuisine = await Promise.all(
+                cuisines.map(cuisine => {
+                    return new Promise((resolve, reject) => {
+                        const fetchRecipeSql = `
+                            SELECT * FROM recipe 
+                            WHERE Nation = ? 
+                            ORDER BY RAND() 
+                            LIMIT 10;
                         `;
-                        return new Promise((resolve, reject) => {
-                            connection.query(insertScoreSql, [episodeId, assignment.cooker, judge.id, score], (err) => {
-                                if (err) reject(err);
-                                else resolve();
-                            });
+                        connection.query(fetchRecipeSql, [cuisine.Nation], (err, results) => {
+                            if (err) reject(err);
+                            else resolve(results[0]);
+                        });
+                    });
+                })
+            );
+
+            // Assigning cookers to cuisines and recipes
+            const assignments = cuisines.map((cuisine, index) => ({
+                cuisine: cuisine.id,
+                cooker: cookers[index].chef_id,
+                recipe: recipesByCuisine[index].id,
+            }));
+
+            // Fetching recent judges
+            const recentJudgesSql = `
+                SELECT chef_id, COUNT(chef_id) AS count
+                FROM episode_judges INNER JOIN Cooks USING (chef_id)
+                WHERE episode_id IN (?)
+                GROUP BY chef_id
+                HAVING count >= 1;
+            `;
+            const recentJudgeSelections = await new Promise((resolve, reject) => {
+                connection.query(recentJudgesSql, [recentEpisodes], (err, results) => {
+                    if (err) reject(err);
+                    else resolve(results.map(row => row.chef_id));
+                });
+            });
+
+            // Fetching candidate judges
+            const candidateJudgesSql = `
+                SELECT * FROM Cooks 
+                WHERE chef_id NOT IN (?) 
+                ORDER BY RAND() 
+                LIMIT 3;
+            `;
+            const judges = await new Promise((resolve, reject) => {
+                connection.query(candidateJudgesSql, [recentJudgeSelections.length ? recentJudgeSelections : [0]], (err, results) => {
+                    if (err) reject(err);
+                    else resolve(results);
+                });
+            });
+
+            // Inserting the episode to get the episodeId
+            const insertEpisodeSql = `
+                INSERT INTO episodes (_year, _order, chef_id_of_winner) VALUES (?, ?, ?);
+            `;
+            const { insertId: episodeId } = await new Promise((resolve, reject) => {
+                connection.query(insertEpisodeSql, [year, order, null], (err, result) => {
+                    if (err) reject(err);
+                    else resolve(result);
+                });
+            });
+
+            // Inserting assignments
+            const insertAssignmentsSql = `
+                INSERT INTO episode_list (episode_id, cuisine, chef_id, rec_id) VALUES ?
+            `;
+            const assignmentsValues = assignments.map(a => [episodeId, a.cuisine, a.cooker, a.recipe]);
+            await new Promise((resolve, reject) => {
+                connection.query(insertAssignmentsSql, [assignmentsValues], (err) => {
+                    if (err) reject(err);
+                    else resolve();
+                });
+            });
+
+            // Inserting judges
+            const insertJudgesSql = `
+                INSERT INTO episode_judges (episode_id, chef_id) VALUES ?
+            `;
+            const judgesValues = judges.map(judge => [episodeId, judge.chef_id]);
+            await new Promise((resolve, reject) => {
+                connection.query(insertJudgesSql, [judgesValues], (err) => {
+                    if (err) reject(err);
+                    else resolve();
+                });
+            });
+
+            // Generating random scores and inserting them
+            const generateRandomScore = () => Math.floor(Math.random() * 5) + 1;
+            const scorePromises = assignments.map(assignment => {
+                return judges.map(judge => {
+                    const score = generateRandomScore();
+                    const insertScoreSql = `
+                        INSERT INTO episode_scores (episode_id, chef_id, score) VALUES (?, ?, ?);
+                    `;
+                    return new Promise((resolve, reject) => {
+                        connection.query(insertScoreSql, [episodeId, assignment.cooker, score], (err) => {
+                            if (err) reject(err);
+                            else resolve();
                         });
                     });
                 });
+            });
 
-                await Promise.all(scorePromises.flat());
+            await Promise.all(scorePromises.flat());
 
-                // Fetch scores and determine the winner
-                const fetchScoresSql = `
-                    SELECT chef_id, SUM(score) as total_score
-                    FROM Ratings
-                    WHERE episode_id = ?
-                    GROUP BY chef_id
-                    ORDER BY total_score DESC
+            // Fetching scores and determining the winner
+            const fetchScoresSql = `
+                SELECT chef_id, SUM(score) as total_score
+                FROM episode_scores
+                WHERE episode_id = ?
+                GROUP BY chef_id
+                ORDER BY total_score DESC
+            `;
+            const scores = await new Promise((resolve, reject) => {
+                connection.query(fetchScoresSql, [episodeId], (err, results) => {
+                    if (err) reject(err);
+                    else resolve(results);
+                });
+            });
+
+            const highestScore = scores[0].total_score;
+            const topScorers = scores.filter(score => score.total_score === highestScore);
+
+            let winner;
+            if (topScorers.length > 1) {
+                // Handle tie by professional training
+                const trainingLevels = { '3rd cooker': 1, '2nd cooker': 2, '1st cooker': 3, 'chef assistant': 4, 'chef': 5 };
+                const cookerTrainingLevelsSql = `
+                    SELECT chef_id, Chef_title
+                    FROM Cooks
+                    WHERE chef_id IN (?)
                 `;
-                const scores = await new Promise((resolve, reject) => {
-                    connection.query(fetchScoresSql, [episodeId], (err, results) => {
+                const topScorerIds = topScorers.map(scorer => scorer.chef_id);
+                const topScorersWithTraining = await new Promise((resolve, reject) => {
+                    connection.query(cookerTrainingLevelsSql, [topScorerIds], (err, results) => {
                         if (err) reject(err);
                         else resolve(results);
                     });
                 });
 
-                const highestScore = scores[0].total_score;
-                const topScorers = scores.filter(score => score.total_score === highestScore);
-
-                let winner;
-                if (topScorers.length > 1) {
-                    // Handle tie by professional training
-                    const trainingLevels = { '3rd cooker': 1, '2nd cooker': 2, '1st cooker': 3, 'chef assistant': 4, 'chef': 5 };
-                    const cookerTrainingLevelsSql = `
-                        SELECT chef_id, Chef_title
-                        FROM Cooks
-                        WHERE chef_id IN (?)
-                    `;
-                    const topScorerIds = topScorers.map(scorer => scorer.cooker_id);
-                    const topScorersWithTraining = await new Promise((resolve, reject) => {
-                        connection.query(cookerTrainingLevelsSql, [topScorerIds], (err, results) => {
-                            if (err) reject(err);
-                            else resolve(results);
-                        });
-                    });
-
-                    topScorersWithTraining.sort((a, b) => {
-                        const trainingA = trainingLevels[a.professional_training];
-                        const trainingB = trainingLevels[b.professional_training];
-                        return trainingB - trainingA; // Higher training level first
-                    });
-
-                    const topTrainingLevel = trainingLevels[topScorersWithTraining[0].professional_training];
-                    const topTrainers = topScorersWithTraining.filter(scorer => trainingLevels[scorer.professional_training] === topTrainingLevel);
-
-                    if (topTrainers.length > 1) {
-                        // Random selection in case of a tie in professional training
-                        winner = topTrainers[Math.floor(Math.random() * topTrainers.length)];
-                    } else {
-                        winner = topTrainers[0];
+                winner = topScorersWithTraining.reduce((best, current) => {
+                    if (trainingLevels[current.Chef_title] > trainingLevels[best.Chef_title]) {
+                        return current;
                     }
-                } else {
-                    winner = topScorers[0];
-                }
-
-                res.send({ message: 'Episode created successfully', winner: winner.cooker_id });
-            } catch (error) {
-                console.log(error);
-
-                await new Promise((resolve, reject) => {
-                    connection.rollback(err => {
-                        if (err) reject(err);
-                        else resolve();
-                    });
+                    return best;
                 });
-
-                res.status(500).send({ message: 'Error creating episode' });
-            } finally {
-                connection.release();
+            } else {
+                winner = topScorers[0];
             }
-        });
+
+            // Update the episode with the winner's chef_id
+            const updateWinnerSql = `
+                UPDATE episodes SET chef_id_of_winner = ? WHERE episode_id = ?
+            `;
+            await new Promise((resolve, reject) => {
+                connection.query(updateWinnerSql, [winner.chef_id, episodeId], (err) => {
+                    if (err) reject(err);
+                    else resolve();
+                });
+            });
+
+            // Commit transaction
+            await new Promise((resolve, reject) => {
+                connection.commit(err => {
+                    if (err) {
+                        connection.rollback(() => {
+                            reject(err);
+                        });
+                    } else {
+                        resolve();
+                    }
+                });
+            });
+
+            res.send({ message: 'Episode created successfully', winner: winner.chef_id });
+        } catch (error) {
+            await new Promise((resolve, reject) => {
+                connection.rollback(() => {
+                    resolve();
+                });
+            });
+            console.log(error);
+            res.status(500).send();
+        } finally {
+            connection.release();
+        }
     });
 });
+
 
 
 //app.listen(PORT, () => {console.log('Server started on port 5000')})
