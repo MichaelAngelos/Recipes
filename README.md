@@ -1,8 +1,6 @@
 # Recipes
 
-## Backend
-
-### Git Clone the Recipes Repository
+## Git Clone the Recipes Repository
 
 Inside the `backend` folder, run `npm i` to install all the packages used in the backend of the application. The backend is now ready; its usage will be explained later.
 
