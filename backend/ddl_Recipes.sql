@@ -189,11 +189,11 @@ CREATE TABLE Images (
     ing_id integer(10),
     rec_id integer(10),
     chef_id integer(10),
-    eq_id integer(10),
-    FOREIGN KEY (rec_id) REFERENCES Recipe(id),
-    FOREIGN KEY (ing_id) REFERENCES ingredients(ing_id),
-    FOREIGN KEY (chef_id) REFERENCES Cooks(chef_id),
-    FOREIGN KEY (eq_id) REFERENCES Equipment(eq_id)
+    eq_id integer(10)
+    #FOREIGN KEY (rec_id) REFERENCES Recipe(id),
+    #FOREIGN KEY (ing_id) REFERENCES ingredients(ing_id),
+    #FOREIGN KEY (chef_id) REFERENCES Cooks(chef_id),
+    #FOREIGN KEY (eq_id) REFERENCES Equipment(eq_id)
 );
 
 CREATE VIEW sorted_steps AS
@@ -231,6 +231,8 @@ SELECT * FROM all_recipe_data;
 
 DELIMITER ;
 
+DELIMITER //
+
 CREATE TRIGGER after_recipe_insert
 AFTER INSERT ON ingredients_in_recipes
 FOR EACH ROW
@@ -266,6 +268,9 @@ BEGIN
         INSERT INTO recipe_nutrition_per_portion (rec_id, fat, protein, carbohydrates, calories)
         VALUES (NEW.rec_id, (ing_fat * NEW.amount) / 100, (ing_protein * NEW.amount) / 100, (ing_carbs * NEW.amount) / 100, (ing_cal * NEW.amount) / 100);
     END IF;
-END;
+END //
 
-SHOW TABLES;
+DELIMITER ;
+
+
+SHOW TABLES;	
