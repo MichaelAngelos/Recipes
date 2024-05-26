@@ -29,11 +29,11 @@ select s.ci as chef_id from (SELECT * FROM episode_judges as ej JOIN (select e.e
 #Query 3.7
 
 #This is the highest count of appearences
-SELECT Count(chef_id) as Appearences from episode_cooks group by chef_id ORDER BY Appearences DESC LIMIT 1;
+SELECT Count(chef_id) as Appearences from episode_list group by chef_id ORDER BY Appearences DESC LIMIT 1;
 
 #These are the chefs that have appeared 3 times less than the highest.Cannot do 5 because of current dummy data
-SELECT chef_id,Count(chef_id) as Appearences  FROM episode_cooks group by chef_id
-		HAVING Appearences < (SELECT Count(chef_id) as Appearences from episode_cooks group by chef_id ORDER BY Appearences DESC LIMIT 1) - 2;
+SELECT chef_id,Count(chef_id) as Appearences  FROM episode_list group by chef_id
+		HAVING Appearences < (SELECT Count(chef_id) as Appearences from episode_list group by chef_id ORDER BY Appearences DESC LIMIT 1) - 2;
         
 
 # 8 query
