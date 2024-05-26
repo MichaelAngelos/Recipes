@@ -418,7 +418,7 @@ app.post(startURL + "/newepisode", (req, res) => {
                     else resolve(results.map(row => row.episode_id));
                 });
             });
-
+            
             // Fetching recent cookers
             const recentCookersSql = `
                 SELECT chef_id, COUNT(chef_id) AS count
@@ -428,7 +428,7 @@ app.post(startURL + "/newepisode", (req, res) => {
                 HAVING count >= 3;
             `;
             const recentCookerSelections = await new Promise((resolve, reject) => {
-                connection.query(recentCookersSql, [recentEpisodes], (err, results) => {
+                connection.query(recentCookersSql, [recentEpisodes.length ? recentEpisodes : [-1]], (err, results) => {
                     if (err) reject(err);
                     else resolve(results.map(row => row.chef_id));
                 });
@@ -457,7 +457,7 @@ app.post(startURL + "/newepisode", (req, res) => {
                 HAVING count >= 3;
             `;
             const recentNationsSelection = await new Promise((resolve, reject) => {
-                connection.query(recentNationsSql, [recentEpisodes], (err, results) => {
+                connection.query(recentNationsSql, [recentEpisodes.length ? recentEpisodes : [-1]], (err, results) => {
                     if (err) reject(err);
                     else resolve(results.map(row => row.Nation));
                 });
@@ -471,7 +471,7 @@ app.post(startURL + "/newepisode", (req, res) => {
                 LIMIT 10;
             `;
             const cuisines = await new Promise((resolve, reject) => {
-                connection.query(candidateNationsSql, [recentNationsSelection.length ? recentNationsSelection : [0]], (err, results) => {
+                connection.query(candidateNationsSql, [recentNationsSelection.length ? recentNationsSelection : [``]], (err, results) => {
                     if (err) reject(err);
                     else resolve(results);
                 });
@@ -494,7 +494,7 @@ app.post(startURL + "/newepisode", (req, res) => {
                     });
                 })
             );
-
+            console.log(cuisines);
             // Assigning cookers to cuisines and recipes
             const assignments = cuisines.map((cuisine, index) => ({
                 cuisine: cuisine.id,
@@ -511,7 +511,7 @@ app.post(startURL + "/newepisode", (req, res) => {
                 HAVING count >= 1;
             `;
             const recentJudgeSelections = await new Promise((resolve, reject) => {
-                connection.query(recentJudgesSql, [recentEpisodes], (err, results) => {
+                connection.query(recentJudgesSql, [recentEpisodes.length ? recentEpisodes : [-1]], (err, results) => {
                     if (err) reject(err);
                     else resolve(results.map(row => row.chef_id));
                 });
@@ -541,12 +541,14 @@ app.post(startURL + "/newepisode", (req, res) => {
                     else resolve(result);
                 });
             });
-
+            
             // Inserting assignments
             const insertAssignmentsSql = `
                 INSERT INTO episode_list (episode_id, cuisine, chef_id, rec_id) VALUES ?
             `;
+            //console.log(assignments);
             const assignmentsValues = assignments.map(a => [episodeId, a.cuisine, a.cooker, a.recipe]);
+            //console.log(assignmentsValues);
             await new Promise((resolve, reject) => {
                 connection.query(insertAssignmentsSql, [assignmentsValues], (err) => {
                     if (err) reject(err);
@@ -570,12 +572,14 @@ app.post(startURL + "/newepisode", (req, res) => {
             const generateRandomScore = () => Math.floor(Math.random() * 5) + 1;
             const scorePromises = assignments.map(assignment => {
                 return judges.map(judge => {
-                    const score = generateRandomScore();
+                    const score_1 = generateRandomScore();
+                    const score_2 = generateRandomScore();
+                    const score_3 = generateRandomScore();
                     const insertScoreSql = `
-                        INSERT INTO episode_scores (episode_id, chef_id, score) VALUES (?, ?, ?);
+                        INSERT INTO Ratings (episode_id, chef_id, rating_1, rating_2, rating_3) VALUES (?, ?, ?, ?, ?);
                     `;
                     return new Promise((resolve, reject) => {
-                        connection.query(insertScoreSql, [episodeId, assignment.cooker, score], (err) => {
+                        connection.query(insertScoreSql, [episodeId, assignment.cooker, score_1, score_2, score_3], (err) => {
                             if (err) reject(err);
                             else resolve();
                         });
@@ -587,8 +591,8 @@ app.post(startURL + "/newepisode", (req, res) => {
 
             // Fetching scores and determining the winner
             const fetchScoresSql = `
-                SELECT chef_id, SUM(score) as total_score
-                FROM episode_scores
+                SELECT chef_id, (Rating_1 + Rating_2 + rating_3) as total_score
+                FROM ratings
                 WHERE episode_id = ?
                 GROUP BY chef_id
                 ORDER BY total_score DESC
