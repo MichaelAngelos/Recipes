@@ -1,5 +1,5 @@
 #Query 3.1
-SELECT chef_id,cuisine,AVG((Rating_1 + Rating_2 + Rating_3) /3) as Average_Rating FROM episode_list INNER JOIN ratings using (episode_id,chef_id) GROUP BY chef_id,cuisine
+SELECT chef_id,cuisine,AVG((Rating_1 + Rating_2 + Rating_3) /3) as Average_Rating FROM episode_list INNER JOIN ratings using (episode_id,chef_id) GROUP BY chef_id,cuisine;
 
 #Query 3.2
 
