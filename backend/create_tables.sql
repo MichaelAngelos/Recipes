@@ -32,7 +32,7 @@ CREATE TABLE Recipe(
 	cook_time integer(10) NOT NULL,
 	portions integer(2) NOT NULL,
 	basic_ingredient_id integer(10) NOT NULL,
-    meal_type varchar(64) NOT NULL,
+    meal_type varchar(64),
     check (meal_type in ('Breakfast','Brunch','Lunch','Dinner','Appetizers','Snacks','Desserts','Side Dishes')),
     tip_1 varchar(255),
     tip_2 varchar(255),

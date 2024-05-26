@@ -2,6 +2,8 @@ const mysql=require("mysql2")
 const express = require('express')
 const bodyParser = require('body-parser');
 const { exec } = require('child_process');
+const path = require('path');
+const fs = require('fs');
 const app = express()
 const PORT = 5000;
 
@@ -35,6 +37,15 @@ function separate_result_column(result_column) {
     if (result_column != null) {
         return separate_into_list(result_column);
     }
+}
+
+function generateBackupFileName() {
+    const date = new Date();
+    var d = new Date,
+    dformat = [d.getFullYear(),d.getMonth()+1,d.getDate()].join('-')+'_'
+            +[d.getHours(),d.getMinutes(),d.getSeconds()].join('-');
+    const timestamp = dformat
+    return `recipes_backup_${timestamp}.sql`;
 }
 
 const connection_string={
@@ -673,11 +684,8 @@ app.post(startURL + "/newepisode", (req, res) => {
     });
 });
 
-
-
-//app.listen(PORT, () => {console.log('Server started on port 5000')})
 app.post(startURL+"/newrecipe",(req,res) => {
-    //Parameter Checking
+    //Parameter Checkin
     error_proper_syntax_string=
     `Not all parameters are passed.Proper syntax is this:
     {
@@ -749,6 +757,220 @@ app.post(startURL+"/newrecipe",(req,res) => {
             console.log(result)
         })
     })
+})
+
+tables_of_db = [
+    "cooks",
+    "cooks_in_recipe",
+    "episode_judges",
+    "episode_list",
+    "episodes",
+    "equipment",
+    "equipment_in_recipes",
+    "ingredient_belongs_in_group",
+    "ingredient_group",
+    "ingredients",
+    "ingredients_in_recipes",
+    "ratings",
+    "recipe",
+    "recipe_misc",
+    "recipe_nutrition_per_portion",
+    "recipe_steps",
+    "recipe_tags",
+    "sorted_steps",
+    "theme",
+    "users",
+]
+
+/*
+operations_of_tables = {
+    "cooks" : {
+        "add" : "INSERT INTO cooks (name,Phone_number,birth_yr,Age,Years_of_Experience,List_of_Specializations_in_Nations,Chef_title) VALUES (?,?,?,?,?,?,?)",
+        "update" : "UPDATE cooks SET ? where chef_id = ?",
+    },
+    "cooks_in_recipe" : {
+        "add" : "INSERT INTO cooks (chef_id,rec_id) VALUES (?,?)",
+        "update" : "UPDATE cooks SET ? where chef_id = ?",
+    }
+}
+*/
+
+app.post(startURL+"/crud_admin",(req,res) => {
+     //Parameter Checking
+    if (req.body.user_id === undefined || req.body.user_id == ''){
+        console.log("Didn't provide user id for admin operation")
+        return res.status(400).send("Didn't provide user id for admin operation")
+    }
+    if (!tables_of_db.includes(req.body.table)){
+        console.log("Table parameter is incorrect,provide the name of an existing table")
+        return res.status(400).send("Table parameter is incorrect,provide the name of an existing table")
+    }
+    if ((req.body.operation != "add") && (req.body.operation !="remove") && (req.body.operation !="update") && (req.body.operation !="read")){
+        console.log("Operation not defined properly.Must be either add,remove or update")
+        return res.status(400).send("Operation not defined properly.Must be either add,remove or update")
+    }
+    if (req.body.operation != "read" && req.body.data === undefined) {
+        console.log("No data parameter given")
+        return res.status(400).send("No data parameter given")
+    }
+    
+    operation_on_Table = req.body.operation
+    table_to_operate_on =  req.body.table
+
+    recipes.getConnection((err,connection) => {
+        if (err){
+            console.log("error connecting to db")
+            res.status(500).send()
+            connection.release()
+            throw err
+        }
+        console.log("Connected!\n")
+
+        let sql;
+        if (operation_on_Table == "read") {
+            sql = "SELECT * FROM " + table_to_operate_on
+        }
+        else if (operation_on_Table == "remove") {
+            sql = "DELETE FROM " + table_to_operate_on + " WHERE " + req.body.data.condition
+        }
+        else if (operation_on_Table == "update") {
+            sql = "UPDATE " + table_to_operate_on + " SET " + req.body.data.column_data + " WHERE " + req.body.data.condition
+        }
+        //for add operation
+        else {
+            sql = "INSERT INTO " + table_to_operate_on + " (" + req.body.data.column_set + ") Values (" + req.body.data.values +')'
+        }
+
+        /*
+        sql_parameters = 
+        (operation_on_Table == "add") ? req.body.data.entry_list
+        : (operation_on_Table == "update") ? [req.body.data.column_set,req.body.data.row_id]
+        : null
+        */
+
+        recipes.query("SELECT * FROM users where user_id =" + req.body.user_id,(err,result) => {
+            if (err){
+                console.log(err)
+                res.status(400).send(err)
+                return connection.release()
+            }
+
+            if (result.length === 0){
+                console.log("Got Empty response from Database\nPropably no dummy data available for request")
+                res.status(204).send()
+                return connection.release()
+            }
+            else {
+                result=result[0];
+
+                if (result["_role"] != 1) {
+                    console.log("Invalid user id given.User id provided is not of admin")
+                    return res.status(400).send("Invalid user id given.User id provided is not of admin")
+                }
+                else {
+                    recipes.query(sql,(err,result) => {
+                        if (err){
+                            console.log(err)
+                            res.status(400).send(err)
+                            return connection.release()
+                        }
+            
+                        if (result.length === 0){
+                            console.log("Got Empty response from Database\nPropably no dummy data available for request")
+                            res.status(204).send()
+                            return connection.release()
+                        }
+                        else {
+                            res.send(result);
+                            connection.release()
+                        }
+                        console.log("Successfully performed operation:")
+                        console.log(result)
+                    })
+                }
+            }
+            console.log("Successfully performed operation:")
+            console.log(result)
+        })
+    })
+})
+
+app.post(startURL+"/backup",(req,res) => {
+
+    if (!req.query.operation) {
+        console.log("No operation provided regarding backups.Must be either 'create' or 'restore'")
+        return res.status(400).send("No operation provided regarding backups.Must be either 'create' or 'restore'")
+    }
+
+    if (req.query.operation == 'create'){
+        if (!req.query.mysql_bin_dir) {
+            console.log("No directory provided for the bin folder of mysql.It is crucial to run mysqldump command")
+            return res.status(400).send("No directory provided for the bin folder of mysql.It is crucial to run mysqldump command")
+        }
+    
+        bin_directory = req.query.mysql_bin_dir.replace(/\\/g,'\\');
+    
+    
+        const backupDir = req.query.backup_path.replace(/\\/g,'\\') || 'D:\\backup_database_of_recipe';
+        if (!fs.existsSync(backupDir)) {
+          fs.mkdirSync(backupDir, { recursive: true });
+        }
+      
+        const backupFileName = generateBackupFileName();
+        const backupFilePath = path.join(backupDir, backupFileName);
+        const mysqldumpCommand = bin_directory + `\\mysqldump -u root recipes > "${backupFilePath}"`;
+      
+        exec(mysqldumpCommand, (error, stdout, stderr) => {
+          if (error) {
+            console.error(`Error executing mysqldump: ${error.message}`);
+            return;
+          }
+      
+          if (stderr) {
+            console.error(`mysqldump stderr: ${stderr}`);
+            return;
+          }
+      
+          console.log(`Database backup created successfully at ${backupFilePath}`);
+          res.send(`Database backup created successfully at ${backupFilePath}`)
+        });
+    }
+    else if (req.query.operation == 'restore'){
+
+        if (!req.query.backup_file_path) {
+            console.log("No backup file path given")
+            return res.status(400).send("No backup file path given")
+        }
+
+        if (!req.query.mysql_bin_dir) {
+            console.log("No directory provided for the bin folder of mysql.It is crucial to run mysqldump command")
+            return res.status(400).send("No directory provided for the bin folder of mysql.It is crucial to run mysqldump command")
+        }
+    
+        bin_directory = req.query.mysql_bin_dir.replace(/\\/g,'\\');
+      
+        const backupFilePath = req.query.backup_file_path;
+        const mysqlCommand = bin_directory + `\\mysql -u root recipes < "${backupFilePath}"`;
+      
+        exec(mysqlCommand, (error, stdout, stderr) => {
+          if (error) {
+            console.error(`Error executing mysqldump: ${error.message}`);
+            return;
+          }
+      
+          if (stderr) {
+            console.error(`mysqldump stderr: ${stderr}`);
+            return;
+          }
+      
+          console.log(`Database backup created successfully at ${backupFilePath}`);
+          res.send(`Database backup created successfully at ${backupFilePath}`)
+        });
+    }
+    else {
+        console.log("Incorrect operation value.Must be either 'create' or 'restore'")
+         res.status(400).send("Incorrect operation value.Must be either 'create' or 'restore'")
+    }
 })
 
 app.listen(PORT, () => {console.log('Server started on port 5000')})
