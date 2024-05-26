@@ -494,7 +494,7 @@ app.post(startURL + "/newepisode", (req, res) => {
                     });
                 })
             );
-            console.log(cuisines);
+            //console.log(cuisines);
             // Assigning cookers to cuisines and recipes
             const assignments = cuisines.map((cuisine, index) => ({
                 cuisine: cuisine.id,
