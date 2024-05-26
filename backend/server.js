@@ -377,8 +377,8 @@ app.get(startURL+"/fetchrecipe",(req,res) => {
 })
 
 app.post(startURL + "/newepisode", (req, res) => {
-    year = req.body.year;
-    order = req.body.order;
+    const year = req.body.year;
+    const order = req.body.order;
 
     if (year === undefined || order === undefined || order > 10) {
         return res.status(400).send('Required fields (year or order) wrong or missing');
@@ -389,7 +389,7 @@ app.post(startURL + "/newepisode", (req, res) => {
             console.log("Error connecting to db");
             res.status(500).send();
             if (connection) connection.release();
-            throw err;
+            return;
         }
 
         try {
@@ -482,7 +482,7 @@ app.post(startURL + "/newepisode", (req, res) => {
                 LIMIT 10;
             `;
             const cuisines = await new Promise((resolve, reject) => {
-                connection.query(candidateNationsSql, [recentNationsSelection.length ? recentNationsSelection : [``]], (err, results) => {
+                connection.query(candidateNationsSql, [recentNationsSelection.length ? recentNationsSelection : ['']], (err, results) => {
                     if (err) reject(err);
                     else resolve(results);
                 });
@@ -505,7 +505,7 @@ app.post(startURL + "/newepisode", (req, res) => {
                     });
                 })
             );
-            //console.log(cuisines);
+
             // Assigning cookers to cuisines and recipes
             const assignments = cuisines.map((cuisine, index) => ({
                 cuisine: cuisine.id,
@@ -552,14 +552,12 @@ app.post(startURL + "/newepisode", (req, res) => {
                     else resolve(result);
                 });
             });
-            
+
             // Inserting assignments
             const insertAssignmentsSql = `
-                INSERT INTO episode_list (episode_id, cuisine, chef_id, rec_id) VALUES ?
+                INSERT INTO episode_list (episode_id, rec_id, chef_id, cuisine) VALUES ?
             `;
-            //console.log(assignments);
-            const assignmentsValues = assignments.map(a => [episodeId, a.cuisine, a.cooker, a.recipe]);
-            //console.log(assignmentsValues);
+            const assignmentsValues = assignments.map(a => [episodeId, a.recipe, a.cooker, a.cuisine]);
             await new Promise((resolve, reject) => {
                 connection.query(insertAssignmentsSql, [assignmentsValues], (err) => {
                     if (err) reject(err);
@@ -622,67 +620,48 @@ app.post(startURL + "/newepisode", (req, res) => {
             if (topScorers.length > 1) {
                 // Handle tie by professional training
                 const trainingLevels = { '3rd cooker': 1, '2nd cooker': 2, '1st cooker': 3, 'chef assistant': 4, 'chef': 5 };
-                const cookerTrainingLevelsSql = `
-                    SELECT chef_id, Chef_title
-                    FROM Cooks
-                    WHERE chef_id IN (?)
-                `;
-                const topScorerIds = topScorers.map(scorer => scorer.chef_id);
-                const topScorersWithTraining = await new Promise((resolve, reject) => {
-                    connection.query(cookerTrainingLevelsSql, [topScorerIds], (err, results) => {
-                        if (err) reject(err);
-                        else resolve(results);
-                    });
+                const topScorersWithTraining = topScorers.map(scorer => {
+                    const chef = cookers.find(c => c.chef_id === scorer.chef_id);
+                    return { ...scorer, trainingLevel: trainingLevels[chef.professional_training] };
                 });
-
-                winner = topScorersWithTraining.reduce((best, current) => {
-                    if (trainingLevels[current.Chef_title] > trainingLevels[best.Chef_title]) {
-                        return current;
-                    }
-                    return best;
-                });
+                topScorersWithTraining.sort((a, b) => b.trainingLevel - a.trainingLevel);
+                winner = topScorersWithTraining[0].chef_id;
             } else {
-                winner = topScorers[0];
+                winner = topScorers[0].chef_id;
             }
 
-            // Update the episode with the winner's chef_id
             const updateWinnerSql = `
-                UPDATE episodes SET chef_id_of_winner = ? WHERE episode_id = ?
+                UPDATE episodes SET chef_id_of_winner = ? WHERE episode_id = ?;
             `;
             await new Promise((resolve, reject) => {
-                connection.query(updateWinnerSql, [winner.chef_id, episodeId], (err) => {
+                connection.query(updateWinnerSql, [winner, episodeId], (err) => {
                     if (err) reject(err);
                     else resolve();
                 });
             });
 
-            // Commit transaction
             await new Promise((resolve, reject) => {
                 connection.commit(err => {
-                    if (err) {
-                        connection.rollback(() => {
-                            reject(err);
-                        });
-                    } else {
-                        resolve();
-                    }
+                    if (err) reject(err);
+                    else resolve();
                 });
             });
 
-            res.send({ message: 'Episode created successfully', winner: winner.chef_id });
+            res.status(201).send({ episodeId });
+
         } catch (error) {
             await new Promise((resolve, reject) => {
                 connection.rollback(() => {
-                    resolve();
+                    connection.release();
+                    reject(error);
                 });
             });
-            console.log(error);
-            res.status(500).send();
-        } finally {
-            connection.release();
+            console.error(error);
+            res.status(500).send("An error occurred while creating the new episode.");
         }
     });
 });
+
 
 app.post(startURL+"/newrecipe",(req,res) => {
     //Parameter Checkin
