@@ -2,6 +2,8 @@ const mysql=require("mysql2")
 const express = require('express')
 const bodyParser = require('body-parser');
 const { exec } = require('child_process');
+const path = require('path');
+const fs = require('fs');
 const app = express()
 const PORT = 5000;
 
@@ -37,18 +39,14 @@ function separate_result_column(result_column) {
     }
 }
 
-function isJsonString(param) {
-    if (typeof param !== 'string') {
-      return false;
-    }
-    
-    try {
-      JSON.parse(param);
-      return true;
-    } catch (e) {
-      return false;
-    }
-  }
+function generateBackupFileName() {
+    const date = new Date();
+    var d = new Date,
+    dformat = [d.getFullYear(),d.getMonth()+1,d.getDate()].join('-')+'_'
+            +[d.getHours(),d.getMinutes(),d.getSeconds()].join('-');
+    const timestamp = dformat
+    return `recipes_backup_${timestamp}.sql`;
+}
 
 const connection_string={
     host: 'localhost',
@@ -828,5 +826,82 @@ app.post(startURL+"/crud_admin",(req,res) => {
     })
 })
 
+app.post(startURL+"/backup",(req,res) => {
+
+    if (!req.query.operation) {
+        console.log("No operation provided regarding backups.Must be either 'create' or 'restore'")
+        return res.status(400).send("No operation provided regarding backups.Must be either 'create' or 'restore'")
+    }
+
+    if (req.query.operation == 'create'){
+        if (!req.query.mysql_bin_dir) {
+            console.log("No directory provided for the bin folder of mysql.It is crucial to run mysqldump command")
+            return res.status(400).send("No directory provided for the bin folder of mysql.It is crucial to run mysqldump command")
+        }
+    
+        bin_directory = req.query.mysql_bin_dir.replace(/\\/g,'\\');
+    
+    
+        const backupDir = req.query.backup_path.replace(/\\/g,'\\') || 'D:\\backup_database_of_recipe';
+        if (!fs.existsSync(backupDir)) {
+          fs.mkdirSync(backupDir, { recursive: true });
+        }
+      
+        const backupFileName = generateBackupFileName();
+        const backupFilePath = path.join(backupDir, backupFileName);
+        const mysqldumpCommand = bin_directory + `\\mysqldump -u root recipes > "${backupFilePath}"`;
+      
+        exec(mysqldumpCommand, (error, stdout, stderr) => {
+          if (error) {
+            console.error(`Error executing mysqldump: ${error.message}`);
+            return;
+          }
+      
+          if (stderr) {
+            console.error(`mysqldump stderr: ${stderr}`);
+            return;
+          }
+      
+          console.log(`Database backup created successfully at ${backupFilePath}`);
+          res.send(`Database backup created successfully at ${backupFilePath}`)
+        });
+    }
+    else if (req.query.operation == 'restore'){
+
+        if (!req.query.backup_file_path) {
+            console.log("No backup file path given")
+            return res.status(400).send("No backup file path given")
+        }
+
+        if (!req.query.mysql_bin_dir) {
+            console.log("No directory provided for the bin folder of mysql.It is crucial to run mysqldump command")
+            return res.status(400).send("No directory provided for the bin folder of mysql.It is crucial to run mysqldump command")
+        }
+    
+        bin_directory = req.query.mysql_bin_dir.replace(/\\/g,'\\');
+      
+        const backupFilePath = req.query.backup_file_path;
+        const mysqlCommand = bin_directory + `\\mysql -u root recipes < "${backupFilePath}"`;
+      
+        exec(mysqlCommand, (error, stdout, stderr) => {
+          if (error) {
+            console.error(`Error executing mysqldump: ${error.message}`);
+            return;
+          }
+      
+          if (stderr) {
+            console.error(`mysqldump stderr: ${stderr}`);
+            return;
+          }
+      
+          console.log(`Database backup created successfully at ${backupFilePath}`);
+          res.send(`Database backup created successfully at ${backupFilePath}`)
+        });
+    }
+    else {
+        console.log("Incorrect operation value.Must be either 'create' or 'restore'")
+         res.status(400).send("Incorrect operation value.Must be either 'create' or 'restore'")
+    }
+})
 
 app.listen(PORT, () => {console.log('Server started on port 5000')})
