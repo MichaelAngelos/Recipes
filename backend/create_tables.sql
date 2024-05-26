@@ -150,7 +150,7 @@ CREATE TABLE Episodes(
 	episode_id integer(10) NOT NULL AUTO_INCREMENT,
     _year integer(4) NOT NULL,
     _order integer(1),
-    chef_id_of_winner integer(10) NOT NULL,
+    chef_id_of_winner integer(10) ,
     FOREIGN KEY(chef_id_of_winner) REFERENCES Cooks(chef_id),
     PRIMARY KEY(episode_id)
 );
