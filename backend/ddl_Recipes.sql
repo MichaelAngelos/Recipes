@@ -229,4 +229,9 @@ GROUP BY id;
 
 SELECT * FROM all_recipe_data;
 
+CREATE INDEX recipe_tags_index
+ON recipe_tags (tag_id, rec_id); 
+CREATE INDEX recipe_episodes_index
+ON episode_list (episode_id, rec_id); 
+
 SHOW TABLES;	

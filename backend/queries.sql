@@ -18,6 +18,23 @@ SELECT * FROM Cooks where chef_id NOT IN (Select chef_id from episode_judges);
 select s.ci as chef_id from (SELECT * FROM episode_judges as ej JOIN (select e.episode_id as ei, e._year, ej.chef_id as ci, COUNT(ej.episode_id) total from episodes e join episode_judges ej ON e.episode_id = ej.episode_id GROUP BY ej.chef_id, e._year HAVING COUNT(ej.episode_id) > 3) as t ON t.ci = ej.chef_id and t.ei = ej.episode_id GROUP BY t.total HAVING count(*) >=2) as f JOIN (select e.episode_id as ei, e._year, ej.chef_id as ci, COUNT(ej.episode_id) total from episodes e join episode_judges ej ON e.episode_id = ej.episode_id GROUP BY ej.chef_id, e._year HAVING COUNT(ej.episode_id) > 3) AS s ON s.total = f.total; 
 #----------> needs to be more effiecient
 
+#Query 3.6
+EXPLAIN
+SELECT 
+    rt1.tag AS tag1,
+    rt2.tag AS tag2,
+    COUNT(*) AS pair_count
+FROM
+    recipe_tags rt1
+    JOIN recipe_tags rt2 ON rt1.rec_id = rt2.rec_id # find the pairs
+    JOIN episode_list el ON rt1.rec_id = el.rec_id # get only the pairs that were in episode
+WHERE
+    rt1.tag_id < rt2.tag_id
+GROUP BY
+    rt1.tag, rt2.tag
+ORDER BY
+    pair_count DESC
+LIMIT 3;
 
 #Query 3.7
 SELECT chef_id,Count(chef_id) as Appearences  FROM episode_list group by chef_id
@@ -28,17 +45,17 @@ SELECT chef_id,Count(chef_id) as Appearences  FROM episode_list group by chef_id
 SET profiling = 1;
 
 SELECT t.episode_id, t.rec_name, t.rec_id, MAX(t.total) as max_total 
-	from 
-		(SELECT el.episode_id as episode_id, r.recipe_name as rec_name, r.id as rec_id, eir.eq_id, COUNT(eir.eq_id) as total 
-			from 
-				episode_list el
-			join 
-				recipe r 
-			join 
-				equipment_in_recipes eir 
-			ON 
-				el.rec_id = r.id AND r.id = eir.rec_id 
-			GROUP BY el.episode_id 
+    from 
+        (SELECT el.episode_id as episode_id, r.recipe_name as rec_name, r.id as rec_id, eir.eq_id, COUNT(eir.eq_id) as total 
+            from 
+                episode_list el
+            join 
+                recipe r 
+            join 
+                equipment_in_recipes eir 
+            ON 
+                el.rec_id = r.id AND r.id = eir.rec_id 
+            GROUP BY el.episode_id 
             ORDER BY el.episode_id) as t;
             
 SHOW PROFILE FOR QUERY 6;
@@ -46,18 +63,18 @@ SHOW PROFILE FOR QUERY 6;
 SET profiling = 1;
 
 SELECT t.episode_id, t.rec_name, t.rec_id, MAX(t.total) as max_total 
-	from 
-		(SELECT el.episode_id as episode_id, r.recipe_name as rec_name, r.id as rec_id, eir.eq_id, COUNT(eir.eq_id) as total 
-			from 
-				episode_list el
-         		force INDEX (episode_id)
-			join 
-				recipe r 
-			join 
-				equipment_in_recipes eir 
-			ON 
-				el.rec_id = r.id AND r.id = eir.rec_id 
-			GROUP BY el.episode_id 
+    from 
+        (SELECT el.episode_id as episode_id, r.recipe_name as rec_name, r.id as rec_id, eir.eq_id, COUNT(eir.eq_id) as total 
+            from 
+                episode_list el
+                 force INDEX (episode_id)
+            join 
+                recipe r 
+            join 
+                equipment_in_recipes eir 
+            ON 
+                el.rec_id = r.id AND r.id = eir.rec_id 
+            GROUP BY el.episode_id 
             ORDER BY el.episode_id) as t;
             
 SHOW PROFILE FOR QUERY 35;
