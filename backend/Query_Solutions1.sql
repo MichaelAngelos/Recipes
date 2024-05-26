@@ -5,7 +5,7 @@ SELECT * FROM Cooks where List_of_Specializations_in_Nations like '%American%' a
 
 #Also Went on Episodes
 SELECT * FROM Cooks where List_of_Specializations_in_Nations like '%American%'
-	and Years_of_Experience = 25 and chef_id IN (SELECT chef_id FROM episode_cooks);
+	and Years_of_Experience = 25 and chef_id IN (SELECT chef_id FROM episode_list);
 
 	#SELECT * FROM episode_cooks
 
@@ -21,11 +21,11 @@ SELECT * FROM Cooks where chef_id NOT IN (Select chef_id from episode_judges);
 #Query 3.7
 
 #This is the highest count of appearences
-SELECT Count(chef_id) as Appearences from episode_cooks group by chef_id ORDER BY Appearences DESC LIMIT 1;
+SELECT Count(chef_id) as Appearences from episode_list group by chef_id ORDER BY Appearences DESC LIMIT 1;
 
 #These are the chefs that have appeared 3 times less than the highest.Cannot do 5 because of current dummy data
-SELECT chef_id,Count(chef_id) as Appearences  FROM episode_cooks group by chef_id
-		HAVING Appearences < (SELECT Count(chef_id) as Appearences from episode_cooks group by chef_id ORDER BY Appearences DESC LIMIT 1) - 2;
+SELECT chef_id,Count(chef_id) as Appearences  FROM episode_list group by chef_id
+		HAVING Appearences < (SELECT Count(chef_id) as Appearences from episode_list group by chef_id ORDER BY Appearences DESC LIMIT 1) - 4 order by appearences desc;
         
         
 #Query 3.1

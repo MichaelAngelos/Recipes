@@ -759,6 +759,233 @@ app.post(startURL+"/newrecipe",(req,res) => {
     })
 })
 
+/*
+const tables_for_chef_operations = [
+    "cooks_in_recipe",
+    "equipment_in_recipes",
+    "ingredients_in_recipes",
+    "recipe_misc",
+    "recipe_steps",
+    "recipe_tags",
+]
+*/
+
+app.post(startURL+"/modifyrecipelist",(req,res) => {
+
+    let parameter_passing = {
+        "ingredient" : {
+            "table" : "ingredients_in_recipes",
+            "columns" : "(ing_id,rec_id,amount)",
+            "delete_condition" : "ing_id = ? and rec_id = ?",
+            "sql_parameters" : [req.body.to_delete,req.body.rec_id]
+        },
+        "equipment" : {
+            "table" : "equipment_in_recipe",
+            "columns" : "(eq_id,rec_id,amount)",
+            "delete_condition" : "rec_id = ? and eq_id = ?",
+            "sql_parameters" : [req.body.rec_id,req.body.to_delete]
+        },
+        "step" : {
+            "table" : "recipe_steps",
+            "columns" : "(rec_id,_order,step_details)",
+            "delete_condition" : "step_id = ?",
+            "sql_parameters" : [req.body.to_delete]
+        },
+        "theme" : {
+            "table" : "recipe_misc",
+            "delete_condition" : "rec_id = ?",
+            "sql_parameters" : [req.body.rec_id]
+        },
+        "chef id" : {
+            "table" : "cooks_in_recipe",
+            "delete_condition" : "rec_id = ? and chef_id = ?",
+            "sql_parameters" : [req.body.rec_id,req.body.to_delete]
+        },
+        "tag" : {
+            "table" : "recipe_tags",
+            "delete_condition" : "rec_id = ? and tag = ?",
+            "sql_parameters" : [req.body.rec_id,req.body.to_delete]
+        }
+    }
+    /*
+    //if lencth of parameters is different than expected.Naive parameter checking
+    if (Object.keys(req.body).length != 3){
+        console.log("Must at least send chef_id,rec_id and any field to update data to")
+        return res.status(400).send("Must at least send chef_id,rec_id and any field to update data to")
+    }
+    */
+
+    if (req.body.chef_id === undefined || req.body.chef_id == ''){
+        console.log("Didn't provide chef id for operation")
+        return res.status(400).send("Didn't provide chef id for operation")
+    }
+    if (!parameter_passing.hasOwnProperty(req.body.operate_on)){
+        console.log("Table parameter is incorrect,provide correct name")
+        return res.status(400).send("Table parameter is incorrect,provide correct name")
+    }
+    if ((req.body.operation != "add") && (req.body.operation !="remove") && (req.body.operation !="update")){
+        console.log("Operation not defined properly.Must be either add,remove or update")
+        return res.status(400).send("Operation not defined properly.Must be either add,remove or update")
+    }
+    
+    recipes.getConnection((err,connection) => {
+        if (err){
+            console.log("error connecting to db")
+            res.status(500).send()
+            connection.release()
+            throw err
+        }
+        console.log("Connected!\n")
+        sql_check_valid_chef=
+        `
+        SELECT rec_id FROM recipe inner join cooks_in_recipe on id = rec_id where rec_id = ? and chef_id = ?
+        `
+        recipes.query(sql_check_valid_chef,[req.body.rec_id,req.body.chef_id,],(err,result) => {
+            if (err){
+                console.log(err)
+                res.status(500).send()
+                return connection.release()
+            }
+
+            if (result.length === 0){
+                console.log("No recipe in db for given chef id")
+                res.status(400).send("No recipe in db for given chef id")
+                return connection.release()
+            }
+            else { 
+                parameter = parameter_passing[req.body.operate_on]
+
+                //pass parameters of body into sql query
+                let sql = '';
+                if (req.body.operation == "add") {
+                    sql = `INSERT INTO ${parameter["table"]} ${parameter["columns"]} VALUES ${req.body.values}`
+                }
+                else if (req.body.operation == "remove") {
+                    sql = `DELETE FROM ${parameter["table"]} WHERE ${parameter["delete_condition"]}`
+                }
+
+                recipes.query(sql,parameter["sql_parameters"],(err,result) => {
+                    if (err){
+                        console.log(err)
+                        if (err.code === 'ER_INNODB_AUTOEXTEND_SIZE_OUT_OF_RANGE'){
+                            res.status(400).send("The data you provided is not within bounds of field data")
+                            return connection.release()
+                        }
+                        res.status(400).send(err)
+                        return connection.release()
+                    }
+                    else {
+                        res.send(result);
+                        connection.release()
+                    }
+                    console.log("Recipe Successfully Modified with rec_id :" + req.body.rec_id)
+                    console.log(result)
+                })
+            }
+            console.log("Successfully fetched recipe:")
+            console.log(result)
+        })
+    })
+})
+
+app.post(startURL+"/modifyrecipe",(req,res) => {
+    //Parameter Checkin
+    error_proper_syntax_string=
+    `Not all parameters are passed.Proper syntax is this:
+    {
+        "rec_id" : any rec_id
+        "chef_id" : any chef_id,
+        "CookingorConfectionary": 0 or 1,
+        "Nation": any nation,
+        "Difficulty_level": 1 to 5,
+        "recipe_name": the name of recipe,
+        "description_": recipe description,
+        "prep_time": any positive number,
+        "cook_time": any positive number,
+        "portions": any positive number,
+        "basic_ingredient_id": any existing ingredient id for ingredient group,
+        "meal_type": type of meal
+    }
+    `
+    /*
+    //if lencth of parameters is different than expected.Naive parameter checking
+    if (Object.keys(req.body).length != 11){
+        console.log(error_proper_syntax_string)
+        return res.status(400).send(error_proper_syntax_string)
+    }
+    */
+
+    recipes.getConnection((err,connection) => {
+        if (err){
+            console.log("error connecting to db")
+            res.status(500).send()
+            connection.release()
+            throw err
+        }
+        console.log("Connected!\n")
+        sql_check_valid_chef=
+        `
+        SELECT rec_id FROM recipe inner join cooks_in_recipe on id = rec_id where rec_id = ? and chef_id = ?
+        `
+        recipes.query(sql_check_valid_chef,[req.body.rec_id,req.body.chef_id,],(err,result) => {
+            if (err){
+                console.log(err)
+                res.status(500).send()
+                return connection.release()
+            }
+
+            if (result.length === 0){
+                console.log("No recipe in db for given chef id")
+                res.status(400).send("No recipe in db for given chef id")
+                return connection.release()
+            }
+            else {
+
+                //pass parameters of body into sql query
+                let sql_modify_base_recipe = "UPDATE recipe SET ";
+                
+                sql_modify_base_recipe += (req.body.CookingorConfectionary) ? `CookingorConfectionary = ${parseInt(req.body.CookingorConfectionary)},` : '';
+                sql_modify_base_recipe += (req.body.Nation) ? `Nation = '${req.body.Nation}',` : '';
+                sql_modify_base_recipe += (req.body.Difficulty_level) ? `Difficulty_level = ${parseInt(req.body.Difficulty_level)},` : '';
+                sql_modify_base_recipe += (req.body.recipe_name) ? `recipe_name = '${req.body.recipe_name}',` : '';
+                sql_modify_base_recipe += (req.body.description_) ? `description_ = '${req.body.description_}',` : '';
+                sql_modify_base_recipe += (req.body.prep_time) ? `prep_time = ${parseInt(req.body.prep_time)},` : '';
+                sql_modify_base_recipe += (req.body.cook_time) ? `cook_time = ${parseInt(req.body.cook_time)},` : '';
+                sql_modify_base_recipe += (req.body.portions) ? `portions = ${parseInt(req.body.portions)},` : '';
+                sql_modify_base_recipe += (req.body.basic_ingredient_id) ? `basic_ingredient_id = ${parseInt(req.body.basic_ingredient_id)},` : '';
+                sql_modify_base_recipe += (req.body.meal_type) ? `meal_type = '${req.body.meal_type}',` : '';
+                sql_modify_base_recipe += (req.body.tip_1) ? `tip_1 = '${req.body.tip_1}',` : '';
+                sql_modify_base_recipe += (req.body.tip_2) ? `tip_2 = '${req.body.tip_2}',` : '';
+                sql_modify_base_recipe += (req.body.tip_3) ? `tip_3 = '${req.body.tip_3}',` : '';
+                
+                console.log(sql_modify_base_recipe.slice(0,-1))
+                //remove last comma and add where clause
+                sql_modify_base_recipe = sql_modify_base_recipe.slice(0,-1) + " WHERE id = " + req.body.rec_id
+
+                recipes.query(sql_modify_base_recipe,(err,result) => {
+                    if (err){
+                        console.log(err)
+                        if (err.code === 'ER_INNODB_AUTOEXTEND_SIZE_OUT_OF_RANGE'){
+                            res.status(400).send("The data you provided is not within bounds of field data")
+                            return connection.release()
+                        }
+                        res.status(400).send(err)
+                        return connection.release()
+                    }
+                    else {
+                        res.send("Recipe Successfully Modified");
+                        connection.release()
+                    }
+                    console.log("Recipe Successfully Modified with rec_id :" + req.body.rec_id)
+                    console.log(result)
+                })
+            }
+            console.log("Successfully fetched recipe:")
+            console.log(result)
+        })
+    })
+})
+
 tables_of_db = [
     "cooks",
     "cooks_in_recipe",
@@ -896,81 +1123,116 @@ app.post(startURL+"/crud_admin",(req,res) => {
 })
 
 app.post(startURL+"/backup",(req,res) => {
-
+    if (!req.query.user_id) {
+        console.log("No user id given,must give user id of admin")
+        return res.status(400).send("No operation provided regarding backups.Must be either 'create' or 'restore'")
+    }
     if (!req.query.operation) {
         console.log("No operation provided regarding backups.Must be either 'create' or 'restore'")
         return res.status(400).send("No operation provided regarding backups.Must be either 'create' or 'restore'")
     }
 
-    if (req.query.operation == 'create'){
-        if (!req.query.mysql_bin_dir) {
-            console.log("No directory provided for the bin folder of mysql.It is crucial to run mysqldump command")
-            return res.status(400).send("No directory provided for the bin folder of mysql.It is crucial to run mysqldump command")
-        }
-    
-        bin_directory = req.query.mysql_bin_dir.replace(/\\/g,'\\');
-    
-    
-        const backupDir = req.query.backup_path.replace(/\\/g,'\\') || 'D:\\backup_database_of_recipe';
-        if (!fs.existsSync(backupDir)) {
-          fs.mkdirSync(backupDir, { recursive: true });
-        }
-      
-        const backupFileName = generateBackupFileName();
-        const backupFilePath = path.join(backupDir, backupFileName);
-        const mysqldumpCommand = bin_directory + `\\mysqldump -u root recipes > "${backupFilePath}"`;
-      
-        exec(mysqldumpCommand, (error, stdout, stderr) => {
-          if (error) {
-            console.error(`Error executing mysqldump: ${error.message}`);
-            return;
-          }
-      
-          if (stderr) {
-            console.error(`mysqldump stderr: ${stderr}`);
-            return;
-          }
-      
-          console.log(`Database backup created successfully at ${backupFilePath}`);
-          res.send(`Database backup created successfully at ${backupFilePath}`)
-        });
-    }
-    else if (req.query.operation == 'restore'){
-
-        if (!req.query.backup_file_path) {
-            console.log("No backup file path given")
-            return res.status(400).send("No backup file path given")
+    recipes.getConnection((err,connection) => {
+        if (err){
+            console.log("error connecting to db")
+            res.status(500).send()
+            connection.release()
+            throw err
         }
 
-        if (!req.query.mysql_bin_dir) {
-            console.log("No directory provided for the bin folder of mysql.It is crucial to run mysqldump command")
-            return res.status(400).send("No directory provided for the bin folder of mysql.It is crucial to run mysqldump command")
-        }
-    
-        bin_directory = req.query.mysql_bin_dir.replace(/\\/g,'\\');
-      
-        const backupFilePath = req.query.backup_file_path;
-        const mysqlCommand = bin_directory + `\\mysql -u root recipes < "${backupFilePath}"`;
-      
-        exec(mysqlCommand, (error, stdout, stderr) => {
-          if (error) {
-            console.error(`Error executing mysqldump: ${error.message}`);
-            return;
-          }
-      
-          if (stderr) {
-            console.error(`mysqldump stderr: ${stderr}`);
-            return;
-          }
-      
-          console.log(`Database backup created successfully at ${backupFilePath}`);
-          res.send(`Database backup created successfully at ${backupFilePath}`)
-        });
-    }
-    else {
-        console.log("Incorrect operation value.Must be either 'create' or 'restore'")
-         res.status(400).send("Incorrect operation value.Must be either 'create' or 'restore'")
-    }
+        recipes.query("SELECT * FROM users where user_id =" + req.query.user_id,(err,result) => {
+            if (err){
+                console.log(err)
+                res.status(400).send(err)
+                return connection.release()
+            }
+
+            if (result.length === 0){
+                console.log("User id is invalid")
+                res.status(204).send()
+                return connection.release()
+            }
+            else {
+                result=result[0];
+
+                if (result["_role"] != 1) {
+                    console.log("Invalid user id given.User id provided is not of admin")
+                    return res.status(400).send("Invalid user id given.User id provided is not of admin")
+                }
+                else {
+                    if (req.query.operation == 'create'){
+                        if (!req.query.mysql_bin_dir) {
+                            console.log("No directory provided for the bin folder of mysql.It is crucial to run mysqldump command")
+                            return res.status(400).send("No directory provided for the bin folder of mysql.It is crucial to run mysqldump command")
+                        }
+                    
+                        bin_directory = req.query.mysql_bin_dir.replace(/\\/g,'\\');
+                    
+                    
+                        const backupDir = (req.query.backup_path) ? req.query.backup_path.replace(/\\/g,'\\') : 'D:\\backup_database_of_recipe';
+                        if (!fs.existsSync(backupDir)) {
+                          fs.mkdirSync(backupDir, { recursive: true });
+                        }
+                      
+                        const backupFileName = generateBackupFileName();
+                        const backupFilePath = path.join(backupDir, backupFileName);
+                        const mysqldumpCommand = bin_directory + `\\mysqldump -u root recipes > "${backupFilePath}"`;
+                      
+                        exec(mysqldumpCommand, (error, stdout, stderr) => {
+                          if (error) {
+                            console.error(`Error executing mysqldump: ${error.message}`);
+                            return;
+                          }
+                      
+                          if (stderr) {
+                            console.error(`mysqldump stderr: ${stderr}`);
+                            return;
+                          }
+                      
+                          console.log(`Database backup created successfully at ${backupFilePath}`);
+                          res.send(`Database backup created successfully at ${backupFilePath}`)
+                        });
+                    }
+                    else if (req.query.operation == 'restore'){
+                
+                        if (!req.query.backup_file_path) {
+                            console.log("No backup file path given")
+                            return res.status(400).send("No backup file path given")
+                        }
+                
+                        if (!req.query.mysql_bin_dir) {
+                            console.log("No directory provided for the bin folder of mysql.It is crucial to run mysqldump command")
+                            return res.status(400).send("No directory provided for the bin folder of mysql.It is crucial to run mysqldump command")
+                        }
+                    
+                        bin_directory = req.query.mysql_bin_dir.replace(/\\/g,'\\');
+                      
+                        const backupFilePath = req.query.backup_file_path;
+                        const mysqlCommand = bin_directory + `\\mysql -u root recipes < "${backupFilePath}"`;
+                      
+                        exec(mysqlCommand, (error, stdout, stderr) => {
+                          if (error) {
+                            console.error(`Error executing mysqldump: ${error.message}`);
+                            return;
+                          }
+                      
+                          if (stderr) {
+                            console.error(`mysqldump stderr: ${stderr}`);
+                            return;
+                          }
+                      
+                          console.log(`Database backup restored successfully from ${backupFilePath}`);
+                          res.send(`Database backup restored successfully from ${backupFilePath}`)
+                        });
+                    }
+                    else {
+                        console.log("Incorrect operation value.Must be either 'create' or 'restore'")
+                         res.status(400).send("Incorrect operation value.Must be either 'create' or 'restore'")
+                    }
+                }
+            }
+        })
+    })
 })
 
 app.listen(PORT, () => {console.log('Server started on port 5000')})

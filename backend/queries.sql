@@ -2,38 +2,26 @@
 SELECT chef_id,cuisine,AVG((Rating_1 + Rating_2 + Rating_3) /3) as Average_Rating FROM episode_list INNER JOIN ratings using (episode_id,chef_id) GROUP BY chef_id,cuisine;
 
 #Query 3.2
-
-#Chefs who specialized in Nation for certain years
-SELECT * FROM Cooks where List_of_Specializations_in_Nations like '%American%' and Years_of_Experience = 25;
-
-#Also Went on Episodes
 SELECT * FROM Cooks where List_of_Specializations_in_Nations like '%American%'
-	and Years_of_Experience = 25 and chef_id IN (SELECT chef_id FROM episode_cooks);
+	and Years_of_Experience = 32 and chef_id IN (SELECT chef_id FROM episode_list);
 
 	#SELECT * FROM episode_cooks
 
 #Query 3.3
-
 SELECT cooks.*,COUNT(rec_id) as Number_of_Recipes FROM cooks inner join cooks_in_recipe using (chef_id)
 		where age < 30 GROUP BY chef_id ORDER BY Number_of_Recipes DESC LIMIT 3;
 
 #Query 3.4
-
 SELECT * FROM Cooks where chef_id NOT IN (Select chef_id from episode_judges);
 
 # fifth query
 select s.ci as chef_id from (SELECT * FROM episode_judges as ej JOIN (select e.episode_id as ei, e._year, ej.chef_id as ci, COUNT(ej.episode_id) total from episodes e join episode_judges ej ON e.episode_id = ej.episode_id GROUP BY ej.chef_id, e._year HAVING COUNT(ej.episode_id) > 3) as t ON t.ci = ej.chef_id and t.ei = ej.episode_id GROUP BY t.total HAVING count(*) >=2) as f JOIN (select e.episode_id as ei, e._year, ej.chef_id as ci, COUNT(ej.episode_id) total from episodes e join episode_judges ej ON e.episode_id = ej.episode_id GROUP BY ej.chef_id, e._year HAVING COUNT(ej.episode_id) > 3) AS s ON s.total = f.total; 
-----------> needs to be more effiecient
+#----------> needs to be more effiecient
 
 
 #Query 3.7
-
-#This is the highest count of appearences
-SELECT Count(chef_id) as Appearences from episode_list group by chef_id ORDER BY Appearences DESC LIMIT 1;
-
-#These are the chefs that have appeared 3 times less than the highest.Cannot do 5 because of current dummy data
 SELECT chef_id,Count(chef_id) as Appearences  FROM episode_list group by chef_id
-		HAVING Appearences < (SELECT Count(chef_id) as Appearences from episode_list group by chef_id ORDER BY Appearences DESC LIMIT 1) - 2;
+		HAVING Appearences < (SELECT Count(chef_id) as Appearences from episode_list group by chef_id ORDER BY Appearences DESC LIMIT 1) - 4 order by appearences desc;
         
 
 # 8 query
@@ -206,7 +194,7 @@ SELECT pc1.nation, pc1._year, pc1.participation_count from
     participation_counts as pc2
     ON pc1.nation = pc2.nation AND pc1._year = pc2._year -1
     where pc1.participation_count = pc2.participation_count
-    ORDER by pc1._year
+    ORDER by pc1._year;
 
 
 #Query 3.12
